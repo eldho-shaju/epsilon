@@ -24,6 +24,10 @@
         .nav_menu_wrapper {
           .nav_links {
             color: $secondary-color;
+
+            .link-text::after {
+              background: $secondary-bg-color;
+            }
           }
         }
       }
