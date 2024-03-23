@@ -1,0 +1,84 @@
+@import "../../styles/variables.scss";
+@import "~bootstrap/scss/bootstrap";
+
+.navbar {
+  height: $navbar-height;
+  position: fixed;
+  background-color: $secondary-bg-color;
+  transition: background-color 0.3s ease;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  display: inline-flex;
+  justify-content: center;
+
+  &.home {
+    background-color: transparent;
+
+    .toolbar {
+      .desktop_header_wrapper {
+        .logo {
+          filter: invert(1);
+        }
+
+        .nav_menu_wrapper {
+          .nav_links {
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+
+    &.scrolled {
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      .desktop_header_wrapper {
+        .logo {
+          filter: invert(0);
+        }
+
+        .nav_menu_wrapper {
+          .nav_links {
+            color: $primary-color;
+
+            .link-text::after {
+              background: $primary-bg-color;
+            }
+          }
+
+          .active-page {
+            color: $highlight-color-dark;
+          }
+        }
+      }
+    }
+  }
+
+  .toolbar {
+    padding: $header-padding-top-bottom-mob $header-padding-left-right-lg;
+    width: 100%;
+    max-width: $max-width;
+  }
+}
+
+@media only screen and (max-width: $md) {
+  .navbar {
+    .toolbar {
+      padding: $header-padding-top-bottom-mob $header-padding-left-right;
+    }
+  }
+}
+
+@media only screen and (max-width: $xs) {
+  .navbar {
+    &.home {
+      background-color: $secondary-bg-color;
+      height: $navbar-height;
+    }
+
+    .toolbar {
+      padding: $header-padding-top-bottom-mob $header-padding-left-right-mob;
+    }
+  }
+}

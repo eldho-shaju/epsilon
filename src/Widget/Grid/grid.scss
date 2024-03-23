@@ -1,0 +1,83 @@
+@import "../../styles/variables.scss";
+
+
+.grid_wrapper {
+    height: 100%;
+
+    .grid_item_wrapper {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        justify-content: center;
+
+
+        .img_wrapper {
+            contain: content;
+            max-width: 380px;
+
+            .img {
+                width: 100%;
+            }
+        }
+    }
+
+    .item-row {
+        flex-direction: row;
+    }
+
+    .item-row-reverse {
+        flex-direction: row-reverse;
+    }
+
+    .text_wrapper {
+        max-width: 500px;
+
+        .para {
+            font-size: $body2;
+            text-align: justify;
+        }
+    }
+}
+
+
+@media only screen and (max-width: $xs) {
+
+
+    .grid_wrapper {
+        .grid_item_wrapper {
+            gap: 1vh;
+
+            &.item-row {
+                flex-direction: column;
+            }
+
+            &.item-row-reverse {
+                flex-direction: column;
+            }
+
+
+            .text_wrapper {
+                padding: 0 3vw;
+
+                .title {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: $md) and (min-width: $sm) {
+
+
+    .grid_wrapper {
+        .grid_item_wrapper {
+            gap: 1vw;
+
+            .img_wrapper {
+                max-width: 40vw;
+            }
+        }
+    }
+}

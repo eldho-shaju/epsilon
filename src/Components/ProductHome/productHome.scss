@@ -1,0 +1,83 @@
+@import "../../styles/variables.scss";
+
+.header_wrapper {
+  .description {
+    font-size: $body2;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    text-align: justify;
+  }
+}
+
+.type_grid_wrapper {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  transition: 0.5s;
+
+  .items_wrapper {
+    max-width: 250px;
+    width: 100%;
+
+    .item_wrapper_link {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  &.listing {
+    margin-top: 1rem;
+
+    .items_wrapper {
+      background: $secondary-bg-color;
+      color: $primary-color;
+      padding: 5px;
+    }
+  }
+}
+
+
+@media only screen and (max-width: $lg) and (min-width: $md) {
+
+  .type_grid_wrapper {
+    grid-template-columns: repeat(4, minmax(23%, 1fr));
+  }
+}
+
+
+
+@media only screen and (max-width: $md) and (min-width: $xs) {
+
+  .type_grid_wrapper {
+    grid-template-columns: repeat(3, minmax(25%, 1fr));
+  }
+}
+
+
+@media only screen and (max-width: $xs) {
+
+  .type_grid_wrapper {
+    grid-template-columns: repeat(2, minmax(35%, 1fr));
+    padding-left: 4vw;
+    padding-right: 4vw;
+    margin-top: 1.5rem;
+
+    &.listing {
+      margin-bottom: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr));
+
+      .items_wrapper {
+        max-width: 380px;
+      }
+
+    }
+  }
+
+  .header_wrapper {
+    .description {
+      margin: 0 $container-padding-left-right-mob;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import "../../../styles/variables.scss";
+
+.desktop_header_wrapper {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  .logo {
+    filter: invert(0);
+    height: $logo-lg;
+    transition: filter 0.3s ease;
+  }
+
+  .nav_menu_wrapper {
+    display: inline-flex;
+    gap: 3vw;
+
+    .nav_links {
+      text-decoration: none;
+      color: $primary-color;
+      font-weight: 500;
+
+      .link-text {
+        display: inline-block;
+      }
+
+      .link-text::after {
+        content: "";
+        width: 0px;
+        height: 2px;
+        display: block;
+        background: $primary-bg-color;
+        transition: 300ms;
+      }
+
+      .link-text:hover::after {
+        width: 100%;
+      }
+
+      .link-text.active-page::after {
+        width: 0%;
+        transition: none;
+      }
+    }
+
+    .active-page {
+      color: $highlight-color-lite;
+    }
+  }
+}

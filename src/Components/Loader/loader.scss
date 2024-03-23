@@ -1,0 +1,68 @@
+@import "../../styles/variables.scss";
+
+.loader-container {
+  height: 100vh;
+  position: relative;
+  margin-top: $navbar-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .loader_wrapper {
+    .spinner {
+      /* ------- Spinning animation -------- */
+      /* animation: animName 2s linear infinite; */
+      /* ------- Bouncing animation -------- */
+      /* animation: bounce 1s infinite alternate; */
+      /* ------- Bouncing animation -------- */
+      animation: elasticBounce 1.5s infinite alternate;
+      width: 40px;
+      height: 40px;
+      margin: 20px;
+    }
+
+    /* ------- Spinning animation -------- */
+    /* @keyframes animName {
+      0% {
+          transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    } */
+
+    /* ------- Bouncing animation -------- */
+    /* @keyframes bounce {
+        0% {
+    transform: translateY(0);
+}
+100% {
+    transform: translateY(-20px);
+}
+} */
+
+    /* ------- Elastic Bouncing animation -------- */
+    @keyframes elasticBounce {
+      0% {
+        transform: translateY(0);
+      }
+
+      25% {
+        transform: translateY(-30px);
+      }
+
+      50% {
+        transform: translateY(0);
+      }
+
+      75% {
+        transform: translateY(-15px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
+}

@@ -1,0 +1,200 @@
+@import "../../styles/variables.scss";
+
+.footer {
+  background-color: $primary-bg-color;
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+
+  .footer_container {
+    position: relative;
+    width: 100%;
+    margin-top: 5px;
+    clear: both;
+    max-width: $max-width;
+
+    .footer_wrapper {
+      padding: $container-padding-top-bottom-lg $container-padding-left-right-lg;
+      display: flex;
+      justify-content: space-between;
+
+      .link {
+        text-decoration: none;
+        color: $secondary-color;
+      }
+
+      .section_one {
+        .logo_wrapper {
+          .logo {
+            filter: invert(1);
+            height: $logo-lg;
+          }
+        }
+      }
+
+      .section_two {
+        max-width: 20rem;
+
+        .more_wrapper {
+          .more {
+            margin-bottom: 10px;
+
+            .more_title {
+              color: $secondary-color;
+
+              .title {
+                font-size: $h6;
+
+                span {
+                  padding-top: 8px;
+                  padding-left: 5px;
+                  position: absolute;
+                }
+              }
+            }
+
+            .address-box {
+              margin-left: $footer-content-margin-left;
+
+              span {
+                font-size: $body2;
+              }
+            }
+          }
+        }
+
+        .social_icons {
+          .title {
+            font-size: $h6;
+            color: $secondary-color;
+
+            span {
+              padding-top: 8px;
+              padding-left: 5px;
+              position: absolute;
+            }
+          }
+
+          .icons_wrapper {
+            display: inline-flex;
+            gap: 15px;
+            margin-left: $footer-content-margin-left;
+
+            .icons {
+              transition: color 0.3s ease;
+              padding: 1px 6.5px 3.4px 5px;
+              border-radius: 50%;
+              background-color: $highlight-color-dark;
+
+              .social_link {
+                margin-left: 1px;
+                margin-bottom: 1px;
+                text-decoration: none;
+                color: $secondary-color;
+              }
+
+              &.instagram {
+                &:hover {
+                  background: linear-gradient(231deg,
+                      #833ab4,
+                      #e1306c,
+                      #fd7f35,
+                      #fdc730 100%);
+                }
+              }
+
+              &.whatsapp {
+                &:hover {
+                  background: green;
+                }
+              }
+
+              &.facebook {
+                &:hover {
+                  background: blue;
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.developer {
+  height: fit-content;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  background-color: $primary-bg-color;
+  padding: 1px $container-padding-left-right-lg;
+
+  .text {
+    color: grey;
+    font-size: 12px;
+    margin-bottom: 0;
+
+    span {
+      a {
+        text-decoration: none;
+        color: rgb(13 110 253 / 57%);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $md) and (min-width: $xs) {
+  .footer {
+    .footer_container {
+      .footer_wrapper {
+        padding: $container-padding-top-bottom $container-padding-left-right;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $xs) {
+  .footer {
+    .footer_container {
+      .footer_wrapper {
+        padding: $container-padding-top-bottom $header-padding-left-right-mob;
+        margin-top: 3px;
+        flex-direction: column;
+
+
+        .section_one {
+          .logo_wrapper {
+            margin-bottom: 40px;
+
+            .logo {
+              height: $logo-mobile;
+              width: fit-content;
+            }
+          }
+        }
+
+        .section_two {
+          .more_wrapper {
+            .more {
+              margin-bottom: 40px;
+
+              .more_title {
+                .title {
+                  font-size: $body1;
+                }
+              }
+            }
+          }
+
+          .social_icons {
+            .title {
+              font-size: $body1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

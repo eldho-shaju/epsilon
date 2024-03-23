@@ -1,0 +1,219 @@
+@import "../../styles/variables.scss";
+
+.detail_main_wrap {
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+
+  .img_wrap {
+    position: sticky;
+    top: calc($navbar-height + 10px);
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    min-width: 49%;
+    max-width: 420px;
+    height: 75vh;
+
+    .product_img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .react-multi-carousel-list {
+      width: 100%;
+      height: 100%;
+
+      .react-multi-carousel-track {
+        height: 100%;
+
+        .react-multi-carousel-item {
+          height: 100%;
+
+          .img_carousel {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+      }
+
+      .custom-dot-list-style {
+        height: fit-content;
+        background-color: black;
+        width: 8%;
+        margin-left: 46%;
+        border-radius: 19px;
+        bottom: 5px;
+        contain: content;
+        padding-left: 6px;
+
+        .react-multi-carousel-dot {
+          display: inline-flex;
+          height: 15px;
+          margin-left: 0px;
+          width: 12.5px;
+
+          button {
+            border: none;
+            background-color: gray;
+            width: 7px;
+            height: 7px;
+            margin-top: 4px;
+          }
+
+          &.react-multi-carousel-dot--active {
+            display: inline-flex;
+            height: 8px;
+            width: 15px;
+            margin-left: 0px;
+
+            button {
+              background-color: white;
+              width: 11px;
+              height: 9px;
+              margin-top: 3px;
+            }
+
+          }
+
+        }
+      }
+    }
+  }
+
+  .content_wrapper {
+    overflow-y: auto;
+    min-width: 49%;
+
+    .price {
+      font-size: $h5;
+    }
+
+    .about_product {
+      .about_title {
+        font-size: $h6;
+        font-weight: 500;
+      }
+
+      .content {
+        font-size: $body2;
+      }
+    }
+
+    .button_wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 4%;
+      width: 100%;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+
+      .share_btn,
+      .enquire_btn {
+        background-color: darkblue;
+        color: white;
+        border: none;
+        padding: 10px 0px;
+        width: 48%;
+        display: inline-flex;
+        gap: 3%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex-wrap: wrap;
+        text-align: center;
+
+        &.enquire_btn a {
+          color: $secondary-color;
+          text-decoration: none;
+        }
+
+        &:hover {
+          background-color: aliceblue;
+          color: darkblue;
+          font-weight: 600;
+          transition: all 0.3s ease-in-out;
+
+          &.enquire_btn a {
+            color: darkblue;
+            font-weight: 600;
+            width: 100%;
+          }
+        }
+
+        &.share_btn:hover .social_icon_container {
+          display: inline-flex;
+          justify-content: center;
+          gap: 8%;
+          padding: 15px 5px;
+        }
+      }
+
+      .social_icon_container {
+        position: absolute;
+        max-width: 20%;
+        min-width: 18%;
+        margin-bottom: 100px;
+        display: none;
+      }
+
+    }
+  }
+}
+
+@media only screen and (max-width: 850px) and (min-width: $sm) {
+
+  .detail_main_wrap {
+    gap: 2%;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-wrap: wrap;
+
+    &>.img_wrap {
+      top: 0;
+      min-width: 380px;
+      flex: 1 1 100px;
+      position: relative;
+      transition: all 0.3s ease;
+      max-width: 450px;
+      height: 50vh;
+    }
+
+    .content_wrapper {
+      min-width: 380px;
+      flex: 1 1 100px;
+      transition: all 0.3s ease;
+      max-width: 450px;
+    }
+  }
+
+}
+
+@media only screen and (max-width: $xs) {
+  .detail_main_wrap {
+    gap: 2%;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-wrap: wrap;
+
+    &>.img_wrap {
+      top: 0;
+      min-width: 90%;
+      flex: 1 1 100px;
+      position: relative;
+      transition: all 0.3s ease;
+      height: 50vh;
+      max-width: 450px;
+    }
+
+    .content_wrapper {
+      min-width: 90%;
+      flex: 1 1 100px;
+      transition: all 0.3s ease;
+      max-width: 450px;
+    }
+  }
+}

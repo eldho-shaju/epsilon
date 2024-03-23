@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.contact_page_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .text {
+    text-align: justify;
+  }
+
+  .form_wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+}

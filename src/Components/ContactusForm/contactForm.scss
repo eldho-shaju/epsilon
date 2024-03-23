@@ -1,0 +1,65 @@
+@import "../../styles/variables.scss";
+
+.contact-form {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    label {
+        margin-top: 15px;
+        margin-bottom: 3px;
+    }
+
+    small {
+        color: $highlight-color-lite;
+        margin-top: 5px;
+    }
+
+    .input-group {
+        border-radius: 5px;
+        height: 3rem;
+        border: none;
+        padding: 5px 10px;
+        scrollbar-width: none;
+
+        &.text-area {
+            height: 10rem;
+        }
+
+        &.input-group::-webkit-scrollbar {
+            display: none;
+        }
+
+        &.input-group:focus-visible {
+            border: none;
+            outline: 0;
+        }
+    }
+
+    .form_button {
+        width: fit-content;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        background: green;
+        color: $secondary-color;
+        align-self: flex-end;
+        margin-top: 15px;
+    }
+}
+
+
+@media only screen and (max-width: $xs) {
+    .contact-form {
+        width: 80%;
+        max-width: 350px;
+        min-width: 250px;
+    }
+}
+
+@media only screen and (max-width: $md) and (min-width: $sm) {
+    .contact-form {
+        max-width: 350px;
+    }
+}

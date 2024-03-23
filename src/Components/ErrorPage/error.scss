@@ -1,0 +1,99 @@
+@import "../../styles/variables.scss";
+
+
+.error_wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    gap: 1rem;
+    position: relative;
+    top: 82px;
+
+    .error_icon {
+        width: 6rem;
+        height: 6rem;
+        margin-bottom: 2rem;
+        color: $highlight-color-dark;
+    }
+
+    .error_msg {
+        color: $secondary-color;
+        margin-bottom: 1.5rem;
+
+        span {
+            color: $highlight-color-dark;
+            animation: fadeIn 1s forwards;
+
+            span:nth-child(1) {
+                animation-delay: 0s;
+            }
+
+            span:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+
+            span:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .blinking {
+                animation: blink-animation 1s infinite;
+            }
+        }
+    }
+
+    .error_buttons {
+        display: inline-flex;
+        gap: 1rem;
+
+        .button {
+            border: $secondary-color;
+            border-radius: 5px;
+            color: $primary-color;
+            font-weight: 500;
+            height: 2rem;
+            width: 8rem;
+        }
+
+        .home_button:hover {
+            background-color: #a200ff;
+            color: $secondary-color;
+            box-shadow: rgba(128, 0, 255, 0.463) 0px 48px 100px 0px;
+        }
+
+        .back_button:hover {
+            background-color: #ff4500;
+            color: $secondary-color;
+            box-shadow: rgba(255, 68, 0, 0.457) 0px 48px 100px 0px;
+        }
+    }
+}
+
+
+@keyframes blink-animation {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        /* Make the letters invisible at the beginning of the animation */
+    }
+
+    to {
+        opacity: 1;
+        /* Make the letters visible at the end of the animation */
+    }
+}
