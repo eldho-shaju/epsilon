@@ -1,17 +1,19 @@
 import { Link, useLocation } from "react-router-dom";
-// import "../header.scss";
-import logo from "../logo.svg";
+import LogoSvgWhite from "../logo/logoSvgWhite";
+import useScrollToTop from "../../../Hooks/useScrollToTop";
 import "./desktopHeader.scss";
 
 const DesktopHeader = (props) => {
-  const { navMenu, handleScrollPosition } = props;
+  const { navMenu } = props;
+  const { handleScrollPosition } = useScrollToTop();
   const location = useLocation();
 
   return (
     <div className="desktop_header_wrapper">
       <div className="logo_wrapper">
-        <Link to="/">
-          <img className="logo" alt="logo" src={logo} />
+        <Link to="/" className="home_link" onClick={handleScrollPosition}>
+          {/* <img className="logo" alt="logo" src={logo} /> */}
+          <LogoSvgWhite />
         </Link>
       </div>
       <div className="nav_menu_wrapper">

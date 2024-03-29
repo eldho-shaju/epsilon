@@ -4,8 +4,7 @@ const useShare = () => {
   const { isDesktop } = useDeviceTypeCheck();
 
   const handleShare = async (productName) => {
-    if (isDesktop) {
-    } else {
+    if (!isDesktop) {
       try {
         await navigator.share({
           title: productName,

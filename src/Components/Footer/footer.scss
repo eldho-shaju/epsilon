@@ -25,9 +25,15 @@
 
       .section_one {
         .logo_wrapper {
-          .logo {
-            filter: invert(1);
-            height: $logo-lg;
+          height: $logo-lg;
+
+          svg {
+            height: 100%;
+            width: $svg-width-lg;
+
+            .svgShape {
+              filter: invert(1);
+            }
           }
         }
       }
@@ -55,6 +61,7 @@
 
             .address-box {
               margin-left: $footer-content-margin-left;
+              color: $secondary-color;
 
               span {
                 font-size: $body2;
@@ -80,38 +87,45 @@
             gap: 15px;
             margin-left: $footer-content-margin-left;
 
-            .icons {
-              transition: color 0.3s ease;
-              padding: 1px 6.5px 3.4px 5px;
-              border-radius: 50%;
-              background-color: $highlight-color-dark;
+            .social_link {
+              text-decoration: none;
+              color: $secondary-color;
 
-              .social_link {
-                margin-left: 1px;
-                margin-bottom: 1px;
-                text-decoration: none;
-                color: $secondary-color;
-              }
+              .icons {
+                transition: color 0.3s ease;
+                padding: 1px 6.5px 3.4px 5px;
+                border-radius: 50%;
+                background-color: $highlight-color-dark;
 
-              &.instagram {
-                &:hover {
+                &.instagram {
                   background: linear-gradient(231deg,
                       #833ab4,
                       #e1306c,
                       #fd7f35,
                       #fdc730 100%);
-                }
-              }
 
-              &.whatsapp {
-                &:hover {
+                  &:hover {
+                    transform: translateY(-7px);
+                    transition: 0.3s ease-in-out;
+                  }
+                }
+
+                &.whatsapp {
                   background: green;
-                }
-              }
 
-              &.facebook {
-                &:hover {
+                  &:hover {
+                    transform: translateY(-7px);
+                    transition: 0.3s ease-in-out;
+                  }
+                }
+
+                &.fb {
                   background: blue;
+
+                  &:hover {
+                    transform: translateY(-7px);
+                    transition: 0.3s ease-in-out;
+                  }
                 }
               }
             }
@@ -168,9 +182,8 @@
           .logo_wrapper {
             margin-bottom: 40px;
 
-            .logo {
-              height: $logo-mobile;
-              width: fit-content;
+            svg {
+              width: $svg-width-mob;
             }
           }
         }

@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import BackButton from "../BackButton/BackButton";
 import ProductItem from "../ProductItem/ProductItem";
-import "./productHome.scss";
 import Container from "../Container/container";
+import useScrollToTop from "../../Hooks/useScrollToTop";
+import "./productHome.scss";
 
 const ProductHome = (props) => {
   const { data, isProductTypeList, title, productType, isListing } = props;
+  const { handleScrollPosition } = useScrollToTop();
 
   return (
     <Container backgroundColor="black">
@@ -27,6 +29,7 @@ const ProductHome = (props) => {
             <div className="items_wrapper" key={type?.id}>
               <Link
                 className="item_wrapper_link"
+                onClick={handleScrollPosition}
                 to={productType ? `/:${productType}/${type?.link}` : type?.link}
               >
                 <ProductItem product={type} isListing={isListing} />

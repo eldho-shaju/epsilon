@@ -1,22 +1,27 @@
 import { Link } from "react-router-dom";
-import useToggle from "../../../Hooks/useToggle";
 import { Icon } from "@iconify/react";
-// import "../header.scss";
 import OffCanvasMenu from "./OffCanvasMenu";
-import logo from "../logo.svg";
+import LogoSvgWhite from "../logo/logoSvgWhite";
+import useToggle from "../../../Hooks/useToggle";
+import useScrollToTop from "../../../Hooks/useScrollToTop";
 import "./mobileHeader.scss";
 
-const MobileHeader = ({ navMenu, handleScrollPosition }) => {
+const MobileHeader = (props) => {
+  const { navMenu } = props;
   const { toggle, state, handleClose } = useToggle();
+  const { handleScrollPosition } = useScrollToTop();
 
-  const handleHomeRoute = () => handleClose();
+  const handleHomeRoute = () => {
+    handleClose();
+    handleScrollPosition();
+  };
 
   return (
     <>
       <div className="mobile_header">
-        <div className="logo-wrapper">
-          <Link to={"/"} onClick={handleHomeRoute}>
-            <img className="logo" alt="logo" src={logo} />
+        <div className="logo_wrapper">
+          <Link to={"/"} onClick={handleHomeRoute} className="link_wrapper">
+            <LogoSvgWhite />
           </Link>
         </div>
         <div className="nav_menu_wrapper">

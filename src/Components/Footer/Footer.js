@@ -1,7 +1,8 @@
 import { Icon } from "@iconify/react";
 import useFooter from "./useFooter";
+// import logo from "./logo.svg";
+import LogoSvgWhite from "../Header/logo/logoSvgWhite";
 import "./footer.scss";
-import logo from "./logo.svg";
 
 const Footer = () => {
   const { data, error } = useFooter();
@@ -25,7 +26,8 @@ const Footer = () => {
         <div className="footer_wrapper">
           <div className="section_one">
             <div className="logo_wrapper">
-              <img src={logo} alt="logo" className="logo" />
+              {/* <img src={logo} alt="logo" className="logo" /> */}
+              <LogoSvgWhite />
             </div>
           </div>
           <div className="section_two">
@@ -44,6 +46,14 @@ const Footer = () => {
                       <a className="link" href={data?.link}>
                         <span>{data?.content}</span>
                       </a>
+                      {data?.id === "contactNo" && (
+                        <>
+                          ,{" "}
+                          <a className="link" href={data?.link_two}>
+                            <span>{data?.content_two}</span>
+                          </a>
+                        </>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -57,17 +67,16 @@ const Footer = () => {
                 {leftContents &&
                   leftContents.length !== 0 &&
                   leftContents.map((ele) => (
-                    <div key={ele?.id} className={`icons ${ele?.id}`}>
-                      <a className="social_link" href={ele?.link}>
-                        <Icon
-                          icon={ele?.icon}
-                          color={ele?.color}
-                          width="1rem"
-                          height="1rem"
-                        />
-                        {ele?.title && <p>{ele?.title}</p>}
-                      </a>
-                    </div>
+                    <a
+                      className="social_link"
+                      href={ele?.link}
+                      target="_blank"
+                      key={ele?.id}
+                    >
+                      <div className={`icons ${ele?.id}`}>
+                        <Icon icon={ele?.icon} width="1rem" height="1rem" />
+                      </div>
+                    </a>
                   ))}
               </div>
             </div>

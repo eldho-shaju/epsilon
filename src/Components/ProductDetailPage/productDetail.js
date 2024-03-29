@@ -8,9 +8,11 @@ import ErrorPage from "../ErrorPage";
 import { Icon } from "@iconify/react";
 import useShare from "../../Hooks/useShare";
 import ShareButtons from "./ShareButtons/shareButtons";
+import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
 
 const ProductDetail = () => {
   const { data, loading, error } = useProductDetails();
+  const { isDesktop } = useDeviceTypeCheck();
   const { handleShare } = useShare();
   if (loading) return <Loader />;
   if (error) return <ErrorPage />;
@@ -48,12 +50,12 @@ const ProductDetail = () => {
               >
                 <Icon icon="ic:sharp-share" />
                 Share
-                <ShareButtons url={url} title={item?.name} />
+                {isDesktop && <ShareButtons url={url} title={item?.name} />}
               </button>
               <div className="enquire_btn">
                 <a
                   target="_blank"
-                  href={`https://api.whatsapp.com/send?phone=918075516126&text=Hi, checkout the product link ${url}`}
+                  href={`https://api.whatsapp.com/send?phone=919605523721&text=Hi, checkout the product link ${url}`}
                 >
                   <Icon icon="akar-icons:whatsapp-fill" /> Enquire Now
                 </a>

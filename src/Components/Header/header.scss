@@ -11,13 +11,16 @@
   top: 0;
   display: inline-flex;
   justify-content: center;
+  height: fit-content;
+  padding: 0;
 
   &.home {
     background-color: transparent;
 
     .toolbar {
       .desktop_header_wrapper {
-        .logo {
+
+        .svgShape {
           filter: invert(1);
         }
 
@@ -38,7 +41,7 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
       .desktop_header_wrapper {
-        .logo {
+        .svgShape {
           filter: invert(0);
         }
 
