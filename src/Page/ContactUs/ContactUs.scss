@@ -1,4 +1,5 @@
 @import "../../styles/variables.scss";
+// @use "../../styles/mixins.scss";
 
 .contact_page_wrapper {
   display: flex;
@@ -6,14 +7,101 @@
   align-items: center;
   flex-direction: column;
 
-  .text {
-    text-align: justify;
+  .page_description {
+    text-align: center;
+    padding: 0 6%;
+
+    .text {
+      text-align: center;
+      font-size: clamp(14px, 1.8vw, 20px);
+    }
   }
 
   .form_wrapper {
     display: flex;
     width: 100%;
     justify-content: center;
-  }
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2rem;
 
+    .form_title {
+      width: 30%;
+
+      p {
+        // @include mixins.font-size(8vw, 54px);
+        font-size: clamp(18px, 8vw, 54px);
+
+        svg {
+          // @include mixins.font-size(10vw, 100px);
+          font-size: clamp(10px, 10vw, 100px);
+        }
+
+
+      }
+
+      p>*::after {
+        content: '\A';
+        white-space: pre;
+      }
+
+      p>*:last-child::after {
+        content: none;
+      }
+    }
+
+    .phone_number_wrapper {
+      width: 450px;
+      text-align: center;
+
+      .phone_number {
+        text-decoration: none;
+        color: $secondary-color;
+        font-size: clamp(18px, 6.5vw, 44px);
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: $md) {
+  .contact_page_wrapper {
+    .page_description {
+      padding: 0 4%;
+    }
+
+    .form_wrapper {
+      flex-direction: column;
+
+      .form_title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        text-align: center;
+
+        p>*::after {
+          content: none;
+        }
+
+        p>*:first-child::after {
+          content: " ";
+        }
+
+        p>*:nth-child(2)::after {
+          content: '\A';
+          white-space: pre;
+        }
+
+        span svg {
+          transform: rotate(90deg)
+        }
+      }
+
+      .phone_number_wrapper {
+        width: 80%;
+
+      }
+    }
+  }
 }

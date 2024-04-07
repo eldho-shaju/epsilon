@@ -13,9 +13,11 @@
   justify-content: center;
   height: fit-content;
   padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   &.home {
     background-color: transparent;
+    box-shadow: 0;
 
     .toolbar {
       .desktop_header_wrapper {

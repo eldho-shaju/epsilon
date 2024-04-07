@@ -12,7 +12,6 @@ const useContact = () => {
     async function fetchData() {
       const querySnapshot = await getDocs(collection(db, "contact"));
       querySnapshot.forEach((doc) => {
-        // console.log("======", doc.data());
         setData((prevData) => [...prevData, doc.data()]);
         setLoading(false);
         if (!!doc.data() === false) {

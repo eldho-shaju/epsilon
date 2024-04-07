@@ -17,7 +17,11 @@ const WidgetGrid = ({ grid }) => {
                 className={`grid_item_wrapper ${direction} `}
               >
                 <div className="img_wrapper">
-                  <img className="img" src={widget?.img?.[0]?.downloadURL} />
+                  <img
+                    loading="lazy"
+                    className="img"
+                    src={widget?.img?.[0]?.downloadURL}
+                  />
                 </div>
                 <div className="text_wrapper">
                   <h3 className="title">{widget?.title}</h3>

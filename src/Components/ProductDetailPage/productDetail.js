@@ -1,24 +1,19 @@
-import useProductDetails from "./useProductDetails";
-import "./detail.scss";
 import Loader from "../Loader";
 import Container from "../Container/container";
 import ImageCarousel from "./ImageCarousel/imageCarousel";
 import BackButton from "../BackButton/BackButton";
 import ErrorPage from "../ErrorPage";
-import { Icon } from "@iconify/react";
-import useShare from "../../Hooks/useShare";
-import ShareButtons from "./ShareButtons/shareButtons";
-import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
+import ContactButtons from "./ContactButtons";
+import useProductDetails from "./useProductDetails";
+import "./detail.scss";
 
 const ProductDetail = () => {
   const { data, loading, error } = useProductDetails();
-  const { isDesktop } = useDeviceTypeCheck();
-  const { handleShare } = useShare();
+
   if (loading) return <Loader />;
   if (error) return <ErrorPage />;
 
   const [item] = data && data;
-
   const url = window.location.href;
 
   return (
@@ -42,26 +37,7 @@ const ProductDetail = () => {
             {item?.name}
           </h3>
           <p className="price">₹: {item?.price}</p>
-          <div className="button_wrapper">
-            <>
-              <button
-                className="share_btn"
-                onClick={() => handleShare(item?.name)}
-              >
-                <Icon icon="ic:sharp-share" />
-                Share
-                {isDesktop && <ShareButtons url={url} title={item?.name} />}
-              </button>
-              <div className="enquire_btn">
-                <a
-                  target="_blank"
-                  href={`https://api.whatsapp.com/send?phone=919605523721&text=Hi, checkout the product link ${url}`}
-                >
-                  <Icon icon="akar-icons:whatsapp-fill" /> Enquire Now
-                </a>
-              </div>
-            </>
-          </div>
+          <ContactButtons name={item?.name} url={url} />
           <div className="about_product">
             <p className="about_title">About this product:</p>
             <p className="content">{item?.description}</p>

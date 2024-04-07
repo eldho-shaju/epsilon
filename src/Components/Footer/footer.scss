@@ -9,8 +9,6 @@
   .footer_container {
     position: relative;
     width: 100%;
-    margin-top: 5px;
-    clear: both;
     max-width: $max-width;
 
     .footer_wrapper {
@@ -23,9 +21,93 @@
         color: $secondary-color;
       }
 
+      .more_wrapper {
+        .more {
+          margin-bottom: 10px;
+
+          .more_title {
+            color: $secondary-color;
+
+            .title {
+              font-size: $h6;
+
+              span {
+                padding-top: 8px;
+                padding-left: 5px;
+                position: absolute;
+              }
+            }
+          }
+
+          .address-box {
+            margin-left: $footer-content-margin-left;
+            color: $secondary-color;
+            margin-top: 5px;
+            max-width: 20rem;
+
+            span {
+              font-size: $body2;
+              letter-spacing: 1px;
+
+            }
+          }
+        }
+      }
+
+      .social_icons {
+        .title {
+          font-size: $h6;
+          color: $secondary-color;
+
+          span {
+            padding-top: 8px;
+            padding-left: 5px;
+            position: absolute;
+          }
+        }
+
+        .icons_wrapper {
+          display: inline-flex;
+          gap: 15px;
+          margin-left: $footer-content-margin-left;
+
+          .social_link {
+            text-decoration: none;
+            color: $secondary-color;
+
+            .icons {
+              transition: color 0.3s ease;
+              width: 26px;
+              height: 26px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 50%;
+
+              &.instagram {
+                background: linear-gradient(231deg,
+                    #833ab4,
+                    #e1306c,
+                    #fd7f35,
+                    #fdc730 100%);
+              }
+
+              &.whatsapp {
+                background: green;
+              }
+
+              &.fb {
+                background: blue;
+              }
+            }
+          }
+        }
+      }
+
       .section_one {
         .logo_wrapper {
           height: $logo-lg;
+          margin-bottom: 2rem;
 
           svg {
             height: 100%;
@@ -36,87 +118,30 @@
             }
           }
         }
+
+        .more_wrapper,
+        .social_icons {
+          margin-left: 4rem;
+          margin-bottom: 1.5rem;
+        }
       }
 
       .section_two {
-        max-width: 20rem;
+        max-width: 540px;
+        width: 50%;
 
         .more_wrapper {
-          .more {
-            margin-bottom: 10px;
-
-            .more_title {
-              color: $secondary-color;
-
-              .title {
-                font-size: $h6;
-
-                span {
-                  padding-top: 8px;
-                  padding-left: 5px;
-                  position: absolute;
-                }
-              }
-            }
-
-            .address-box {
-              margin-left: $footer-content-margin-left;
-              color: $secondary-color;
-
-              span {
-                font-size: $body2;
-              }
-            }
-          }
+          margin-bottom: 0.9rem;
         }
 
-        .social_icons {
-          .title {
-            font-size: $h6;
-            color: $secondary-color;
+        .google_map_wrapper {
+          contain: content;
+          margin: 0 20px;
 
-            span {
-              padding-top: 8px;
-              padding-left: 5px;
-              position: absolute;
-            }
-          }
-
-          .icons_wrapper {
-            display: inline-flex;
-            gap: 15px;
-            margin-left: $footer-content-margin-left;
-
-            .social_link {
-              text-decoration: none;
-              color: $secondary-color;
-
-              .icons {
-                transition: color 0.3s ease;
-                width: 26px;
-                height: 26px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 50%;
-
-                &.instagram {
-                  background: linear-gradient(231deg,
-                      #833ab4,
-                      #e1306c,
-                      #fd7f35,
-                      #fdc730 100%);
-                }
-
-                &.whatsapp {
-                  background: green;
-                }
-
-                &.fb {
-                  background: blue;
-                }
-              }
-            }
+          iframe {
+            border-radius: 2px;
+            width: 100%;
+            height: 300px;
           }
         }
       }
@@ -135,7 +160,7 @@
 
   .text {
     color: grey;
-    font-size: 12px;
+    font-size: 10px;
     margin-bottom: 0;
 
     span {
@@ -176,6 +201,11 @@
     .footer_container {
       .footer_wrapper {
         padding: $container-padding-top-bottom $container-padding-left-right;
+
+        .section_two .google_map_wrapper iframe {
+          width: 100%;
+          height: 250px;
+        }
       }
     }
   }
@@ -189,32 +219,48 @@
         margin-top: 3px;
         flex-direction: column;
 
+        .more_wrapper {
+          .more {
+
+            .more_title {
+              .title {
+                font-size: $body1;
+              }
+            }
+          }
+        }
 
         .section_one {
+
+          .more_wrapper,
+          .social_icons {
+            margin-left: 1rem;
+          }
+
           .logo_wrapper {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
 
             svg {
               width: $svg-width-mob;
             }
           }
-        }
 
-        .section_two {
-          .more_wrapper {
-            .more {
-              margin-bottom: 40px;
+          .section_two {
+            width: 100%;
+            margin-bottom: 1.5rem;
 
-              .more_title {
-                .title {
-                  font-size: $body1;
-                }
-              }
+            .more_wrapper {
+              margin-left: 1rem;
+              margin-bottom: 1.5rem;
+
+            }
+
+            .google_map_wrapper {
+              margin: 0 10px;
             }
           }
-
-          .social_icons {}
         }
+
       }
     }
   }

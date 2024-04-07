@@ -42,7 +42,7 @@
 
       .custom-dot-list-style {
         height: fit-content;
-        background-color: black;
+        background-color: $primary-bg-color;
         width: 8%;
         margin-left: 46%;
         border-radius: 19px;
@@ -58,7 +58,7 @@
 
           button {
             border: none;
-            background-color: gray;
+            background-color: $disabled-color;
             width: 7px;
             height: 7px;
             margin-top: 4px;
@@ -71,7 +71,7 @@
             margin-left: 0px;
 
             button {
-              background-color: white;
+              background-color: $secondary-bg-color;
               width: 11px;
               height: 9px;
               margin-top: 3px;
@@ -113,8 +113,8 @@
 
       .share_btn,
       .enquire_btn {
-        background-color: darkblue;
-        color: white;
+        background-color: $share-button-color;
+        color: $secondary-color;
         border: none;
         padding: 10px 0px;
         width: 48%;
@@ -126,29 +126,9 @@
         flex-wrap: wrap;
         text-align: center;
 
-        &.enquire_btn a {
+        a {
           color: $secondary-color;
           text-decoration: none;
-        }
-
-        &:hover {
-          background-color: aliceblue;
-          color: darkblue;
-          font-weight: 600;
-          transition: all 0.3s ease-in-out;
-
-          &.enquire_btn a {
-            color: darkblue;
-            font-weight: 600;
-            width: 100%;
-          }
-        }
-
-        &.share_btn:hover .social_icon_container {
-          display: inline-flex;
-          justify-content: center;
-          gap: 8%;
-          padding: 15px 5px;
         }
       }
 
@@ -160,6 +140,34 @@
         display: none;
       }
 
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .content_wrapper .button_wrapper {
+
+    .share_btn,
+    .enquire_btn {
+      &:hover {
+        background-color: $share-button-hover-color;
+        color: $share-button-color;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+
+        a {
+          color: $share-button-color;
+          font-weight: 600;
+          width: 100%;
+        }
+      }
+
+      &.share_btn:hover .social_icon_container {
+        display: inline-flex;
+        justify-content: center;
+        gap: 8%;
+        padding: 15px 5px;
+      }
     }
   }
 }
@@ -214,6 +222,18 @@
       flex: 1 1 100px;
       transition: all 0.3s ease;
       max-width: 450px;
+
+      .button_wrapper {
+        &.share_btn:hover {
+          background-color: $share-button-color;
+          color: $secondary-color;
+        }
+
+        &.enquire_btn:hover {
+          background-color: $share-button-color;
+          color: $secondary-color;
+        }
+      }
     }
   }
 }

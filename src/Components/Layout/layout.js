@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
-import Home from "../../Page/Home/Home";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Products from "../../Page/Products";
-import AboutUs from "../../Page/AboutUs";
-import ContactUs from "../../Page/ContactUs/ContactUs";
+import Home from "../../Page/Home";
 import Footer from "../Footer";
 import Header from "../Header";
-import ProductDetail from "../ProductDetailPage";
-import ErrorPage from "../ErrorPage";
+import Loader from "../Loader";
+
+const Products = lazy(() => import("../../Page/Products"));
+const ProductDetail = lazy(() => import("../ProductDetailPage"));
+const AboutUs = lazy(() => import("../../Page/AboutUs"));
+const ErrorPage = lazy(() => import("../ErrorPage"));
+const ContactUs = lazy(() => import("../../Page/ContactUs"));
 
 const Layout = () => {
   const [refresh, setRefresh] = useState(false);
@@ -24,20 +26,22 @@ const Layout = () => {
     <>
       <BrowserRouter forceRefresh={refresh}>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/product-type" element={<Products />} />
-          <Route path="/product-type/:type" element={<Products />} />
-          <Route path="/:type/:detail" element={<ProductDetail />} />
-          <Route
-            path="*"
-            element={
-              <ErrorPage errorMsg="Page you are looking for is not found" />
-            }
-          />
-        </Routes>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/product-type" element={<Products />} />
+            <Route path="/product-type/:type" element={<Products />} />
+            <Route path="/:type/:detail" element={<ProductDetail />} />
+            <Route
+              path="*"
+              element={
+                <ErrorPage errorMsg="Page you are looking for is not found" />
+              }
+            />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
       <Footer />
     </>

@@ -3,18 +3,19 @@ import { useEffect, useState } from "react";
 import { db } from "../../firebaseSdk";
 
 const useFooter = () => {
-  const [data, setData] = useState([]);
+  const [footerData, setFooterData] = useState({});
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    setData([]);
+    setFooterData([]);
     async function fetchData() {
       try {
+        let data = {};
         const querySnapshot = await getDocs(collection(db, "footer"));
         querySnapshot.forEach((doc) => {
-          // console.log("======", doc.data());
-          setData((prevData) => [...prevData, doc.data()]);
+          data = { ...data, [doc?.id]: { ...doc.data() } };
         });
+        setFooterData(data);
       } catch (e) {
         console.log("======", e);
         setError(true);
@@ -23,7 +24,11 @@ const useFooter = () => {
     fetchData();
   }, []);
 
-  return { data, error };
+  if (error) return null;
+
+  const { phone, social, address } = footerData && footerData;
+
+  return { phone, social, address, error };
 };
 
 export default useFooter;
