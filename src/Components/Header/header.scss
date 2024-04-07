@@ -17,7 +17,7 @@
 
   &.home {
     background-color: transparent;
-    box-shadow: 0;
+    box-shadow: unset;
 
     .toolbar {
       .desktop_header_wrapper {
@@ -39,7 +39,7 @@
     }
 
     &.scrolled {
-      background-color: white;
+      background-color: $secondary-bg-color;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
       .desktop_header_wrapper {
