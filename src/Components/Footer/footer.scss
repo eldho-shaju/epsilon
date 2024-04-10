@@ -76,13 +76,13 @@
             color: $secondary-color;
 
             .icons {
-              transition: color 0.3s ease;
               width: 26px;
               height: 26px;
               display: flex;
               justify-content: center;
               align-items: center;
               border-radius: 50%;
+              transition: transform 0.3s ease;
 
               &.instagram {
                 background: linear-gradient(231deg,
@@ -175,26 +175,12 @@
 @media (hover: hover) and (pointer: fine) {
   .icons {
 
-    &.instagram,
-    &.fb,
-    &.whatsapp {
-
-      &:hover {
-        animation: popoutAnimation 0.5s ease forwards;
-      }
-    }
-
-    @keyframes popoutAnimation {
-      0% {
-        transform: scale(1);
-      }
-
-      100% {
-        transform: scale(1.3);
-      }
+    &:hover {
+      transform: scale(1.2);
     }
   }
 }
+
 
 @media only screen and (max-width: $md) and (min-width: $xs) {
   .footer {

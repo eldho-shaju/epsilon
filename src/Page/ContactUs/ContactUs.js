@@ -37,16 +37,19 @@ const ContactUs = () => {
             </p>
           </div>
           <div className="phone_number_wrapper">
-            {phone?.data &&
-              phone?.data?.length > 0 &&
-              phone?.data?.map((ele, index) => (
-                <Fragment key={index}>
-                  <a href={`tel:${ele?.link}`} className="phone_number">
-                    {ele?.phone}
-                  </a>
-                  <br />
-                </Fragment>
-              ))}
+            <p className="phone_hint">Just tap the number to dial</p>
+            <div className="phone_number_box">
+              {phone?.data &&
+                phone?.data?.length > 0 &&
+                phone?.data?.map((ele, index) => (
+                  <Fragment key={index}>
+                    <a href={`tel:${ele?.link}`} className="phone_number">
+                      {ele?.phone}
+                    </a>
+                    {/* <br /> */}
+                  </Fragment>
+                ))}
+            </div>
           </div>
         </div>
         <div className="form_wrapper">

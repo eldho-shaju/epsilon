@@ -4,10 +4,9 @@
     width: 450px;
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
 
     label {
-        // margin-top: 15px;
+        margin-top: 1rem;
         margin-bottom: 3px;
     }
 
@@ -43,7 +42,7 @@
         background: $share-button-color;
         color: $secondary-color;
         align-self: flex-end;
-        margin-top: 15px;
+        margin-top: 1rem;
     }
 }
 
@@ -55,26 +54,16 @@
             font-weight: 600;
             transition: all 0.3s ease-in-out;
         }
-
     }
 }
-
-
 
 @media only screen and (max-width: $xs) {
     .contact-form {
         width: 80%;
         max-width: 350px;
-        min-width: 250px;
 
         .form_button {
             padding: 8px 20px;
         }
     }
 }
-
-// @media only screen and (max-width: $md) and (min-width: $sm) {
-//     .contact-form {
-//         max-width: 350px;
-//     }
-// }
