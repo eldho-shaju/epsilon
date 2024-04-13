@@ -11,18 +11,24 @@ const useHeader = (isMobile) => {
   const location = useLocation();
   const [isBannerLoaded] = useRecoilState(bannerImg);
 
-  const isHome =
-    !loading && isBannerLoaded && location?.pathname === "/" ? "home" : "";
+  const isHome = location?.pathname === "/" ? "home" : "";
+
+  const dataLength = data?.length > 0;
 
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, "header"));
-      querySnapshot.forEach((doc) => {
-        setData((prevData) => [...prevData, doc.data()]);
+      try {
+        const querySnapshot = await getDocs(collection(db, "header"));
+        querySnapshot.forEach((doc) => {
+          setData((prevData) => [...prevData, doc.data()]);
+        });
+      } catch (error) {
+        console.log(error);
+      } finally {
         setLoading(false);
-      });
+      }
     };
-    if (db && data?.length === 0) fetchData();
+    if (db && !dataLength) fetchData();
 
     if (!isMobile && !!isHome) {
       const handleScroll = () => {
@@ -40,7 +46,7 @@ const useHeader = (isMobile) => {
         window.removeEventListener("scroll", handleScroll);
       };
     }
-  }, [isMobile, isHome]);
+  }, [isMobile, isHome, dataLength]);
 
   return { data, loading, isHome };
 };
