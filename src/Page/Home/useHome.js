@@ -1,32 +1,37 @@
+import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
 import { db } from "../../firebaseSdk";
-import { HOME_WIDGET } from "../../Constants/Constants";
+import {
+  getFromLocalStorage,
+  setToLocalStorage,
+} from "../../functions/localStorage";
 
 const useHome = () => {
-  const [widget, setWidget] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const cachedData = JSON.parse(getFromLocalStorage(`homeWidgets`));
+  const [widget, setWidget] = useState(cachedData || []);
+  const dataLength = widget?.length > 0;
+  const [loading, setLoading] = useState(!!dataLength === false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
-        const subCollection = await getDocs(collection(db, HOME_WIDGET));
-
-        subCollection.forEach(async (doc) => {
-          if (!!doc.data()) {
-            setWidget((prevState) => [...prevState, doc.data()]);
-          } else {
-            setError(true);
-          }
+        let widgetData = [];
+        const subCollection = await getDocs(collection(db, "homeWidgets"));
+        subCollection.forEach((doc) => {
+          widgetData = [...widgetData, doc?.data()];
+          // setWidget((prevState) => [...prevState, doc.data()]);
         });
-        setLoading(false);
+        setWidget(widgetData);
+        setToLocalStorage("homeWidgets", widgetData);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(true);
+      } finally {
+        setLoading(false);
       }
-    }
-    fetchData();
+    };
+    if (!!dataLength === false) fetchData();
   }, []);
 
   const banner =

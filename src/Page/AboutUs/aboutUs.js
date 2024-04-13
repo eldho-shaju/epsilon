@@ -3,11 +3,12 @@ import Loader from "../../Components/Loader";
 import ErrorPage from "../../Components/ErrorPage";
 import useAbout from "./useAbout";
 import "./aboutUs.scss";
+import { memo } from "react";
 
 const AboutUs = () => {
   const { data, loading, error } = useAbout();
 
-  if (loading && !error) return <Loader />;
+  if (loading) return <Loader />;
   if (error) return <ErrorPage />;
 
   return (
@@ -46,4 +47,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default memo(AboutUs);

@@ -1,11 +1,11 @@
+import { Fragment } from "react";
+import { Icon } from "@iconify/react/dist/iconify.js";
 import ContactusForm from "../../Components/ContactusForm";
 import Loader from "../../Components/Loader";
 import ErrorPage from "../../Components/ErrorPage";
 import Container from "../../Components/Container";
 import useContact from "./useContact";
 import "./ContactUs.scss";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { Fragment } from "react";
 
 const ContactUs = () => {
   const { data, loading, error } = useContact();

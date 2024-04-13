@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import "./backButton.scss";
 import { Icon } from "@iconify/react";
+import "./backButton.scss";
 
 const BackButton = ({ title, isDetailPage }) => {
   const navigate = useNavigate();

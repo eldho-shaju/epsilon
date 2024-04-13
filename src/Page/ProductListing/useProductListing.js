@@ -7,35 +7,42 @@ import {
   setToLocalStorage,
 } from "../../functions/localStorage";
 
-const useProductDetails = () => {
-  const { type, detail } = useParams();
-  const url_key = detail.replace(/:/g, "");
-  const cachedData = JSON.parse(getFromLocalStorage(`${url_key}`));
+const useProductListing = () => {
+  const { type } = useParams();
+  const subCollection = type && type.replace(/:/g, "");
+  const cachedData = JSON.parse(
+    getFromLocalStorage(`product-list_${subCollection}`)
+  );
   const [data, setData] = useState(cachedData || []);
   const dataLength = data?.length > 0;
   const [loading, setLoading] = useState(!!dataLength === false);
   const [error, setError] = useState(false);
 
-  const productType = type.replace(/:/g, "");
+  function formatText(subCollection) {
+    let cleanedText = subCollection && subCollection?.replace(/[-]/g, " ");
+    return cleanedText;
+  }
+
+  const formattedText = subCollection && formatText(subCollection);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
-        let data = [];
+        let listingData = [];
         const querySnapshot = await getDocs(
           query(
-            collection(db, "product_details", productType, "type"),
-            where("urlKey", "==", url_key)
+            collection(db, "product-list"),
+            where("productType", "==", subCollection)
           )
         );
         if (querySnapshot?.empty) {
           setError(true);
         } else {
           querySnapshot.forEach((doc) => {
-            data = [...data, doc?.data()];
+            listingData = [...listingData, doc.data()];
           });
-          setData(data);
-          setToLocalStorage(`${url_key}`, data);
+          setData(listingData);
+          setToLocalStorage(`product-list_${subCollection}`, listingData);
         }
       } catch (error) {
         console.log(error);
@@ -43,11 +50,12 @@ const useProductDetails = () => {
       } finally {
         setLoading(false);
       }
-    }
+    };
+
     fetchData();
   }, []);
 
-  return { data, loading, error };
+  return { data, loading, error, formattedText };
 };
 
-export default useProductDetails;
+export default useProductListing;

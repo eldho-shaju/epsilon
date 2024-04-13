@@ -1,8 +1,8 @@
 import Loader from "../../Components/Loader";
 import Banner from "../../Widget/Banner";
-import useHome from "./useHome";
 import ErrorPage from "../../Components/ErrorPage";
 import Grid from "../../Widget/Grid";
+import useHome from "./useHome";
 
 const HomePage = () => {
   const { grid, banner, loading, error } = useHome();

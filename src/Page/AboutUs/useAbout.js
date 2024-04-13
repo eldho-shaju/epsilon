@@ -1,26 +1,37 @@
+import { useEffect, useState, useRef } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
 import { db } from "../../firebaseSdk";
+import {
+  getFromLocalStorage,
+  setToLocalStorage,
+} from "../../functions/localStorage";
 
 const useAbout = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const cachedData = JSON.parse(getFromLocalStorage(`aboutUs`));
+  const [data, setData] = useState(cachedData || []);
+  const dataLength = data?.length > 0;
+  const [loading, setLoading] = useState(!!dataLength === false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    setData([]);
-    async function fetchData() {
-      const querySnapshot = await getDocs(collection(db, "about"));
-      querySnapshot.forEach((doc) => {
-        // console.log("======", doc.data());
-        setData((prevData) => [...prevData, doc.data()]);
+    const fetchData = async () => {
+      try {
+        let data = [];
+        const querySnapshot = await getDocs(collection(db, "about"));
+        querySnapshot.forEach((doc) => {
+          data = [...data, doc.data()];
+        });
+        setData(data);
+        setToLocalStorage(`aboutUs`, data);
+      } catch (err) {
+        console.error("Error fetching about data:", err);
+        setError(true);
+      } finally {
         setLoading(false);
-        if (!!doc.data() === false) {
-          setError(true);
-        }
-      });
-    }
-    fetchData();
+      }
+    };
+
+    if (!!dataLength === false) fetchData();
   }, []);
 
   return { data, loading, error };

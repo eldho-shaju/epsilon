@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import "./error.scss";
 import { Icon } from "@iconify/react";
 import Container from "../Container/container";
+import "./error.scss";
 
 const ErrorPage = (props) => {
   const { errorMsg = "Something went wrong" } = props;

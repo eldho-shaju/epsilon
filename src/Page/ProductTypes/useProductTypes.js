@@ -6,8 +6,8 @@ import {
   setToLocalStorage,
 } from "../../functions/localStorage";
 
-const useContact = () => {
-  const cachedData = JSON.parse(getFromLocalStorage(`contactUs`));
+const useProductTypes = () => {
+  const cachedData = JSON.parse(getFromLocalStorage("productTypes"));
   const [data, setData] = useState(cachedData || []);
   const dataLength = data?.length > 0;
   const [loading, setLoading] = useState(!!dataLength === false);
@@ -16,29 +16,29 @@ const useContact = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let data = [];
-        const querySnapshot = await getDocs(collection(db, "contact"));
+        let productTypes = [];
+        const querySnapshot = await getDocs(collection(db, "product-type"));
+
         if (querySnapshot?.empty) {
           setError(true);
         } else {
           querySnapshot.forEach((doc) => {
-            data = [...data, doc?.data()];
+            productTypes = [...productTypes, doc.data()];
           });
+          setData(productTypes);
+          setToLocalStorage("productTypes", productTypes);
         }
-        setData(data);
-        setToLocalStorage(`contactUs`, data);
-      } catch (e) {
+      } catch (error) {
         console.log(error);
         setError(true);
       } finally {
         setLoading(false);
       }
     };
-
-    if (!!dataLength === false) fetchData();
+    fetchData();
   }, []);
 
   return { data, loading, error };
 };
 
-export default useContact;
+export default useProductTypes;

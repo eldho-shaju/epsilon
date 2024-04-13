@@ -1,5 +1,5 @@
-import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseSdk";
 
 const useFooter = () => {
@@ -17,7 +17,7 @@ const useFooter = () => {
         });
         setFooterData(data);
       } catch (e) {
-        console.log("======", e);
+        console.log(e);
         setError(true);
       }
     }

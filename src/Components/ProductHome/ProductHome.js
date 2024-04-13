@@ -4,6 +4,7 @@ import ProductItem from "../ProductItem/ProductItem";
 import Container from "../Container/container";
 import useScrollToTop from "../../Hooks/useScrollToTop";
 import "./productHome.scss";
+import { memo } from "react";
 
 const ProductHome = (props) => {
   const { data, isProductTypeList, title, productType, isListing } = props;
@@ -41,4 +42,4 @@ const ProductHome = (props) => {
   );
 };
 
-export default ProductHome;
+export default memo(ProductHome);

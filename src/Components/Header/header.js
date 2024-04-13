@@ -1,10 +1,8 @@
 import MobileHeader from "./MobileHeader";
-import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
-import useHeader from "./useHeader";
-import "./header.scss";
 import DesktopHeader from "./DesktopHeader";
-
-export const AppBarHieght = "74px";
+import useHeader from "./useHeader";
+import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
+import "./header.scss";
 
 const Header = () => {
   const { isMobile } = useDeviceTypeCheck();

@@ -5,7 +5,8 @@ import Footer from "../Footer";
 import Header from "../Header";
 import Loader from "../Loader";
 
-const Products = lazy(() => import("../../Page/Products"));
+const ProductTypes = lazy(() => import("../../Page/ProductTypes"));
+const ProductListing = lazy(() => import("../../Page/ProductListing"));
 const ProductDetail = lazy(() => import("../ProductDetailPage"));
 const AboutUs = lazy(() => import("../../Page/AboutUs"));
 const ErrorPage = lazy(() => import("../ErrorPage"));
@@ -31,8 +32,8 @@ const Layout = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact-us" element={<ContactUs />} />
-            <Route path="/product-type" element={<Products />} />
-            <Route path="/product-type/:type" element={<Products />} />
+            <Route path="/product-type" element={<ProductTypes />} />
+            <Route path="/product-type/:type" element={<ProductListing />} />
             <Route path="/:type/:detail" element={<ProductDetail />} />
             <Route
               path="*"

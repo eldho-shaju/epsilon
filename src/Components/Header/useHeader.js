@@ -1,14 +1,18 @@
-"use client";
 import { useEffect, useState } from "react";
-import { db } from "../../firebaseSdk";
-import { collection, getDocs } from "firebase/firestore";
 import { useLocation } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebaseSdk";
+import { useRecoilState } from "recoil";
+import { bannerImg } from "../../Recoil/imageAtom";
 
 const useHeader = (isMobile) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
-  const isHome = !loading && location?.pathname === "/" ? "home" : "";
+  const [isBannerLoaded] = useRecoilState(bannerImg);
+
+  const isHome =
+    !loading && isBannerLoaded && location?.pathname === "/" ? "home" : "";
 
   useEffect(() => {
     const fetchData = async () => {
