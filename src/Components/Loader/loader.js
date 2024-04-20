@@ -1,10 +1,11 @@
+import { Logo } from "../Header/logo/logo";
 import "./loader.scss";
 
 const Loader = () => {
   return (
     <div className="loader-container">
       <div className="loader_wrapper">
-        <img src="\asset\logo\epsilonlogo.png" className="spinner" />
+        <Logo />
       </div>
     </div>
   );

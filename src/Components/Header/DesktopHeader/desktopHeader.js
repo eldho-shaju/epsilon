@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
+import { FullLogo } from "../logo/logo";
 import MobileHeaderTitle from "./MobileHeaderTitle";
 import OffcanvasMenu from "../OffcanvasMenu";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
-import Logo from "../logo";
 import useToggle from "../../../Hooks/useToggle";
 import useScrollToTop from "../../../Hooks/useScrollToTop";
 import useDeviceTypeCheck from "../../../Hooks/useDeviceTypeCheck";
@@ -28,7 +28,7 @@ const DesktopHeader = (props) => {
         ) : (
           <div className="logo_wrapper">
             <Link to="/" className="home_link" onClick={handleHomeRoute}>
-              <Logo />
+              <FullLogo />
             </Link>
           </div>
         )}

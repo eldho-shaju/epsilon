@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { formatText } from "../../../../functions/formatText";
+import { Logo } from "../../logo/logo";
 
 const MobileHeaderTitle = () => {
   const navigate = useNavigate();
@@ -24,11 +25,7 @@ const MobileHeaderTitle = () => {
         />
       </button>
       <Link to="/">
-        <img
-          className="home_button"
-          src="asset\logo\epsilonlogo.png"
-          alt="logo"
-        />
+        <Logo />
       </Link>
       {title && <p className="sub_collection">{title}</p>}
     </div>

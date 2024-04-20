@@ -1,4 +1,4 @@
-import Logo from "../Header/logo";
+import { FullLogo } from "../Header/logo/logo";
 import FooterAddress from "./FooterAddress";
 import FooterContact from "./FooterContact";
 import FooterSocialMedia from "./FooterSocialMedia";
@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="footer_wrapper">
           <div className="section_one">
             <div className="logo_wrapper">
-              <Logo />
+              <FullLogo />
             </div>
             {isMobile && <FooterAddress address={address} />}
             <FooterContact phone={phone} />
