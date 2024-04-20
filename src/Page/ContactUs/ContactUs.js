@@ -43,7 +43,7 @@ const ContactUs = () => {
         <div className="page_description">
           <p className="text">{pageDescription?.content}</p>
         </div>
-        <div className="form_wrapper">
+        <div className="form_wrapper phone">
           <div className="form_title">
             <p>
               <span>What's on</span>

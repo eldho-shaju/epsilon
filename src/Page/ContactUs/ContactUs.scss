@@ -11,7 +11,7 @@
 
     .text {
       text-align: justify;
-      font-size: clamp(14px, 1.5vw, 20px);
+      font-size: 14px;
       font-weight: 100;
     }
   }
@@ -56,7 +56,7 @@
 
       .phone_hint {
         color: $primary-color;
-        font-size: clamp(12px, 1vw, 24px);
+        font-size: clamp(12px, 1vw, 14px);
       }
 
       .phone_number_box>*:first-child::after {
@@ -109,7 +109,6 @@
         span svg {
           transform: rotate(90deg);
         }
-
       }
 
       .phone_number_wrapper {
@@ -117,7 +116,25 @@
 
         .phone_number_box {
           line-height: 10vw;
+        }
+      }
+    }
+  }
+}
 
+@media only screen and (max-width: $xs) {
+  .contact_page_wrapper .form_wrapper {
+    &.phone {
+      margin-top: 0;
+
+      .form_title {
+        span svg {
+          transform: rotate(90deg);
+          margin-top: 0rem;
+        }
+
+        p {
+          margin-bottom: 0rem;
         }
       }
     }

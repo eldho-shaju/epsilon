@@ -9,7 +9,7 @@ const BackButton = ({ title, isDetailPage }) => {
     <div className="heading_wrapper">
       <button
         onClick={() => navigate(-1)}
-        className={`back_button ${isDetailPage && "back_to_list"}`}
+        className={`back_button ${isDetailPage ? "back_to_list" : ""}`}
       >
         <Icon className="back_icon" icon="ion:caret-back-circle" />
         {isDetailPage && <p className="title">{title}</p>}

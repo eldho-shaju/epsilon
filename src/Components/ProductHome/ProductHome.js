@@ -33,15 +33,7 @@ const ProductHome = (props) => {
   return (
     <Container style={customSettings}>
       <div className="header_wrapper">
-        {isProductTypes ? (
-          isMobile ? (
-            <p className="mobile_title">{title}</p>
-          ) : (
-            <BackButton title={title} />
-          )
-        ) : (
-          !isMobile && <BackButton title={title} />
-        )}
+        {!isMobile && <BackButton title={title} />}
         {isProductTypes && (
           <p className="description">
             Explore our diverse collection of metal furniture, curated to suit

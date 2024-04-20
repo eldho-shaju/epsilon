@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { formatText } from "../../../../functions/formatText";
 
@@ -23,6 +23,13 @@ const MobileHeaderTitle = () => {
           icon="material-symbols:arrow-back-ios-new-rounded"
         />
       </button>
+      <Link to="/">
+        <img
+          className="home_button"
+          src="asset\logo\epsilonlogo.png"
+          alt="logo"
+        />
+      </Link>
       {title && <p className="sub_collection">{title}</p>}
     </div>
   );
