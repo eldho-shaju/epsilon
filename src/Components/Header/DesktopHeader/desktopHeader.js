@@ -1,42 +1,50 @@
-import { Link, useLocation } from "react-router-dom";
-import LogoSvgWhite from "../logo/logoSvgWhite";
+import { Link } from "react-router-dom";
+import MobileHeaderTitle from "./MobileHeaderTitle";
+import OffcanvasMenu from "../OffcanvasMenu";
+import MobileMenu from "./MobileMenu";
+import DesktopMenu from "./DesktopMenu";
+import Logo from "../logo";
+import useToggle from "../../../Hooks/useToggle";
 import useScrollToTop from "../../../Hooks/useScrollToTop";
+import useDeviceTypeCheck from "../../../Hooks/useDeviceTypeCheck";
 import "./desktopHeader.scss";
 
 const DesktopHeader = (props) => {
-  const { navMenu } = props;
+  const { navMenu, isHome } = props;
+  const { isMobile } = useDeviceTypeCheck();
   const { handleScrollPosition } = useScrollToTop();
-  const location = useLocation();
+  const { toggle, state, handleClose } = useToggle();
+
+  const handleHomeRoute = () => {
+    handleScrollPosition();
+    if (isMobile) handleClose();
+  };
 
   return (
-    <div className="desktop_header_wrapper">
-      <div className="logo_wrapper">
-        <Link to="/" className="home_link" onClick={handleScrollPosition}>
-          {/* <img className="logo" alt="logo" src={logo} /> */}
-          <LogoSvgWhite />
-        </Link>
+    <>
+      <div className="desktop_header_wrapper">
+        {isMobile && !isHome ? (
+          <MobileHeaderTitle />
+        ) : (
+          <div className="logo_wrapper">
+            <Link to="/" className="home_link" onClick={handleHomeRoute}>
+              <Logo />
+            </Link>
+          </div>
+        )}
+        {isMobile ? (
+          <MobileMenu state={state} toggle={toggle} />
+        ) : (
+          <DesktopMenu navMenu={navMenu} />
+        )}
       </div>
-      <div className="nav_menu_wrapper">
-        {navMenu &&
-          navMenu?.length > 0 &&
-          navMenu?.map((menu) => {
-            const currentPath =
-              location.pathname.includes(menu?.label.toLowerCase()) ||
-              location.pathname === menu.link;
-            const activeTab = currentPath ? "active-page" : "";
-            return (
-              <Link
-                to={menu?.link}
-                key={menu?.id}
-                onClick={handleScrollPosition}
-                className={`nav_links ${activeTab}`}
-              >
-                <span className={`link-text ${activeTab}`}>{menu?.label}</span>
-              </Link>
-            );
-          })}
-      </div>
-    </div>
+      <OffcanvasMenu
+        state={state}
+        toggle={toggle}
+        navMenu={navMenu}
+        handleScrollPosition={handleScrollPosition}
+      />
+    </>
   );
 };
 

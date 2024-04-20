@@ -20,7 +20,6 @@ const useHome = () => {
         const subCollection = await getDocs(collection(db, "homeWidgets"));
         subCollection.forEach((doc) => {
           widgetData = [...widgetData, doc?.data()];
-          // setWidget((prevState) => [...prevState, doc.data()]);
         });
         setWidget(widgetData);
         setToLocalStorage("homeWidgets", widgetData);
@@ -37,12 +36,12 @@ const useHome = () => {
   const banner =
     widget &&
     widget?.length > 0 &&
-    widget?.filter((ele) => ele?.type === "banner");
+    widget?.find((ele) => ele?.type === "banner");
 
   const grid =
     widget &&
     widget?.length > 0 &&
-    widget?.filter((ele) => ele?.type === "four-grid");
+    widget?.find((ele) => ele?.type === "four-grid");
 
   return { grid, banner, loading, error };
 };

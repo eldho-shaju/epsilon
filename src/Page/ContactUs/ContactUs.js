@@ -7,6 +7,24 @@ import Container from "../../Components/Container";
 import useContact from "./useContact";
 import "./ContactUs.scss";
 
+const customSettings = {
+  backgroundColor: "black",
+  color: "white",
+  desktop: {
+    minWidth: 901,
+    margin: "64px 0 0 0",
+  },
+  tablet: {
+    maxWidth: 900,
+    minWidth: 600,
+    margin: "64px 0 0 0",
+  },
+  mobile: {
+    maxWidth: 599,
+    margin: "56px 0 0 0",
+  },
+};
+
 const ContactUs = () => {
   const { data, loading, error } = useContact();
 
@@ -20,10 +38,9 @@ const ContactUs = () => {
     data && data?.length > 0 && data?.find((ele) => ele?.id === "phone");
 
   return (
-    <Container backgroundColor="black">
+    <Container style={customSettings}>
       <div className="contact_page_wrapper">
         <div className="page_description">
-          {/* <h2 className="title">{pageDescription?.title}</h2> */}
           <p className="text">{pageDescription?.content}</p>
         </div>
         <div className="form_wrapper">
@@ -31,7 +48,7 @@ const ContactUs = () => {
             <p>
               <span>What's on</span>
               <span>your mind?</span>
-              <span>
+              <span className="icon">
                 <Icon icon="ic:sharp-double-arrow" />
               </span>
             </p>
@@ -46,7 +63,6 @@ const ContactUs = () => {
                     <a href={`tel:${ele?.link}`} className="phone_number">
                       {ele?.phone}
                     </a>
-                    {/* <br /> */}
                   </Fragment>
                 ))}
             </div>

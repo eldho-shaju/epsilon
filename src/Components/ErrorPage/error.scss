@@ -9,21 +9,20 @@
     height: 100%;
     gap: 1rem;
     position: relative;
-    top: 82px;
 
     .error_icon {
         width: 6rem;
         height: 6rem;
         margin-bottom: 2rem;
-        color: $highlight-color-dark;
+        color: #ff0000;
     }
 
     .error_msg {
-        color: $secondary-color;
         margin-bottom: 1.5rem;
+        text-align: center;
 
         span {
-            color: $highlight-color-dark;
+            color: #ff0000;
             animation: fadeIn 1s forwards;
 
             span:nth-child(1) {
@@ -49,6 +48,7 @@
         gap: 1rem;
 
         .button {
+            background: darkgray;
             border: $secondary-color;
             border-radius: 5px;
             color: $primary-color;
@@ -58,15 +58,15 @@
         }
 
         .home_button:hover {
-            background-color: #a200ff;
+            background-color: $share-button-color;
             color: $secondary-color;
-            box-shadow: rgba(128, 0, 255, 0.463) 0px 48px 100px 0px;
+            box-shadow: rgb(0 0 139) 0px 0px 12px 0px;
         }
 
         .back_button:hover {
-            background-color: #ff4500;
+            background-color: rgb(255, 69, 0);
             color: $secondary-color;
-            box-shadow: rgba(255, 68, 0, 0.457) 0px 48px 100px 0px;
+            box-shadow: rgb(255, 69, 0) 0px 0px 12px 0px;
         }
     }
 }

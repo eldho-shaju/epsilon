@@ -1,9 +1,7 @@
-const LogoSvgWhite = () => {
+const Logo = () => {
   return (
     <svg
       id="SvgjsSvg1001"
-      // width="140"
-      // height="27"
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -15,8 +13,6 @@ const LogoSvgWhite = () => {
           xmlns="http://www.w3.org/2000/svg"
           enableBackground="new 0 0 1400 980"
           viewBox="0 0 429.592 106.48"
-          // width="140"
-          // height="27"
         >
           <rect
             width="429.592"
@@ -167,4 +163,4 @@ const LogoSvgWhite = () => {
   );
 };
 
-export default LogoSvgWhite;
+export default Logo;

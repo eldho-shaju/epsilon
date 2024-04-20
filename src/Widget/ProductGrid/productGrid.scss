@@ -1,0 +1,150 @@
+@use "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+
+.product_grid_wrapper {
+    display: flex;
+    margin-top: 20px;
+
+    .product_container {
+        width: 80%;
+
+        .title {
+            text-align: center;
+            font-size: clamp(20px, 5vw, 25px);
+            font-weight: 400;
+        }
+
+        .item_container {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(120px, 1fr));
+            justify-items: center;
+            margin-top: 2.5rem;
+
+            .items_wrapper {
+                contain: content;
+                display: flex;
+                justify-content: center;
+
+                .item_wrapper_link {
+                    text-decoration: none;
+                    color: $primary-color;
+                    width: unset;
+                    display: contents;
+
+                    .productItem_wrapper {
+                        @include mixins.getSize(130px, 85%, 75%);
+                        padding: 5px;
+                        height: 12.5rem;
+
+                        .img_wrapper {
+                            border-radius: 50%;
+                            contain: content;
+
+                            .product_img {
+                                aspect-ratio: 1;
+                                object-fit: cover;
+                                max-height: 10rem;
+                                width: 100%;
+                            }
+                        }
+
+                        .text_wrapper {
+                            margin-top: 1rem;
+
+                            .product_name {
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .view_all_wrapper {
+        display: inline-flex;
+        justify-content: center;
+        width: 20%;
+        align-items: center;
+
+        .view_all_button {
+            @include mixins.getSize(150px, 150px, 100%);
+            cursor: pointer;
+            text-align: center;
+            font-size: clamp(14px, 1.5vw, 20px);
+            height: fit-content;
+
+            a {
+                text-decoration: none;
+                color: $share-button-color;
+                width: 100%;
+                display: block;
+                padding: 8px 0px;
+                font-weight: 500;
+
+                svg {
+                    transform: rotate(180deg);
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $xs) {
+    .product_grid_wrapper {
+        margin-top: 5px;
+        flex-direction: column;
+        align-items: center;
+
+        .product_container {
+            width: fit-content;
+
+            .item_container {
+                grid-template-columns: repeat(2, minmax(120px, 1fr));
+                column-gap: 2vw;
+                margin-top: 1.5rem;
+                width: fit-content;
+
+                .items_wrapper .item_wrapper_link .productItem_wrapper {
+                    height: unset;
+                }
+            }
+        }
+
+        .view_all_wrapper {
+            width: 100%;
+            margin-top: 1rem;
+
+            .view_all_button {
+                background-color: $share-button-color;
+                font-size: clamp(14px, 1.3vw, 20px);
+
+                a {
+                    color: $secondary-color;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $md) and (min-width: $sm) {
+    .product_grid_wrapper {
+        justify-content: space-around;
+
+        .product_container {
+            width: unset;
+
+            .item_container {
+                grid-template-columns: repeat(2, minmax(120px, 1fr));
+                column-gap: 6vw;
+
+                .items_wrapper .item_wrapper_link .productItem_wrapper {
+                    height: unset;
+                }
+            }
+        }
+    }
+}

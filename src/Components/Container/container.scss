@@ -2,44 +2,24 @@
 
 .component_container {
     position: relative;
-    min-height: calc(100svh - $navbar-height);
-    margin-top: $navbar-height;
-
-    &.white {
-        color: $primary-color;
-        background-color: $secondary-bg-color;
-    }
-
-    &.black {
-        background-color: $primary-bg-color;
-        color: $secondary-color;
-    }
-
-    &.second_widget {
-        margin-top: 0;
-    }
 
     .container_wrapper {
         padding: $container-padding-top-bottom-lg $container-padding-left-right-lg;
         height: 100%;
         width: 100%;
-        min-height: calc(100svh - $navbar-height);
+        min-height: fit-content;
         transition: all 0.3s ease;
     }
 }
 
 @media only screen and (max-width: $xs) {
-    .component_container {
-        .container_wrapper {
-            padding: $container-padding-top-bottom-mob $container-padding-left-right-mob;
-        }
+    .component_container .container_wrapper {
+        padding: $container-padding-top-bottom-mob $container-padding-left-right-mob;
     }
 }
 
 @media only screen and (max-width: $md) and (min-width: $sm) {
-    .component_container {
-        .container_wrapper {
-            padding: $container-padding-top-bottom $container-padding-left-right;
-        }
+    .component_container .container_wrapper {
+        padding: $container-padding-top-bottom $container-padding-left-right;
     }
 }

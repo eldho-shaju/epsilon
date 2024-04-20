@@ -1,54 +1,16 @@
 @import "../../../styles/variables.scss";
 
-.mobile_header {
-    display: inline-flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-
-    .logo_wrapper {
-        height: $logo-mobile;
-
-        .link_wrapper {
-            display: block;
-            height: 100%;
-
-            svg {
-                width: $svg-width-mob;
-                height: 100%;
-                max-width: 200px;
-            }
-        }
-    }
-
-    .nav_menu_wrapper {
-        .hamburger_menu_button {
-            background-color: transparent;
-            border: none;
-            padding: 0;
-
-            .icon {
-                width: 25px;
-                height: 25px;
-            }
-        }
-    }
-}
-
-.offcanvas {
+.custom-offcanvas.offcanvas {
     background-color: $primary-bg-color;
     color: $secondary-color;
     transition: transform 0.3s ease;
 }
 
-.offcanvas.offcanvas-end {
-    top: $navbar-height;
+.custom-offcanvas.offcanvas.offcanvas-end {
+    top: $mob-navbar-height;
     width: 70%;
 
-    .offcanvas-body {
+    .custom-body.offcanvas-body {
         ul {
             list-style: none;
             padding-left: 0;
@@ -60,7 +22,6 @@
                     width: 100%;
                     background-color: transparent;
                     color: $secondary-color;
-                    border-radius: 5px;
                     padding: 10px;
                     border: none;
                     text-align: left;
@@ -80,7 +41,7 @@
     }
 }
 
-.offcanvas-backdrop {
-    top: $navbar-height;
+.fade.offcanvas-backdrop.show {
+    top: $mob-navbar-height;
     transition: opacity 0.3s ease;
 }

@@ -1,9 +1,8 @@
 @import "../../styles/variables.scss";
-@import "~bootstrap/scss/bootstrap";
 
 .navbar {
   height: $navbar-height;
-  position: fixed;
+  position: fixed !important;
   background-color: $secondary-bg-color;
   transition: background-color 0.3s ease;
   z-index: 1;
@@ -11,7 +10,6 @@
   top: 0;
   display: inline-flex;
   justify-content: center;
-  height: fit-content;
   padding: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -69,7 +67,7 @@
   }
 
   .toolbar {
-    padding: $header-padding-top-bottom-mob $header-padding-left-right-lg;
+    padding: 0 $header-padding-left-right-lg;
     width: 100%;
     max-width: $max-width;
   }
@@ -78,7 +76,7 @@
 @media only screen and (max-width: $md) {
   .navbar {
     .toolbar {
-      padding: $header-padding-top-bottom-mob $header-padding-left-right;
+      padding: 0 $header-padding-left-right;
     }
   }
 }
@@ -86,14 +84,19 @@
 @media only screen and (max-width: $xs) {
   .navbar {
     box-shadow: 0 3px 22px rgb(0 0 0 / 22%);
+    height: $mob-navbar-height;
 
     &.home {
       background-color: $secondary-bg-color;
-      height: $navbar-height;
+      box-shadow: 0 3px 22px rgba(0, 0, 0, 0.22);
     }
 
     .toolbar {
-      padding: $header-padding-top-bottom-mob $header-padding-left-right-mob;
+      height: 100%;
+
+      .desktop_header_wrapper .svgShape {
+        filter: invert(0);
+      }
     }
   }
 }

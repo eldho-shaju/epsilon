@@ -2,10 +2,10 @@ import Container from "../../Components/Container/container";
 import "./grid.scss";
 
 const WidgetGrid = ({ grid }) => {
-  const content = grid && grid?.[0]?.content;
+  const content = grid && grid?.content;
 
   return (
-    <Container backgroundColor="white" isSecondWidget>
+    <Container>
       <div className="grid_wrapper">
         {content &&
           content?.length > 0 &&
@@ -17,11 +17,7 @@ const WidgetGrid = ({ grid }) => {
                 className={`grid_item_wrapper ${direction} `}
               >
                 <div className="img_wrapper">
-                  <img
-                    loading="lazy"
-                    className="img"
-                    src={widget?.img?.[0]?.downloadURL}
-                  />
+                  <img className="img" src={widget?.img?.[0]?.downloadURL} />
                 </div>
                 <div className="text_wrapper">
                   <h3 className="title">{widget?.title}</h3>

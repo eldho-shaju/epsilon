@@ -60,4 +60,55 @@
       color: $highlight-color-lite;
     }
   }
+
+  .back_button_wrapper {
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    gap: 3px;
+
+    .back_button {
+      background-color: transparent;
+      color: $primary-color;
+      border: none;
+
+      .back_icon {
+        height: 20px;
+        width: 20px;
+      }
+    }
+
+    .sub_collection {
+      margin-bottom: 0rem;
+      font-size: 18px;
+      margin-top: 2px;
+      text-transform: capitalize;
+      font-weight: 500;
+    }
+  }
+}
+
+@media only screen and (max-width: $xs) {
+  .desktop_header_wrapper {
+    .logo_wrapper {
+      height: $logo-mobile;
+
+      .home_link svg {
+        width: $svg-width-mob;
+      }
+    }
+
+    .nav_menu_wrapper {
+      .hamburger_menu_button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+
+        .icon {
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+  }
 }

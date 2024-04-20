@@ -1,7 +1,6 @@
-import MobileHeader from "./MobileHeader";
 import DesktopHeader from "./DesktopHeader";
-import useHeader from "./useHeader";
 import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
+import useHeader from "./useHeader";
 import "./header.scss";
 
 const Header = () => {
@@ -11,13 +10,9 @@ const Header = () => {
   if (loading) return null;
 
   return (
-    <header id="navbar" className={`navbar ${isHome}`}>
+    <header id="navbar" className={`navbar ${isMobile ? "" : isHome}`}>
       <div className="toolbar">
-        {isMobile ? (
-          <MobileHeader navMenu={data} />
-        ) : (
-          <DesktopHeader navMenu={data} />
-        )}
+        <DesktopHeader navMenu={data} isHome={isHome} />
       </div>
     </header>
   );

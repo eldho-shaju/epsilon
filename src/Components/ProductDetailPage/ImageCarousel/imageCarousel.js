@@ -25,12 +25,9 @@ const ImageCarousel = ({ images }) => {
     <Carousel
       swipeable={true}
       draggable={true}
-      showDots={true}
+      showDots={false}
       responsive={responsive}
       infinite={true}
-      autoPlay={true}
-      removeArrowOnDeviceType={["tablet", "mobile"]}
-      autoPlaySpeed={2500}
       dotListClass="custom-dot-list-style"
       minimumTouchDrag={10}
       itemClass="img-carousel"

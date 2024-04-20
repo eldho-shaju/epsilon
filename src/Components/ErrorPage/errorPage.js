@@ -3,12 +3,31 @@ import { Icon } from "@iconify/react";
 import Container from "../Container/container";
 import "./error.scss";
 
+const customSettings = {
+  height: "calc(100svh - 56px)",
+  // backgroundColor: "black",
+  // color: "white",
+  desktop: {
+    minWidth: 901,
+    margin: "64px 0 0 0",
+  },
+  tablet: {
+    maxWidth: 900,
+    minWidth: 600,
+    margin: "64px 0 0 0",
+  },
+  mobile: {
+    maxWidth: 599,
+    margin: "56px 0 0 0",
+  },
+};
+
 const ErrorPage = (props) => {
   const { errorMsg = "Something went wrong" } = props;
   const navigate = useNavigate();
 
   return (
-    <Container backgroundColor="black">
+    <Container style={customSettings}>
       <div className="error_wrapper">
         <Icon
           icon={"ooui:error"}

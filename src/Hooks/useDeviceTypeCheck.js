@@ -5,7 +5,7 @@ const useDeviceTypeCheck = () => {
 
   useEffect(() => {
     window.addEventListener("resize", function () {
-      if (typeof window !== "undefined") setScreenWidth(window.innerWidth);
+      setScreenWidth(window.innerWidth);
     });
   }, []);
 
@@ -33,9 +33,6 @@ const useDeviceTypeCheck = () => {
     ? true
     : false;
 
-  // window.innerWidth <= 600 || screenWidth <= 600 ? true : false;
-  // const isTablet = screenWidth <= 900 || screenWidth > 600;
-  // const isDesktop = screenWidth > 600;
   return { isMobile, isExtraSmallScreen, isDesktop };
 };
 

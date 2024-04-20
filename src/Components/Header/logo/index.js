@@ -1,1 +1,1 @@
-export { default } from "./logoSvgWhite";
+export { default } from "./logo";

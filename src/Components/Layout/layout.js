@@ -1,9 +1,10 @@
-import React, { Suspense, lazy, useEffect, useState } from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "../../Page/Home";
 import Footer from "../Footer";
 import Header from "../Header";
 import Loader from "../Loader";
+import useGlobalHook from "./useGlobalHook";
 
 const ProductTypes = lazy(() => import("../../Page/ProductTypes"));
 const ProductListing = lazy(() => import("../../Page/ProductListing"));
@@ -13,15 +14,7 @@ const ErrorPage = lazy(() => import("../ErrorPage"));
 const ContactUs = lazy(() => import("../../Page/ContactUs"));
 
 const Layout = () => {
-  const [refresh, setRefresh] = useState(false);
-
-  useEffect(() => {
-    const id = setTimeout(() => setRefresh(true), 6000 * 3600);
-
-    return () => {
-      clearTimeout(id);
-    };
-  }, []);
+  const { refresh } = useGlobalHook();
 
   return (
     <>

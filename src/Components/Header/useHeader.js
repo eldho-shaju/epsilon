@@ -2,14 +2,11 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseSdk";
-import { useRecoilState } from "recoil";
-import { bannerImg } from "../../Recoil/imageAtom";
 
 const useHeader = (isMobile) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
-  const [isBannerLoaded] = useRecoilState(bannerImg);
 
   const isHome = location?.pathname === "/" ? "home" : "";
 
@@ -33,9 +30,9 @@ const useHeader = (isMobile) => {
     if (!isMobile && !!isHome) {
       const handleScroll = () => {
         const navbar = document.getElementById("navbar");
-        if (window.scrollY > 70) {
+        if (window.scrollY > 70 && navbar) {
           navbar.classList.add("scrolled");
-        } else {
+        } else if (navbar) {
           navbar.classList.remove("scrolled");
         }
       };

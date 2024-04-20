@@ -1,6 +1,6 @@
-import "./App.scss";
-import Layout from "./Components/Layout";
 import { RecoilRoot } from "recoil";
+import Layout from "./Components/Layout";
+import "./App.scss";
 
 function App() {
   return (

@@ -1,5 +1,4 @@
 @import "../../styles/variables.scss";
-// @use "../../styles/mixins.scss";
 
 .contact_page_wrapper {
   display: flex;
@@ -12,7 +11,8 @@
 
     .text {
       text-align: justify;
-      font-size: clamp(14px, 1.8vw, 20px);
+      font-size: clamp(14px, 1.5vw, 20px);
+      font-weight: 100;
     }
   }
 
@@ -28,12 +28,12 @@
       width: 30%;
 
       p {
-        // @include mixins.font-size(8vw, 54px);
-        font-size: clamp(18px, 8vw, 54px);
+        font-size: clamp(18px, 5vw, 54px);
+        line-height: 5rem;
 
         svg {
-          // @include mixins.font-size(10vw, 100px);
           font-size: clamp(10px, 10vw, 100px);
+          margin-top: 2rem;
         }
       }
 
@@ -64,10 +64,14 @@
         white-space: pre;
       }
 
-      .phone_number {
-        text-decoration: none;
-        color: $primary-color;
-        font-size: clamp(18px, 6.5vw, 44px);
+      .phone_number_box {
+        line-height: 4rem;
+
+        .phone_number {
+          text-decoration: none;
+          color: $primary-color;
+          font-size: clamp(18px, 6.5vw, 44px);
+        }
       }
     }
   }
@@ -105,10 +109,16 @@
         span svg {
           transform: rotate(90deg);
         }
+
       }
 
       .phone_number_wrapper {
         width: 80%;
+
+        .phone_number_box {
+          line-height: 10vw;
+
+        }
       }
     }
   }

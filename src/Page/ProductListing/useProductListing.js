@@ -6,6 +6,7 @@ import {
   getFromLocalStorage,
   setToLocalStorage,
 } from "../../functions/localStorage";
+import { formatText } from "../../functions/formatText";
 
 const useProductListing = () => {
   const { type } = useParams();
@@ -17,12 +18,6 @@ const useProductListing = () => {
   const dataLength = data?.length > 0;
   const [loading, setLoading] = useState(!!dataLength === false);
   const [error, setError] = useState(false);
-
-  function formatText(subCollection) {
-    let cleanedText = subCollection && subCollection?.replace(/[-]/g, " ");
-    return cleanedText;
-  }
-
   const formattedText = subCollection && formatText(subCollection);
 
   useEffect(() => {

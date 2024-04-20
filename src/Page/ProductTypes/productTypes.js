@@ -9,9 +9,7 @@ const ProductTypes = () => {
   if (error) return <ErrorPage />;
   if (loading) return <Loader />;
 
-  return (
-    <ProductHome data={data} isProductTypeList title="Diverse Collection" />
-  );
+  return <ProductHome data={data} isProductTypes title="Diverse Collections" />;
 };
 
 export default ProductTypes;

@@ -1,7 +1,7 @@
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import "../../header.scss";
+import "./offcanvas.scss";
 
 const OffCanvasMenu = (props) => {
   const { state, toggle, navMenu, handleScrollPosition } = props;
@@ -15,8 +15,13 @@ const OffCanvasMenu = (props) => {
   };
 
   return (
-    <Offcanvas show={state} onHide={toggle} placement="end">
-      <Offcanvas.Body>
+    <Offcanvas
+      show={state}
+      onHide={toggle}
+      placement="end"
+      className="custom-offcanvas"
+    >
+      <Offcanvas.Body className="custom-body">
         <ul>
           {navMenu?.map((text) => {
             const activeTab =

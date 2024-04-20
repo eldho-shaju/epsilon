@@ -1,20 +1,48 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import BackButton from "../BackButton/BackButton";
 import ProductItem from "../ProductItem/ProductItem";
 import Container from "../Container/container";
 import useScrollToTop from "../../Hooks/useScrollToTop";
+import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
 import "./productHome.scss";
-import { memo } from "react";
+
+const customSettings = {
+  backgroundColor: "black",
+  color: "white",
+  desktop: {
+    minWidth: 901,
+    margin: "64px 0 0 0",
+  },
+  tablet: {
+    maxWidth: 900,
+    minWidth: 600,
+    margin: "64px 0 0 0",
+  },
+  mobile: {
+    maxWidth: 599,
+    margin: "56px 0 0 0",
+  },
+};
 
 const ProductHome = (props) => {
-  const { data, isProductTypeList, title, productType, isListing } = props;
+  const { data, isProductTypes, title, productType, isListing } = props;
   const { handleScrollPosition } = useScrollToTop();
+  const { isMobile } = useDeviceTypeCheck();
 
   return (
-    <Container backgroundColor="black">
+    <Container style={customSettings}>
       <div className="header_wrapper">
-        <BackButton title={title} />
-        {isProductTypeList && (
+        {isProductTypes ? (
+          isMobile ? (
+            <p className="mobile_title">{title}</p>
+          ) : (
+            <BackButton title={title} />
+          )
+        ) : (
+          !isMobile && <BackButton title={title} />
+        )}
+        {isProductTypes && (
           <p className="description">
             Explore our diverse collection of metal furniture, curated to suit
             various tastes and preferences. From sleek and modern designs to

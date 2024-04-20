@@ -1,5 +1,5 @@
 @import "./variables.scss";
 
-@mixin font-size($min-size, $max-size ) {
-    font-size: min($min-size, $max-size);
+@mixin getSize($minSize, $maxSize, $defaultSize) {
+    width: max($minSize, min($maxSize, $defaultSize));
 }

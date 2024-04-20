@@ -6,19 +6,37 @@ import ErrorPage from "../ErrorPage";
 import ContactButtons from "./ContactButtons";
 import useProductDetails from "./useProductDetails";
 import "./detail.scss";
+import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
+
+const customSettings = {
+  desktop: {
+    minWidth: 901,
+    margin: "64px 0 0 0",
+  },
+  tablet: {
+    maxWidth: 900,
+    minWidth: 600,
+    margin: "64px 0 0 0",
+  },
+  mobile: {
+    maxWidth: 599,
+    margin: "56px 0 0 0",
+  },
+};
 
 const ProductDetail = () => {
   const { data, loading, error } = useProductDetails();
+  const { isMobile } = useDeviceTypeCheck();
 
   if (loading) return <Loader />;
   if (error) return <ErrorPage />;
 
-  const [item] = data && data;
+  const item = data && data?.[0];
   const url = window.location.href;
 
   return (
-    <Container backgroundColor="black">
-      <BackButton title="Back to list" isDetailPage />
+    <Container style={customSettings}>
+      {!isMobile && <BackButton title="Back to list" isDetailPage />}
       <div className="detail_main_wrap">
         <div className="img_wrap">
           {item?.image && item?.image?.length > 1 ? (
