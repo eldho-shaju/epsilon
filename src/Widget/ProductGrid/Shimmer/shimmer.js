@@ -26,7 +26,7 @@ const Shimmer = () => {
         <div className="product_container">
           <p className="title">Our collections</p>
           <div className="item_container">
-            {[...Array(4)]?.map((index) => (
+            {[...Array(4)]?.map((val, index) => (
               <div className="items_wrapper" key={index}>
                 <div className="item_wrapper_link">
                   <div className={`productItem_wrapper`}>

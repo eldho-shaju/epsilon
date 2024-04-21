@@ -8,5 +8,5 @@ export const getPosition = atom({
 
 export const bannerImg = atom({
   key: ` banner_${generateUniqueId()}`,
-  default: "",
+  default: false,
 });
