@@ -1,7 +1,7 @@
 import Banner from "../../Widget/Banner";
-import ErrorPage from "../../Components/ErrorPage";
-import ProductGrid from "../../Widget/ProductGrid/proxductGrid";
+import ProductGrid from "../../Widget/ProductGrid";
 import Grid from "../../Widget/Grid";
+import ErrorPage from "../../Components/ErrorPage";
 import useHome from "./useHome";
 
 const HomePage = () => {
