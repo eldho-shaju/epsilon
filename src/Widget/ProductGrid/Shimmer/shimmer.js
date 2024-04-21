@@ -1,7 +1,6 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import "./shimmer.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import Container from "../../../Components/Container/container";
+import "./shimmer.scss";
 
 const customSettings = {
   desktop: {
@@ -21,7 +20,7 @@ const customSettings = {
 
 const Shimmer = () => {
   return (
-    <Container>
+    <Container style={customSettings}>
       <div className="product_grid_wrapper">
         <div className="product_container">
           <p className="title">Our collections</p>

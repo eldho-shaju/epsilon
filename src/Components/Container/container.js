@@ -8,17 +8,20 @@ const StyledSection = styled.section`
       props?.style?.desktop?.minWidth || "unset"}px) {
     margin: ${(props) => props?.style?.desktop?.margin || "0 0 0 0"};
     min-height: ${(props) => props?.style?.desktop?.minHeight || "fit-content"};
+    height: ${(props) => props?.style?.desktop?.height || "fit-content"};
   }
   @media only screen and (min-width: ${(props) =>
       props?.style?.tablet?.minWidth || "unset"}px) and (max-width: ${(props) =>
       props?.style?.tablet?.maxWidth || "unset"}px) {
     margin: ${(props) => props?.style?.tablet?.margin || "0 0 0 0"};
     min-height: ${(props) => props?.style?.tablet?.minHeight || "fit-content"};
+    height: ${(props) => props?.style?.tablet?.height || "fit-content"};
   }
   @media only screen and (max-width: ${(props) =>
       props?.style?.mobile?.maxWidth || "unset"}px) {
     margin: ${(props) => props?.style?.mobile?.margin || "0 0 0 0"};
     min-height: ${(props) => props?.style?.mobile?.minHeight || "fit-content"};
+    height: ${(props) => props?.style?.mobile?.height || "fit-content"};
   }
 `;
 

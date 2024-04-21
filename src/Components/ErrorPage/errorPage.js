@@ -7,18 +7,18 @@ const customSettings = {
   desktop: {
     minWidth: 901,
     margin: "64px 0 0 0",
-    minHeight: "calc(100svh - 64px)",
+    height: "calc(100svh - 64px)",
   },
   tablet: {
     maxWidth: 900,
     minWidth: 600,
     margin: "64px 0 0 0",
-    minHeight: "calc(100svh - 64px)",
+    height: "calc(100svh - 64px)",
   },
   mobile: {
     maxWidth: 599,
     margin: "56px 0 0 0",
-    minHeight: "calc(100svh - 56px)",
+    height: "calc(100svh - 56px)",
   },
 };
 

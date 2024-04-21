@@ -10,7 +10,7 @@ const useHome = () => {
   const cachedData = JSON.parse(getFromLocalStorage(`homeWidgets`));
   const [widget, setWidget] = useState(cachedData || []);
   const dataLength = widget?.length > 0;
-  const [loading, setLoading] = useState(!!dataLength === false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -30,7 +30,11 @@ const useHome = () => {
         setLoading(false);
       }
     };
-    if (!!dataLength === false) fetchData();
+    if (!!dataLength) {
+      setLoading(false);
+    } else {
+      fetchData();
+    }
   }, []);
 
   const banner =
