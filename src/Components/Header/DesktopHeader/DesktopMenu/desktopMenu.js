@@ -1,9 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import useScrollToTop from "../../../../Hooks/useScrollToTop";
+import Shimmer from "./Shimmer/shimmer";
 
-const DesktopMenu = ({ navMenu }) => {
+const DesktopMenu = (props) => {
+  const { navMenu, loading } = props;
   const location = useLocation();
   const { handleScrollPosition } = useScrollToTop();
+
+  if (loading) return <Shimmer />;
 
   return (
     <div className="nav_menu_wrapper">

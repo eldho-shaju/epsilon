@@ -1,13 +1,17 @@
 import { Form, Input, TextArea, useFormApi } from "informed";
 import "./contactForm.scss";
 
-const ContactusForm = () => {
+const ContactusForm = ({ primaryNumber }) => {
   const formApiRef = useFormApi();
+
+  const whatsAppNumber = primaryNumber && primaryNumber?.link?.replace("+", "");
 
   const handleSubmit = (formValue) => {
     const { values } = formValue;
-    const whatsappMessage = `Hi, I'm ${values.name} from ${values.place}.%0AI want to know that ${values.message}`;
-    const whatsappURL = `https://api.whatsapp.com/send?phone=919605523721&text=${whatsappMessage}`;
+    const whatsappMessage = `Hi, I'm ${values?.name} from ${values?.place}. 
+${values?.message}`;
+
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsAppNumber}&text=${whatsappMessage}`;
 
     window.open(whatsappURL, "_blank");
     formApiRef.current.reset();

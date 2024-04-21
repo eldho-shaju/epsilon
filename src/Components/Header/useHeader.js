@@ -25,7 +25,7 @@ const useHeader = (isMobile) => {
         setLoading(false);
       }
     };
-    if (db && !dataLength) fetchData();
+    if (db && data?.length === 0) fetchData();
 
     if (!isMobile && !!isHome) {
       const handleScroll = () => {

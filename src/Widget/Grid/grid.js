@@ -1,8 +1,12 @@
 import Container from "../../Components/Container/container";
+import Shimmer from "./Shimmer";
 import "./grid.scss";
 
-const WidgetGrid = ({ grid }) => {
+const WidgetGrid = (props) => {
+  const { grid, loading } = props;
   const content = grid && grid?.content;
+
+  if (loading) return <Shimmer />;
 
   return (
     <Container>

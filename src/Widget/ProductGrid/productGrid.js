@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react/dist/iconify.js";
 import Container from "../../Components/Container/container";
 import useProductTypes from "../../Page/ProductTypes/useProductTypes";
 import useScrollToTop from "../../Hooks/useScrollToTop";
+import Shimmer from "./Shimmer";
 import "./productGrid.scss";
-import { Icon } from "@iconify/react/dist/iconify.js";
 
 const customSettings = {
   desktop: {
@@ -24,6 +25,9 @@ const customSettings = {
 const ProductGrid = () => {
   const { data, loading, error } = useProductTypes();
   const { handleScrollPosition } = useScrollToTop();
+
+  if (error) return null;
+  if (loading) return <Shimmer />;
 
   return (
     <Container style={customSettings}>

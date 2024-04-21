@@ -18,7 +18,7 @@
     }
 }
 
-@media only screen and (max-width: $md) and (min-width: $sm) {
+@media only screen and (max-width: $md) and (min-width: $xs) {
     .component_container .container_wrapper {
         padding: $container-padding-top-bottom $container-padding-left-right;
     }

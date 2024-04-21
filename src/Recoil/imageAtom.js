@@ -1,9 +1,9 @@
 import { atom } from "recoil";
 import { generateUniqueId } from "../functions/generateUniqueId";
 
-export const bannerImgUrl = atom({
-  key: ` banner_${generateUniqueId()}`,
-  default: "",
+export const getPosition = atom({
+  key: ` getPosition_${generateUniqueId()}`,
+  default: false,
 });
 
 export const bannerImg = atom({

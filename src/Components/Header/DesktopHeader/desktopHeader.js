@@ -10,7 +10,7 @@ import useDeviceTypeCheck from "../../../Hooks/useDeviceTypeCheck";
 import "./desktopHeader.scss";
 
 const DesktopHeader = (props) => {
-  const { navMenu, isHome } = props;
+  const { navMenu, isHome, loading } = props;
   const { isMobile } = useDeviceTypeCheck();
   const { handleScrollPosition } = useScrollToTop();
   const { toggle, state, handleClose } = useToggle();
@@ -35,7 +35,7 @@ const DesktopHeader = (props) => {
         {isMobile ? (
           <MobileMenu state={state} toggle={toggle} />
         ) : (
-          <DesktopMenu navMenu={navMenu} />
+          <DesktopMenu navMenu={navMenu} loading={loading} />
         )}
       </div>
       <OffcanvasMenu

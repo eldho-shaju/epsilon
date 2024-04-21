@@ -1,43 +1,39 @@
 import { useRef } from "react";
-import { useRecoilState } from "recoil";
-import { bannerImg } from "../../Recoil/imageAtom";
-import "./banner.scss";
 import { Link } from "react-router-dom";
+import useComponentPosition from "../../Hooks/useComponentPosition";
+import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
+import "./banner.scss";
 
 const Banner = (props) => {
-  const { banner } = props;
+  const { banner, loading } = props;
   const imageRef = useRef(null);
-  const [isBannerLoaded, setIsBannerLoaded] = useRecoilState(bannerImg);
+  const { firstComponentRef } = useComponentPosition();
+  const { isMobile } = useDeviceTypeCheck();
 
   const desktopImg = banner && banner?.bannerImg?.[0]?.downloadURL;
 
   const handleImageLoad = () => {
-    setIsBannerLoaded(true);
+    if (isMobile === false) setIsBannerLoaded(true);
   };
 
   return (
-    <section className="banner_container">
+    <section ref={firstComponentRef} className="banner_container">
       <div className="banner_wrapper">
         <Link className="banner_link" to="/product-type">
           <div className="banner_img_wrapper">
             <img
-              src={desktopImg}
+              src={loading ? "asset/banner/banner.jpg" : desktopImg}
               className="banner_single_img"
               alt="banner"
               ref={imageRef}
               onLoad={handleImageLoad}
             />
-            {isBannerLoaded === false && (
-              <img
-                src={"asset/banner/banner.jpg"}
-                className="banner_single_img"
-                alt="banner"
-              />
-            )}
           </div>
-          <div className="banner_text_wrapper">
-            <p className="banner_text">{banner?.text}</p>
-          </div>
+          {banner?.text && (
+            <div className="banner_text_wrapper">
+              <p className="banner_text">{banner?.text}</p>
+            </div>
+          )}
         </Link>
       </div>
     </section>

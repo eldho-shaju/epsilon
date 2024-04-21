@@ -37,6 +37,11 @@ const ContactUs = () => {
   const phone =
     data && data?.length > 0 && data?.find((ele) => ele?.id === "phone");
 
+  const primaryNumber =
+    phone &&
+    phone?.data?.length > 0 &&
+    phone?.data?.find((ele) => ele?.preference === "primary");
+
   return (
     <Container style={customSettings}>
       <div className="contact_page_wrapper">
@@ -78,7 +83,7 @@ const ContactUs = () => {
               </span>
             </p>
           </div>
-          <ContactusForm />
+          <ContactusForm primaryNumber={primaryNumber} />
         </div>
       </div>
     </Container>
