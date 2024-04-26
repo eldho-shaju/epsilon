@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebaseSdk";
 import {
   getFromLocalStorage,
   setToLocalStorage,
 } from "../../functions/localStorage";
+import useGetData from "../../Hooks/useGetData";
 
 const useHome = () => {
+  const { getData } = useGetData();
   const cachedData = JSON.parse(getFromLocalStorage(`homeWidgets`));
   const [widget, setWidget] = useState(cachedData || []);
   const dataLength = widget?.length > 0;
@@ -16,13 +16,11 @@ const useHome = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let widgetData = [];
-        const subCollection = await getDocs(collection(db, "homeWidgets"));
-        subCollection.forEach((doc) => {
-          widgetData = [...widgetData, doc?.data()];
-        });
-        setWidget(widgetData);
-        setToLocalStorage("homeWidgets", widgetData);
+        const widgetData = await getData("homeWidgets");
+        if (widgetData) {
+          setWidget(widgetData);
+          setToLocalStorage("homeWidgets", widgetData);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(true);
@@ -38,16 +36,18 @@ const useHome = () => {
   }, []);
 
   const banner =
-    widget &&
-    widget?.length > 0 &&
-    widget?.find((ele) => ele?.type === "banner");
+    (widget &&
+      widget?.length > 0 &&
+      widget?.find((ele) => ele?.type === "banner")) ||
+    {};
 
   const grid =
-    widget &&
-    widget?.length > 0 &&
-    widget?.find((ele) => ele?.type === "four-grid");
+    (widget &&
+      widget?.length > 0 &&
+      widget?.find((ele) => ele?.type === "four-grid")) ||
+    {};
 
-  return { grid, banner, loading, error };
+  return { grid, banner, loading, error, widget };
 };
 
 export default useHome;

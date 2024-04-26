@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import useComponentPosition from "../../Hooks/useComponentPosition";
 import "./banner.scss";
-import Shimmer from "./Shimmer/shimmer";
+// import Shimmer from "./Shimmer/shimmer";
 
 const Banner = (props) => {
   const { banner, loading } = props;
@@ -13,6 +13,8 @@ const Banner = (props) => {
 
   // if (loading) return <Shimmer />;
 
+  const src = loading || !desktopImg ? "asset/banner/banner.jpg" : desktopImg;
+
   return (
     <section ref={firstComponentRef} className="banner_container">
       <div className="banner_wrapper">
@@ -20,7 +22,7 @@ const Banner = (props) => {
           <div className="banner_img_wrapper">
             <link rel="preload" as="image" href="asset/banner/banner.jpg" />
             <img
-              src={loading ? "asset/banner/banner.jpg" : desktopImg}
+              src={src}
               className="banner_single_img"
               alt="banner"
               ref={imageRef}

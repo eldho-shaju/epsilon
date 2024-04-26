@@ -31,7 +31,6 @@
     .nav_links {
       text-decoration: none;
       color: $primary-color;
-      font-weight: 500;
 
       .link-text {
         display: inline-block;
@@ -58,6 +57,7 @@
 
     .active-page {
       color: $highlight-color-lite;
+      font-weight: 500;
     }
   }
 }

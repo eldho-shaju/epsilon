@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import Container from "../Container/container";
 import "./error.scss";
+import { useEffect } from "react";
 
 const customSettings = {
   desktop: {
@@ -25,6 +26,19 @@ const customSettings = {
 const ErrorPage = (props) => {
   const { errorMsg = "Something went wrong" } = props;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const navbar = document.getElementById("navbar");
+    if (navbar) {
+      navbar.classList.add("error");
+    } else if (navbar) {
+      navbar.classList.remove("error");
+    }
+
+    return () => {
+      if (navbar) navbar.classList.remove("error");
+    };
+  }, []);
 
   return (
     <Container style={customSettings}>

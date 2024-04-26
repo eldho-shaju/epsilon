@@ -29,7 +29,7 @@ const ContactUs = () => {
   const { data, loading, error } = useContact();
 
   if (loading && !error) return <Loader />;
-  if (error) return <ErrorPage />;
+  if (error || (!loading && data?.length === 0)) return <ErrorPage />;
 
   const pageDescription =
     data && data?.length > 0 && data?.find((ele) => ele?.id === "page_desc");

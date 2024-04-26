@@ -60,11 +60,27 @@
         }
       }
     }
+
+    &.error {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      .toolbar .desktop_header_wrapper {
+        .svgShape {
+          filter: invert(0);
+        }
+
+        .nav_menu_wrapper .nav_links {
+          color: $primary-color;
+        }
+      }
+    }
   }
 
   .toolbar .desktop_header_wrapper .nav_menu_wrapper .nav_links {
     color: $primary-color;
   }
+
+
 
   .toolbar {
     padding: 0 $header-padding-left-right-lg;

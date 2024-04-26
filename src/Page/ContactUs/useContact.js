@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebaseSdk";
 import {
   getFromLocalStorage,
   setToLocalStorage,
 } from "../../functions/localStorage";
+import useGetData from "../../Hooks/useGetData";
 
 const useContact = () => {
+  const { getData } = useGetData();
   const cachedData = JSON.parse(getFromLocalStorage(`contactUs`));
   const [data, setData] = useState(cachedData || []);
   const dataLength = data?.length > 0;
@@ -16,17 +16,11 @@ const useContact = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let data = [];
-        const querySnapshot = await getDocs(collection(db, "contact"));
-        if (querySnapshot?.empty) {
-          setError(true);
-        } else {
-          querySnapshot.forEach((doc) => {
-            data = [...data, doc?.data()];
-          });
+        const data = await getData("contact");
+        if (data) {
+          setData(data);
+          setToLocalStorage(`contactUs`, data);
         }
-        setData(data);
-        setToLocalStorage(`contactUs`, data);
       } catch (e) {
         console.log(error);
         setError(true);

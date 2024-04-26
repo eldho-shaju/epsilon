@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebaseSdk";
 import {
   getFromLocalStorage,
   setToLocalStorage,
 } from "../../functions/localStorage";
+import useGetData from "../../Hooks/useGetData";
 
 const useProductTypes = () => {
+  const { getData } = useGetData();
   const cachedData = JSON.parse(getFromLocalStorage("productTypes"));
   const [data, setData] = useState(cachedData || []);
   const dataLength = data?.length > 0;
@@ -16,15 +16,8 @@ const useProductTypes = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let productTypes = [];
-        const querySnapshot = await getDocs(collection(db, "product-type"));
-
-        if (querySnapshot?.empty) {
-          setError(true);
-        } else {
-          querySnapshot.forEach((doc) => {
-            productTypes = [...productTypes, doc.data()];
-          });
+        const productTypes = await getData("product-type");
+        if (productTypes) {
           setData(productTypes);
           setToLocalStorage("productTypes", productTypes);
         }

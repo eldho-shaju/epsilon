@@ -8,7 +8,7 @@ const AboutUs = () => {
   const { data, loading, error } = useAbout();
 
   if (loading) return <Loader />;
-  if (error) return <ErrorPage />;
+  if (error || (!loading && data?.length === 0)) return <ErrorPage />;
 
   return (
     <section className="about_container">

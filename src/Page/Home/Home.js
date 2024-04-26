@@ -5,9 +5,10 @@ import ErrorPage from "../../Components/ErrorPage";
 import useHome from "./useHome";
 
 const HomePage = () => {
-  const { grid, banner, loading, error } = useHome();
+  const { grid, banner, loading, error, widget } = useHome();
 
-  if (error) return <ErrorPage errorMsg="Something went wrong" />;
+  if (error || (!loading && widget?.length === 0))
+    return <ErrorPage errorMsg="Something went wrong" />;
 
   return (
     <>
