@@ -10,8 +10,6 @@ const useHeader = (isMobile) => {
 
   const isHome = location?.pathname === "/" ? "home" : "";
 
-  const dataLength = data?.length > 0;
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,8 +23,13 @@ const useHeader = (isMobile) => {
         setLoading(false);
       }
     };
-    if (db && data?.length === 0) fetchData();
 
+    if (db && data?.length === 0) {
+      fetchData();
+    }
+  }, []);
+
+  useEffect(() => {
     if (!isMobile && !!isHome) {
       const handleScroll = () => {
         const navbar = document.getElementById("navbar");
@@ -43,7 +46,7 @@ const useHeader = (isMobile) => {
         window.removeEventListener("scroll", handleScroll);
       };
     }
-  }, [isMobile, isHome, dataLength]);
+  }, [isMobile, isHome]);
 
   return { data, loading, isHome };
 };

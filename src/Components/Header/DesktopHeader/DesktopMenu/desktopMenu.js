@@ -10,7 +10,7 @@ const DesktopMenu = (props) => {
   if (loading) return <Shimmer />;
 
   return (
-    <div className="nav_menu_wrapper">
+    <nav className="nav_menu_wrapper">
       {navMenu &&
         navMenu?.length > 0 &&
         navMenu?.map((menu) => {
@@ -29,7 +29,7 @@ const DesktopMenu = (props) => {
             </Link>
           );
         })}
-    </div>
+    </nav>
   );
 };
 

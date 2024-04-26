@@ -21,20 +21,22 @@ const Layout = () => {
       <BrowserRouter forceRefresh={refresh}>
         <Header />
         <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/contact-us" element={<ContactUs />} />
-            <Route path="/product-type" element={<ProductTypes />} />
-            <Route path="/product-type/:type" element={<ProductListing />} />
-            <Route path="/:type/:detail" element={<ProductDetail />} />
-            <Route
-              path="*"
-              element={
-                <ErrorPage errorMsg="Page you are looking for is not found" />
-              }
-            />
-          </Routes>
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/product-type" element={<ProductTypes />} />
+              <Route path="/product-type/:type" element={<ProductListing />} />
+              <Route path="/:type/:detail" element={<ProductDetail />} />
+              <Route
+                path="*"
+                element={
+                  <ErrorPage errorMsg="Page you are looking for is not found" />
+                }
+              />
+            </Routes>
+          </main>
         </Suspense>
       </BrowserRouter>
       <Footer />
