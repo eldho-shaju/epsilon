@@ -1,3 +1,4 @@
+import { Image } from "react-bootstrap";
 import DOMPurify from "dompurify";
 import Loader from "../../Components/Loader";
 import ErrorPage from "../../Components/ErrorPage";
@@ -20,27 +21,32 @@ const AboutUs = () => {
               data?.type === "with-img" && data?.img?.[0]?.downloadURL;
             return (
               <div key={data.id} className={`content_wrapper ${data?.type}`}>
-                {banner && (
-                  <div className="img_wrapper">
-                    <img
-                      src={banner}
-                      alt="about-us banner"
-                      className="banner"
-                    />
-                  </div>
-                )}
-                <div className="para_wrapper">
-                  <h1 className="title">{data?.title}</h1>
-                  {data?.type === "multi-para" ? (
-                    <div
-                      className="text"
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(data?.content),
-                      }}
-                    />
-                  ) : (
-                    <p className="text">{data?.content}</p>
+                <div className="contents">
+                  {banner && (
+                    <div className="img_wrapper">
+                      <Image
+                        src={banner}
+                        alt="about-us banner"
+                        className="banner"
+                        onError={(e) =>
+                          (e.target.src = "asset/logo/about_banner.jpg")
+                        }
+                      />
+                    </div>
                   )}
+                  <div className="para_wrapper">
+                    <h1 className="title">{data?.title}</h1>
+                    {data?.type === "multi-para" ? (
+                      <div
+                        className="text"
+                        dangerouslySetInnerHTML={{
+                          __html: DOMPurify.sanitize(data?.content),
+                        }}
+                      />
+                    ) : (
+                      <p className="text">{data?.content}</p>
+                    )}
+                  </div>
                 </div>
               </div>
             );

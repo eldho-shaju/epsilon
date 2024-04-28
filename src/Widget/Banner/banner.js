@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useComponentPosition from "../../Hooks/useComponentPosition";
 import "./banner.scss";
@@ -21,11 +22,12 @@ const Banner = (props) => {
         <Link className="banner_link" to="/product-type">
           <div className="banner_img_wrapper">
             <link rel="preload" as="image" href="asset/banner/banner.jpg" />
-            <img
+            <Image
               src={src}
               className="banner_single_img"
               alt="banner"
               ref={imageRef}
+              onError={(e) => (e.target.src = "asset/banner/banner.jpg")}
             />
           </div>
           {banner?.text && (

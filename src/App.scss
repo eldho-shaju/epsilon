@@ -14,5 +14,11 @@ body {
 }
 
 main {
-  min-height: 100svh;
+  min-height: calc(100svh - $navbar-height);
+}
+
+@media only screen and (max-width: $xs) {
+  main {
+    min-height: calc(100svh - $navbar-height);
+  }
 }

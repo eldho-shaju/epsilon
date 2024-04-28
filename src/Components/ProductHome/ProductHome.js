@@ -1,7 +1,6 @@
-import { memo } from "react";
 import { Link } from "react-router-dom";
 import BackButton from "../BackButton/BackButton";
-import ProductItem from "../ProductItem/ProductItem";
+import ProductItem from "../ProductItem";
 import Container from "../Container/container";
 import useScrollToTop from "../../Hooks/useScrollToTop";
 import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
@@ -35,34 +34,43 @@ const ProductHome = (props) => {
 
   return (
     <Container style={customSettings}>
-      <div className="header_wrapper">
-        {!isMobile && <BackButton title={title} />}
-        {isProductTypes && (
-          <p className="description">
-            Explore our diverse collection of metal furniture, curated to suit
-            various tastes and preferences. From sleek and modern designs to
-            industrial and rustic styles, we offer a wide range of options to
-            complement any interior aesthetic. Our collection includes:
-          </p>
-        )}
-      </div>
-      <div className={`type_grid_wrapper ${isListing ? "listing" : ""}`}>
-        {data &&
-          data.length !== 0 &&
-          data?.map((type) => (
-            <div className="items_wrapper" key={type?.id}>
-              <Link
-                className="item_wrapper_link"
-                onClick={handleScrollPosition}
-                to={productType ? `/:${productType}/${type?.link}` : type?.link}
-              >
-                <ProductItem product={type} isListing={isListing} />
-              </Link>
-            </div>
-          ))}
+      <div className="product_home_container">
+        <div className="product_home_wrapper">
+          <div className="header_wrapper">
+            {!isMobile && <BackButton title={title} />}
+            {isProductTypes && (
+              <p className="description">
+                Explore our diverse collection of metal furniture, curated to
+                suit various tastes and preferences. From sleek and modern
+                designs to industrial and rustic styles, we offer a wide range
+                of options to complement any interior aesthetic. Our collection
+                includes:
+              </p>
+            )}
+          </div>
+          <div className={`type_grid_wrapper ${isListing ? "listing" : ""}`}>
+            {data &&
+              data.length !== 0 &&
+              data?.map((type) => (
+                <div className="items_wrapper" key={type?.id}>
+                  <Link
+                    className="item_wrapper_link"
+                    onClick={handleScrollPosition}
+                    to={
+                      productType
+                        ? `/:${productType}/${type?.link}`
+                        : type?.link
+                    }
+                  >
+                    <ProductItem product={type} isListing={isListing} />
+                  </Link>
+                </div>
+              ))}
+          </div>
+        </div>
       </div>
     </Container>
   );
 };
 
-export default memo(ProductHome);
+export default ProductHome;

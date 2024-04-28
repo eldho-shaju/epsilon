@@ -1,3 +1,4 @@
+import { Image } from "react-bootstrap";
 import Container from "../../Components/Container/container";
 import Shimmer from "./Shimmer";
 import "./grid.scss";
@@ -21,7 +22,13 @@ const WidgetGrid = (props) => {
                 className={`grid_item_wrapper ${direction} `}
               >
                 <div className="img_wrapper">
-                  <img className="img" src={widget?.img?.[0]?.downloadURL} />
+                  <Image
+                    className="img"
+                    src={widget?.img?.[0]?.downloadURL}
+                    onError={(e) =>
+                      (e.target.src = "asset/banner/placeholder.png")
+                    }
+                  />
                 </div>
                 <div className="text_wrapper">
                   <h3 className="title">{widget?.title}</h3>

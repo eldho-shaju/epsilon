@@ -1,4 +1,4 @@
-import React from "react";
+import { Image } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -33,7 +33,12 @@ const ImageCarousel = ({ images }) => {
       itemClass="img-carousel"
     >
       {images?.map((img, index) => (
-        <img key={index} src={img?.downloadURL} className="img_carousel" />
+        <Image
+          key={index}
+          src={img?.downloadURL}
+          className="img_carousel"
+          onError={(e) => (e.target.src = "asset/banner/placeholder.png")}
+        />
       ))}
     </Carousel>
   );

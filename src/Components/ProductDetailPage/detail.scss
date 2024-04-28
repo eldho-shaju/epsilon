@@ -1,152 +1,162 @@
 @import "../../styles/variables.scss";
 
-.detail_main_wrap {
+.detail_main_container {
   display: flex;
-  gap: 2vw;
   justify-content: center;
 
-  .img_wrap {
-    position: sticky;
-    top: calc($navbar-height + 10px);
-    object-fit: contain;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-    min-width: 49%;
-    max-width: 420px;
-    height: 75vh;
+  .detail_container {
+    max-width: 1448px;
 
-    .product_img {
-      width: 100%;
-      height: 100%;
-    }
+    .detail_main_wrap {
+      display: flex;
+      gap: 2vw;
+      justify-content: center;
 
-    .react-multi-carousel-list {
-      width: 100%;
-      height: 100%;
+      .img_wrap {
+        position: sticky;
+        top: calc($navbar-height + 10px);
+        object-fit: contain;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+        min-width: 49%;
+        max-width: 420px;
+        height: 75vh;
 
-      .react-multiple-carousel__arrow {
-        border-radius: 3px;
-        min-width: 24px;
-        min-height: 36px;
-        z-index: 0;
-      }
+        .product_img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
 
-      .react-multi-carousel-track {
-        height: 100%;
-
-        .react-multi-carousel-item {
+        .react-multi-carousel-list {
+          width: 100%;
           height: 100%;
 
-          .img_carousel {
+          .react-multiple-carousel__arrow {
+            border-radius: 3px;
+            min-width: 24px;
+            min-height: 36px;
+            z-index: 0;
+          }
+
+          .react-multi-carousel-track {
             height: 100%;
-            object-fit: cover;
-            width: 100%;
-          }
-        }
-      }
 
-      .custom-dot-list-style {
-        height: fit-content;
-        background-color: $primary-bg-color;
-        width: 8%;
-        margin-left: 46%;
-        border-radius: 19px;
-        bottom: 5px;
-        contain: content;
-        padding-left: 6px;
+            .react-multi-carousel-item {
+              height: 100%;
 
-        .react-multi-carousel-dot {
-          display: inline-flex;
-          height: 15px;
-          margin-left: 0px;
-          width: 12.5px;
-
-          button {
-            border: none;
-            background-color: $disabled-color;
-            width: 7px;
-            height: 7px;
-            margin-top: 4px;
-          }
-
-          &.react-multi-carousel-dot--active {
-            display: inline-flex;
-            height: 8px;
-            width: 15px;
-            margin-left: 0px;
-
-            button {
-              background-color: $secondary-bg-color;
-              width: 11px;
-              height: 9px;
-              margin-top: 3px;
+              .img_carousel {
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+              }
             }
+          }
 
+          .custom-dot-list-style {
+            height: fit-content;
+            background-color: $primary-bg-color;
+            width: 8%;
+            margin-left: 46%;
+            border-radius: 19px;
+            bottom: 5px;
+            contain: content;
+            padding-left: 6px;
+
+            .react-multi-carousel-dot {
+              display: inline-flex;
+              height: 15px;
+              margin-left: 0px;
+              width: 12.5px;
+
+              button {
+                border: none;
+                background-color: $disabled-color;
+                width: 7px;
+                height: 7px;
+                margin-top: 4px;
+              }
+
+              &.react-multi-carousel-dot--active {
+                display: inline-flex;
+                height: 8px;
+                width: 15px;
+                margin-left: 0px;
+
+                button {
+                  background-color: $secondary-bg-color;
+                  width: 11px;
+                  height: 9px;
+                  margin-top: 3px;
+                }
+
+              }
+
+            }
+          }
+        }
+      }
+
+      .content_wrapper {
+        overflow-y: auto;
+        min-width: 49%;
+
+        .price {
+          font-size: $h5;
+        }
+
+        .about_product {
+          .about_title {
+            font-size: $h6;
+            font-weight: 500;
+          }
+
+          .content {
+            font-size: $body2;
+          }
+        }
+
+        .button_wrapper {
+          display: inline-flex;
+          align-items: center;
+          gap: 4%;
+          width: 100%;
+          margin-top: 3rem;
+          margin-bottom: 2rem;
+
+          .share_btn,
+          .enquire_btn {
+            background-color: $share-button-color;
+            color: $secondary-color;
+            border: none;
+            padding: 10px 0px;
+            width: 48%;
+            display: inline-flex;
+            gap: 3%;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-wrap: wrap;
+            text-align: center;
+
+            a {
+              color: $secondary-color;
+              text-decoration: none;
+            }
+          }
+
+          .social_icon_container {
+            position: absolute;
+            max-width: 20%;
+            min-width: 18%;
+            margin-bottom: 100px;
+            display: none;
           }
 
         }
       }
-    }
-  }
-
-  .content_wrapper {
-    overflow-y: auto;
-    min-width: 49%;
-
-    .price {
-      font-size: $h5;
-    }
-
-    .about_product {
-      .about_title {
-        font-size: $h6;
-        font-weight: 500;
-      }
-
-      .content {
-        font-size: $body2;
-      }
-    }
-
-    .button_wrapper {
-      display: inline-flex;
-      align-items: center;
-      gap: 4%;
-      width: 100%;
-      margin-top: 3rem;
-      margin-bottom: 2rem;
-
-      .share_btn,
-      .enquire_btn {
-        background-color: $share-button-color;
-        color: $secondary-color;
-        border: none;
-        padding: 10px 0px;
-        width: 48%;
-        display: inline-flex;
-        gap: 3%;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        flex-wrap: wrap;
-        text-align: center;
-
-        a {
-          color: $secondary-color;
-          text-decoration: none;
-        }
-      }
-
-      .social_icon_container {
-        position: absolute;
-        max-width: 20%;
-        min-width: 18%;
-        margin-bottom: 100px;
-        display: none;
-      }
-
     }
   }
 }
@@ -181,7 +191,7 @@
 
 @media only screen and (max-width: 850px) and (min-width: $xs) {
 
-  .detail_main_wrap {
+  .detail_main_container .detail_container .detail_main_wrap {
     gap: 2%;
     position: relative;
     transition: all 0.3s ease;
@@ -208,7 +218,7 @@
 }
 
 @media only screen and (max-width: $xs) {
-  .detail_main_wrap {
+  .detail_main_container .detail_container .detail_main_wrap {
     gap: 2%;
     position: relative;
     transition: all 0.3s ease;
@@ -216,7 +226,7 @@
 
     &>.img_wrap {
       top: 0;
-      min-width: 90%;
+      width: 70vw;
       flex: 1 1 100px;
       position: relative;
       transition: all 0.3s ease;
