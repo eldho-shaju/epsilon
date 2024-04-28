@@ -41,12 +41,15 @@
         .img_wrapper {
           contain: content;
           width: 50%;
+          display: flex;
+          justify-content: center;
 
           .banner {
             height: 100%;
             object-fit: cover;
             width: 100%;
             aspect-ratio: 9 / 16;
+            max-width: 700px;
           }
         }
 

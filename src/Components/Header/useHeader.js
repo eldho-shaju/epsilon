@@ -13,10 +13,12 @@ const useHeader = (isMobile) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        let navMenu = [];
         const querySnapshot = await getDocs(collection(db, "header"));
         querySnapshot.forEach((doc) => {
-          setData((prevData) => [...prevData, doc.data()]);
+          navMenu = [...navMenu, doc?.data()];
         });
+        setData(navMenu);
       } catch (error) {
         console.log(error);
       } finally {

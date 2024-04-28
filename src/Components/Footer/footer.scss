@@ -5,11 +5,13 @@
   display: flex;
   justify-content: center;
   margin-top: 4px;
+  height: fit-content;
 
   .footer_container {
     position: relative;
     width: 100%;
     max-width: $max-width;
+    min-height: 488px;
 
     .footer_wrapper {
       padding: $container-padding-top-bottom-lg $container-padding-left-right-lg;

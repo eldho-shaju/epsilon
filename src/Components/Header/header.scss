@@ -8,7 +8,7 @@
   z-index: 1;
   width: 100%;
   top: 0;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   padding: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -85,6 +85,8 @@
   .toolbar {
     padding: 0 $header-padding-left-right-lg;
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 
