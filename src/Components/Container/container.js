@@ -26,11 +26,13 @@ const StyledSection = styled.section`
 `;
 
 const Container = (props) => {
-  const { children, style } = props;
+  const { children, style, isListing } = props;
 
   return (
     <StyledSection className={`component_container`} style={style}>
-      <div className="container_wrapper">{children}</div>
+      <div className={`container_wrapper ${isListing ? "listing" : ""}`}>
+        {children}
+      </div>
     </StyledSection>
   );
 };

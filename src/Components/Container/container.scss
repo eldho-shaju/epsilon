@@ -12,6 +12,10 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+
+        &.listing {
+            justify-content: flex-start;
+        }
     }
 }
 

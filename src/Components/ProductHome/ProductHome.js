@@ -33,7 +33,7 @@ const ProductHome = (props) => {
   const { isMobile } = useDeviceTypeCheck();
 
   return (
-    <Container style={customSettings}>
+    <Container style={customSettings} isListing>
       <div className="product_home_container">
         <div className="product_home_wrapper">
           <div className="header_wrapper">
