@@ -31,10 +31,10 @@ const useDeviceTypeCheck = () => {
     : false;
 
   const isDesktop = !!screenWidth
-    ? screenWidth <= 1200 && screenWidth >= 900
+    ? screenWidth >= 900
       ? true
       : false
-    : window.innerWidth <= 1200 && window.innerWidth >= 900
+    : window.innerWidth >= 900
     ? true
     : false;
 

@@ -8,8 +8,10 @@ import useFooter from "./useFooter";
 import "./footer.scss";
 
 const Footer = () => {
-  const { phone, social, address } = useFooter();
+  const { phone, social, address, error } = useFooter();
   const { isMobile } = useDeviceTypeCheck();
+
+  if (error) return null;
 
   return (
     <footer className="footer">

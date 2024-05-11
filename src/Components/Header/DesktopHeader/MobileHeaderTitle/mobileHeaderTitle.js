@@ -27,7 +27,7 @@ const MobileHeaderTitle = () => {
       <Link to="/">
         <Logo />
       </Link>
-      {title && <p className="sub_collection">{title}</p>}
+      {title && <div className="title">{title}</div>}
     </div>
   );
 };
