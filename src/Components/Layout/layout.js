@@ -28,7 +28,10 @@ const Layout = () => {
               <Route path="/contact-us" element={<ContactUs />} />
               <Route path="/product-type" element={<ProductTypes />} />
               <Route path="/product-type/:type" element={<ProductListing />} />
-              <Route path="/:type/:detail" element={<ProductDetail />} />
+              <Route
+                path="/product-type/:type/:detail"
+                element={<ProductDetail />}
+              />
               <Route
                 path="*"
                 element={

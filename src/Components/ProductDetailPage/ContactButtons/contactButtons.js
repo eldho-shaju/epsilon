@@ -1,9 +1,10 @@
+import { memo } from "react";
 import { Icon } from "@iconify/react";
 import ShareButtons from "../ShareButtons/shareButtons";
 import useDeviceTypeCheck from "../../../Hooks/useDeviceTypeCheck";
 import useShare from "../../../Hooks/useShare";
 
-const ContactButtons = (props) => {
+const ContactButtons = memo((props) => {
   const { name, url } = props;
   const { isDesktop } = useDeviceTypeCheck();
   const { handleShare } = useShare();
@@ -34,6 +35,6 @@ const ContactButtons = (props) => {
       </>
     </div>
   );
-};
+});
 
 export default ContactButtons;

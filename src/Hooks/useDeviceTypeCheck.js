@@ -2,15 +2,10 @@ import { useEffect, useState } from "react";
 
 const useDeviceTypeCheck = () => {
   const [screenWidth, setScreenWidth] = useState("");
-  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     window.addEventListener("resize", function () {
       setScreenWidth(window.innerWidth);
-    });
-    window.addEventListener("scroll", function () {
-      const newScrollY = window.scrollY;
-      setScrollY(newScrollY);
     });
   }, []);
 
@@ -38,7 +33,7 @@ const useDeviceTypeCheck = () => {
     ? true
     : false;
 
-  return { isMobile, isExtraSmallScreen, isDesktop, scrollY, screenWidth };
+  return { isMobile, isExtraSmallScreen, isDesktop, screenWidth };
 };
 
 export default useDeviceTypeCheck;

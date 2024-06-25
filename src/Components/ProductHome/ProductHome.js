@@ -1,3 +1,4 @@
+import { memo, useRef } from "react";
 import { Link } from "react-router-dom";
 import BackButton from "../BackButton/BackButton";
 import ProductItem from "../ProductItem";
@@ -5,6 +6,9 @@ import Container from "../Container/container";
 import useScrollToTop from "../../Hooks/useScrollToTop";
 import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
 import "./productHome.scss";
+import { Spinner } from "react-bootstrap";
+import Pagination from "./customPagination";
+import CustomPagination from "./customPagination";
 
 const customSettings = {
   backgroundColor: "black",
@@ -27,8 +31,9 @@ const customSettings = {
   },
 };
 
-const ProductHome = (props) => {
-  const { data, isProductTypes, title, productType, isListing } = props;
+const ProductHome = memo((props) => {
+  const { data = [], isProductTypes, title, productType, isListing } = props;
+
   const { handleScrollPosition } = useScrollToTop();
   const { isMobile } = useDeviceTypeCheck();
 
@@ -49,8 +54,7 @@ const ProductHome = (props) => {
             )}
           </div>
           <div className={`type_grid_wrapper ${isListing ? "listing" : ""}`}>
-            {data &&
-              data.length !== 0 &&
+            {data?.length > 0 &&
               data?.map((type) => (
                 <div className="items_wrapper" key={type?.id}>
                   <Link
@@ -62,7 +66,12 @@ const ProductHome = (props) => {
                         : type?.link
                     }
                   >
-                    <ProductItem product={type} isListing={isListing} />
+                    <ProductItem
+                      name={type?.name}
+                      img={type?.img?.[0]?.downloadURL}
+                      price={type?.price}
+                      isListing={isListing}
+                    />
                   </Link>
                 </div>
               ))}
@@ -71,6 +80,6 @@ const ProductHome = (props) => {
       </div>
     </Container>
   );
-};
+});
 
 export default ProductHome;

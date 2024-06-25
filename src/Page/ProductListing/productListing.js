@@ -11,7 +11,7 @@ const ProductListing = () => {
 
   return (
     <ProductHome
-      data={data?.[0]?.items}
+      data={data}
       title={formattedText}
       productType={data?.[0]?.productType}
       isListing
