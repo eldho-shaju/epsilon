@@ -1,5 +1,5 @@
+import { db } from "@lib/firebaseSdk";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebaseSdk";
 
 const useGetData = () => {
   const getData = async (docId) => {
@@ -14,7 +14,7 @@ const useGetData = () => {
         }
       }
     } catch (error) {
-      return Promise.reject(error);
+      return console.log(error);
     }
 
     return data;

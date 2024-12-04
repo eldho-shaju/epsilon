@@ -3,7 +3,7 @@ import {
   getFromLocalStorage,
   setToLocalStorage,
 } from "../../functions/localStorage";
-import useGetData from "../../Hooks/useGetData";
+import useGetData from "../../hooks/useGetData";
 
 const useHome = () => {
   const { getData } = useGetData();

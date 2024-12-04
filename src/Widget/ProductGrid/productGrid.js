@@ -1,11 +1,11 @@
 import { Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import Container from "../../Components/Container/container";
-import useProductTypes from "../../Page/ProductTypes/useProductTypes";
-import useScrollToTop from "../../Hooks/useScrollToTop";
+import Container from "../../components/Container/container";
+import useProductTypes from "../../page/ProductTypes/useProductTypes";
+import useScrollToTop from "../../hooks/useScrollToTop";
 import Shimmer from "./Shimmer";
 import "./productGrid.scss";
+import Link from "@components/Link";
 
 const customSettings = {
   desktop: {
@@ -39,12 +39,12 @@ const ProductGrid = () => {
             <div className="item_container">
               {data &&
                 data.length !== 0 &&
-                data?.slice(0, 4)?.map((type) => (
-                  <div className="items_wrapper" key={type?.id}>
+                data?.slice(0, 4)?.map((type, index) => (
+                  <div className="items_wrapper" key={index}>
                     <Link
                       className="item_wrapper_link"
                       onClick={handleScrollPosition}
-                      to={`/product-type/${type?.link}`}
+                      href={`/product-type/${type?.link}`}
                     >
                       <div className={`productItem_wrapper`}>
                         <div className="img_wrapper">
@@ -68,7 +68,7 @@ const ProductGrid = () => {
           </div>
           <div className="view_all_wrapper">
             <div className="view_all_button">
-              <Link to="/product-type" onClick={handleScrollPosition}>
+              <Link href="/product-type" onClick={handleScrollPosition}>
                 View All
                 <Icon icon="mdi:arrow-left-thin" />
               </Link>

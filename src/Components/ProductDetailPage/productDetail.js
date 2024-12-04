@@ -6,7 +6,7 @@ import BackButton from "../BackButton/BackButton";
 import ErrorPage from "../ErrorPage";
 import ContactButtons from "./ContactButtons";
 import useProductDetails from "./useProductDetails";
-import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
+import useDeviceTypeCheck from "../../hooks/useDeviceTypeCheck";
 import "./detail.scss";
 
 const customSettings = {

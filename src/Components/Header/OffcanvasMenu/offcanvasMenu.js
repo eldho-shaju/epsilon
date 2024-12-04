@@ -1,15 +1,15 @@
+import { usePathname, useRouter } from "next/navigation";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import "./offcanvas.scss";
 
 const OffCanvasMenu = (props) => {
   const { state, toggle, navMenu, handleScrollPosition } = props;
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handleRoute = (path) => {
-    navigate(path);
+    router.push(path);
     handleScrollPosition();
     toggle();
   };
@@ -24,8 +24,7 @@ const OffCanvasMenu = (props) => {
       <Offcanvas.Body className="custom-body">
         <ul>
           {navMenu?.map((text) => {
-            const activeTab =
-              location.pathname === text.link ? "active-tab" : "";
+            const activeTab = pathname === text.link ? "active-tab" : "";
             return (
               <li key={text?.id}>
                 <button

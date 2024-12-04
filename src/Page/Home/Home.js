@@ -1,20 +1,33 @@
-import Banner from "../../Widget/Banner";
-import ProductGrid from "../../Widget/ProductGrid";
-import Grid from "../../Widget/Grid";
-import ErrorPage from "../../Components/ErrorPage";
-import useHome from "./useHome";
+// "use client";
+// import ProductGrid from "../../widget/ProductGrid";
+// import Grid from "../../widget/Grid";
+// import useHome from "./useHome";
 
-const HomePage = () => {
-  const { grid, banner, loading, error, widget } = useHome();
+import { getFirebaseData } from "@utils/getFirebaseData";
+import Banner from "@widget/Banner";
 
-  if (error || (!loading && widget?.length === 0))
-    return <ErrorPage errorMsg="Something went wrong" />;
+const HomePage = async () => {
+  const widgetData = await getFirebaseData("homeWidgets");
+
+  const banner =
+    (widgetData &&
+      widgetData?.length > 0 &&
+      widgetData?.find((ele) => ele?.type === "banner")) ||
+    {};
+
+  const grid =
+    (widgetData &&
+      widgetData?.length > 0 &&
+      widgetData?.find((ele) => ele?.type === "four-grid")) ||
+    {};
+
+  // const { grid, banner, loading, error, widget } = useHome();
 
   return (
     <>
-      <Banner banner={banner} loading={loading} />
-      <ProductGrid />
-      <Grid grid={grid} loading={loading} />
+      <Banner banner={banner} />
+      {/* <ProductGrid /> */}
+      {/* <Grid grid={grid} loading={loading} /> */}
     </>
   );
 };

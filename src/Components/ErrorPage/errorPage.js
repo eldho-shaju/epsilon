@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom";
+"use client";
+import { useNavigate } from "";
 import { Icon } from "@iconify/react";
 import Container from "../Container/container";
 import "./error.scss";

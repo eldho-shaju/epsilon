@@ -1,5 +1,4 @@
 import { memo, useRef } from "react";
-import { Link } from "react-router-dom";
 import BackButton from "../BackButton/BackButton";
 import ProductItem from "../ProductItem";
 import Container from "../Container/container";
@@ -9,6 +8,7 @@ import "./productHome.scss";
 import { Spinner } from "react-bootstrap";
 import Pagination from "./customPagination";
 import CustomPagination from "./customPagination";
+import Link from "@components/Link";
 
 const customSettings = {
   backgroundColor: "black",
@@ -60,7 +60,7 @@ const ProductHome = memo((props) => {
                   <Link
                     className="item_wrapper_link"
                     onClick={handleScrollPosition}
-                    to={
+                    href={
                       productType
                         ? `/:${productType}/${type?.link}`
                         : type?.link

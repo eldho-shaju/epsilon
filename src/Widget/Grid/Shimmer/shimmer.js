@@ -1,4 +1,4 @@
-import Container from "../../../Components/Container/container";
+import Container from "../../../components/Container/container";
 import "./shimmer.scss";
 
 const Shimmer = () => {

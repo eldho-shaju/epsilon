@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseSdk";
+import { usePathname } from "next/navigation";
 
 const useHeader = (isMobile) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const location = useLocation();
+  const pathname = usePathname();
 
-  const isHome = location?.pathname === "/" ? "home" : "";
+  const isHome = pathname === "/" ? "home" : "";
 
   useEffect(() => {
     const fetchData = async () => {

@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import Container from "../../../Components/Container/container";
+import Container from "../../../components/Container/container";
 import "./shimmer.scss";
 
 const customSettings = {

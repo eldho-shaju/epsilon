@@ -1,5 +1,5 @@
 import { Image } from "react-bootstrap";
-import Container from "../../Components/Container/container";
+import Container from "../../components/Container/container";
 import Shimmer from "./Shimmer";
 import "./grid.scss";
 

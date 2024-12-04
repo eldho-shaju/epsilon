@@ -1,9 +1,10 @@
+"use client";
 import { FullLogo } from "../Header/logo/logo";
 import FooterAddress from "./FooterAddress";
 import FooterContact from "./FooterContact";
 import FooterSocialMedia from "./FooterSocialMedia";
 import DevelopedBy from "./DevelopedBy";
-import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
+import useDeviceTypeCheck from "../../hooks/useDeviceTypeCheck";
 import useFooter from "./useFooter";
 import "./footer.scss";
 

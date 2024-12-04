@@ -1,32 +1,30 @@
-import { useRef } from "react";
-import { Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import "./banner.scss";
+import Image from "@components/Image";
+import Link from "@components/Link";
 
 const Banner = (props) => {
   const { banner, loading } = props;
-  const imageRef = useRef(null);
 
-  const desktopImg = banner && banner?.bannerImg?.[0]?.downloadURL;
-  const src = loading || !desktopImg ? "asset/banner/banner.jpg" : desktopImg;
+  const desktopImg = banner && banner?.bannerImg?.[0];
+  const src =
+    loading || !desktopImg?.src ? "/assets/banner/banner.jpg" : desktopImg?.src;
 
   return (
-    <section className="banner_container">
-      <div className="banner_wrapper">
-        <Link className="banner_link" to="/product-type">
-          <div className="banner_img_wrapper">
-            <link rel="preload" as="image" href="asset/banner/banner.jpg" />
+    <section className="relative w-full h-64 sm:h-80 md:h-[30rem] lg:aspect-[16/9]">
+      <div>
+        <Link href="/product-type">
+          <div>
             <Image
+              fill
               src={src}
-              className="banner_single_img"
-              alt="banner"
-              ref={imageRef}
-              onError={(e) => (e.target.src = "asset/banner/banner.jpg")}
+              alt={desktopImg?.name}
+              className="aspect-video  object-cover"
             />
           </div>
           {banner?.text && (
-            <div className="banner_text_wrapper">
-              <p className="banner_text">{banner?.text}</p>
+            <div className="w-full text-center absolute bottom-1 left-1/2 transform -translate-x-1/2 ">
+              <p className="text-white text-3xl font-light tracking-[0.45rem]">
+                {banner?.text}
+              </p>
             </div>
           )}
         </Link>
