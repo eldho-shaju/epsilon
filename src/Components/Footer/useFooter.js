@@ -2,30 +2,42 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { useSetRecoilState } from "recoil";
 import { contactNoAtom } from "../../Recoil/contactNoAtom";
-import { db } from "../../firebaseSdk";
+import { db } from "@lib/firebaseSdk";
 
 const useFooter = () => {
-  const [footerData, setFooterData] = useState({});
-  const [error, setError] = useState(false);
+  const [footerData, setFooterData] = useState([]);
   const setPrimaryNumber = useSetRecoilState(contactNoAtom);
 
   useEffect(() => {
-    setFooterData([]);
-    async function fetchData() {
+    const fetchData = async () => {
       try {
-        let data = {};
         const querySnapshot = await getDocs(collection(db, "footer"));
-        querySnapshot.forEach((doc) => {
-          data = { ...data, [doc?.id]: { ...doc.data() } };
-        });
-        setFooterData(data);
-        getPrimaryNumber(data?.phone);
+        const docs = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setFooterData((prev) => [...prev, ...docs]);
       } catch (e) {
         console.log(e);
-        setError(true);
+        setFooterData((prev) => [...prev, []]);
       }
-    }
+    };
+
+    const fetchHeaderData = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "header"));
+        const docs = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setFooterData((prev) => [...prev, { id: "header", header: docs }]);
+      } catch (e) {
+        console.log(e);
+        setFooterData((prev) => [...prev, []]);
+      }
+    };
     fetchData();
+    fetchHeaderData();
   }, []);
 
   const getPrimaryNumber = (phone) => {
@@ -39,9 +51,7 @@ const useFooter = () => {
     }
   };
 
-  const { phone, social, address } = footerData && footerData;
-
-  return { phone, social, address, error };
+  return { footerData };
 };
 
 export default useFooter;

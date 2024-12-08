@@ -5,7 +5,7 @@ const DesktopHeader = (props) => {
   const { navMenu } = props;
 
   return (
-    <div className="w-full flex justify-between items-center pl-6 pr-6">
+    <div className="container mx-auto w-full flex justify-between items-center">
       <div className="">
         <Link href="/">
           <img src="/assets/images/logoWithText.svg" alt="Epsilon" />

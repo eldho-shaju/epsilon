@@ -1,5 +1,4 @@
-import { Image } from "react-bootstrap";
-import "./productItem.scss";
+import Image from "@components/Image";
 
 const ProductItem = (props) => {
   const { name, price, img, isListing } = props;
@@ -7,12 +6,7 @@ const ProductItem = (props) => {
   return (
     <div className={`productItem_wrapper ${isListing ? "item_listing" : ""}`}>
       <div className="img_wrapper">
-        <Image
-          className="product_img"
-          alt={name}
-          src={img}
-          onError={(e) => (e.target.src = "asset/banner/placeholder.png")}
-        />
+        <Image width={200} height={200} alt={name} src={img} />
       </div>
       <div className="text_wrapper">
         <p className="product_name">{name}</p>

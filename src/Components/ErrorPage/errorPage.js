@@ -1,9 +1,8 @@
 "use client";
-import { useNavigate } from "";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Icon } from "@iconify/react";
 import Container from "../Container/container";
-import "./error.scss";
-import { useEffect } from "react";
 
 const customSettings = {
   desktop: {
@@ -26,7 +25,7 @@ const customSettings = {
 
 const ErrorPage = (props) => {
   const { errorMsg = "Something went wrong" } = props;
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     const navbar = document.getElementById("navbar");
@@ -58,10 +57,13 @@ const ErrorPage = (props) => {
           </span>
         </h1>
         <div className="error_buttons">
-          <button className="button home_button" onClick={() => navigate("/")}>
+          <button
+            className="button home_button"
+            onClick={() => router.push("/")}
+          >
             Home
           </button>
-          <button className="button back_button" onClick={() => navigate(-1)}>
+          <button className="button back_button" onClick={() => router.back()}>
             Go Back
           </button>
         </div>

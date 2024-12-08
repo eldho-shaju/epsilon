@@ -1,35 +1,15 @@
+"use client";
 import { memo, useRef } from "react";
 import BackButton from "../BackButton/BackButton";
 import ProductItem from "../ProductItem";
 import Container from "../Container/container";
-import useScrollToTop from "../../Hooks/useScrollToTop";
-import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
-import "./productHome.scss";
-import { Spinner } from "react-bootstrap";
-import Pagination from "./customPagination";
-import CustomPagination from "./customPagination";
+// import "./productHome.scss";
+// import { Spinner } from "react-bootstrap";
+// import Pagination from "./customPagination";
+// import CustomPagination from "./customPagination";
 import Link from "@components/Link";
-
-const customSettings = {
-  backgroundColor: "black",
-  color: "white",
-  desktop: {
-    minWidth: 901,
-    margin: "64px 0 0 0",
-    minHeight: "calc(100svh - 64px)",
-  },
-  tablet: {
-    maxWidth: 900,
-    minWidth: 600,
-    margin: "64px 0 0 0",
-    minHeight: "calc(100svh - 64px)",
-  },
-  mobile: {
-    maxWidth: 599,
-    margin: "56px 0 0 0",
-    minHeight: "calc(100svh - 56px)",
-  },
-};
+import useDeviceTypeCheck from "@hooks/useDeviceTypeCheck";
+import useScrollToTop from "@hooks/useScrollToTop";
 
 const ProductHome = memo((props) => {
   const { data = [], isProductTypes, title, productType, isListing } = props;
@@ -38,7 +18,7 @@ const ProductHome = memo((props) => {
   const { isMobile } = useDeviceTypeCheck();
 
   return (
-    <Container style={customSettings} isListing>
+    <section>
       <div className="product_home_container">
         <div className="product_home_wrapper">
           <div className="header_wrapper">
@@ -78,7 +58,7 @@ const ProductHome = memo((props) => {
           </div>
         </div>
       </div>
-    </Container>
+    </section>
   );
 });
 

@@ -1,44 +1,33 @@
-import { Image } from "react-bootstrap";
-import Container from "../../components/Container/container";
-import Shimmer from "./Shimmer";
-import "./grid.scss";
+import Image from "@components/Image";
 
 const WidgetGrid = (props) => {
-  const { grid, loading } = props;
+  const { grid } = props;
   const content = grid && grid?.content;
 
-  if (loading) return <Shimmer />;
-
   return (
-    <Container>
-      <div className="grid_wrapper">
-        {content &&
-          content?.length > 0 &&
-          content?.map((widget, index) => {
-            const direction = index % 2 === 0 ? "item-row" : "item-row-reverse";
+    content &&
+    content?.length > 0 && (
+      <section className="container mx-auto py-8">
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {content?.map((widget, index) => {
+            const direction = index % 2 === 0 ? "flex-row" : "flex-row-reverse";
             return (
-              <div
-                key={widget?.id}
-                className={`grid_item_wrapper ${direction} `}
-              >
-                <div className="img_wrapper">
-                  <Image
-                    className="img"
-                    src={widget?.img?.[0]?.downloadURL}
-                    onError={(e) =>
-                      (e.target.src = "asset/banner/placeholder.png")
-                    }
-                  />
-                </div>
-                <div className="text_wrapper">
-                  <h3 className="title">{widget?.title}</h3>
-                  <p className="para">{widget?.para}</p>
+              <div key={widget?.id} className={`flex ${direction}`}>
+                <Image
+                  src={widget?.img?.[0]?.downloadURL}
+                  width={480}
+                  height={80}
+                />
+                <div className="flex flex-col justify-center px-8">
+                  <h3 className="text-3xl font-medium mb-4">{widget?.title}</h3>
+                  <p>{widget?.para}</p>
                 </div>
               </div>
             );
           })}
-      </div>
-    </Container>
+        </div>
+      </section>
+    )
   );
 };
 

@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="scrollbar">
-        <div id="root">
+        <div id="root flex flex-col min-h-screen">
           <PageLayout>{children}</PageLayout>
         </div>
       </body>

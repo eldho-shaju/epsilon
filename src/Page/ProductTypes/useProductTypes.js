@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
-import {
-  getFromLocalStorage,
-  setToLocalStorage,
-} from "../../functions/localStorage";
-import useGetData from "../../hooks/useGetData";
+import { getFirebaseData } from "@utils/getFirebaseData";
+import { getFromLocalStorage, setToLocalStorage } from "@utils/localStorage";
 
 const useProductTypes = () => {
-  const { getData } = useGetData();
   const cachedData = JSON.parse(getFromLocalStorage("productTypes"));
   const [data, setData] = useState(cachedData || []);
   const dataLength = data?.length > 0;
@@ -16,7 +12,7 @@ const useProductTypes = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const productTypes = await getData("product-type");
+        const productTypes = await getFirebaseData("product-type");
         if (productTypes) {
           setData(productTypes);
           setToLocalStorage("productTypes", productTypes);

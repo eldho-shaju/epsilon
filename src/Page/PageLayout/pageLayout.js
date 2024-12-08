@@ -1,16 +1,14 @@
 import dynamic from "next/dynamic";
 import Header from "@components/Header/header";
 
-// const Footer = dynamic(() => import("@components/Footer/Footer"));
+const Footer = dynamic(() => import("@components/Footer/Footer"));
 
 const PageLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="relative h-[calc(100vh-4.5rem)] w-full mx-auto top-[4.5rem]">
-        {children}
-      </main>
-      {/* <Footer /> */}
+      <main className="flex-grow w-full mx-auto relative">{children}</main>
+      <Footer />
     </>
   );
 };

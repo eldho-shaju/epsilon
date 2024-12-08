@@ -1,7 +1,8 @@
-import ErrorPage from "../../Components/ErrorPage";
-import Loader from "../../Components/Loader";
-import ProductHome from "../../Components/ProductHome";
+"use client";
+import Loader from "@components/Loader";
 import useProductTypes from "./useProductTypes";
+import ProductHome from "@components/ProductHome";
+import ErrorPage from "@components/ErrorPage";
 
 const ProductTypes = () => {
   const { data, loading, error } = useProductTypes();
