@@ -2,7 +2,7 @@ import { Image } from "react-bootstrap";
 import Loader from "../Loader";
 import Container from "../Container/container";
 import ImageCarousel from "./ImageCarousel/imageCarousel";
-import BackButton from "../BackButton/BackButton";
+import BreadCrumb from "../BreadCrumb/BreadCrumb";
 import ErrorPage from "../ErrorPage";
 import ContactButtons from "./ContactButtons";
 import useProductDetails from "./useProductDetails";
@@ -42,7 +42,7 @@ const ProductDetail = () => {
     <Container style={customSettings}>
       <div className="detail_main_container">
         <div className="detail_container">
-          {!isMobile && <BackButton title="Back to list" isDetailPage />}
+          {!isMobile && <BreadCrumb title="Back to list" isDetailPage />}
           <div className="detail_main_wrap">
             <div className="img_wrap">
               {item?.image && item?.image?.length > 1 ? (

@@ -1,7 +1,7 @@
 const DevelopedBy = () => {
   return (
-    <div className="developer text-center mt-4">
-      <p className="text-sm">
+    <div className="text-center mt-4">
+      <p className="text-sm text-slate-400">
         Designed and Developed by:{" "}
         <span>
           <a

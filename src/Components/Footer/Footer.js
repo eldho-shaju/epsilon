@@ -1,16 +1,13 @@
 "use client";
-import { FullLogo } from "../Header/logo/logo";
 import FooterAddress from "./FooterAddress";
 import FooterContact from "./FooterContact";
 import FooterSocialMedia from "./FooterSocialMedia";
 import DevelopedBy from "./DevelopedBy";
 import useFooter from "./useFooter";
-import useDeviceTypeCheck from "@hooks/useDeviceTypeCheck";
 import Link from "@components/Link";
 
 const Footer = () => {
   const { footerData } = useFooter();
-  const { isMobile } = useDeviceTypeCheck();
 
   const phone =
     footerData?.length > 0 && footerData?.find((item) => item?.id === "phone");
@@ -26,12 +23,10 @@ const Footer = () => {
     footerData?.length > 0 &&
     footerData?.find((item) => item?.id === "header")?.header;
 
-  console.log(footerData);
-
-  // if (error) return null;
+  if (!footerData || footerData?.length === 0) return null;
 
   return (
-    <footer className="w-full mt-auto bg-gray-100">
+    <footer className="w-full flex mt-auto bg-gray-100">
       {/* <div className="w-[90%] mx-auto border-t-2 border-gray-300"></div> */}
       <div className="container mx-auto py-8 ">
         <div className="flex flex-col md:flex-row justify-between">

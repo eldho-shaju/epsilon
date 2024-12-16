@@ -7,7 +7,7 @@ const ProductGrid = ({ data }) => {
   return (
     data &&
     data?.length > 0 && (
-      <section className="py-8 bg-neutral-200">
+      <section className="py-8 bg-neutral-100">
         <div className="container mx-auto">
           <div className="w-100 flex justify-between items-center mb-8">
             <p className="text-2xl font-medium">Our collections</p>

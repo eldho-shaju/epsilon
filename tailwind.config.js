@@ -13,11 +13,13 @@ module.exports = {
       fontFamily: {
         sans: ["InterVariable", ...defaultTheme.fontFamily.sans],
       },
-      inset: {
-        "4.5rem": "4.5rem",
-      },
       height: {
-        "4.5rem": "4.5rem",
+        header: "4.5rem",
+        breadcrumb: "2.5rem",
+      },
+      spacing: {
+        header: "4.5rem",
+        breadcrumb: "2.5rem",
       },
     },
   },

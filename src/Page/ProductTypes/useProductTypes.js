@@ -3,7 +3,9 @@ import { getFirebaseData } from "@utils/getFirebaseData";
 import { getFromLocalStorage, setToLocalStorage } from "@utils/localStorage";
 
 const useProductTypes = () => {
-  const cachedData = JSON.parse(getFromLocalStorage("productTypes"));
+  const cachedData =
+    typeof window !== "undefined" &&
+    JSON.parse(getFromLocalStorage("productTypes"));
   const [data, setData] = useState(cachedData || []);
   const dataLength = data?.length > 0;
   const [loading, setLoading] = useState(!!dataLength === false);

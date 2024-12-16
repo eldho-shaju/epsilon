@@ -7,7 +7,7 @@ const PageLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="flex-grow w-full mx-auto relative">{children}</main>
+      <main className="flex-grow mt-header w-full ">{children}</main>
       <Footer />
     </>
   );
