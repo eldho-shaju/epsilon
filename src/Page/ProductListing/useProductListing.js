@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { collection, getDocs, query } from "firebase/firestore";
-import { db } from "../../firebaseSdk";
-import { formatText } from "../../functions/formatText";
+import { db } from "@lib/firebaseSdk";
+import { formatText } from "@utils/formatText";
 
-const useProductListing = () => {
-  const { type } = useParams();
-  const subCollection = type && type.replace(/:/g, "");
+const useProductListing = ({ subCollection }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [data, setData] = useState([]);

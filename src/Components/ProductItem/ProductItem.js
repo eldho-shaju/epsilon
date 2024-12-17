@@ -1,24 +1,31 @@
-import Image from "@components/Image";
+import { usePathname } from "next/navigation";
+import Image from "../Image";
+import Link from "../Link";
 
 const ProductItem = (props) => {
-  const { name, price, img, isListing } = props;
+  const { item, productType } = props;
+  const { link, name, img, price } = item;
+  const pathname = usePathname();
 
   return (
-    <>
+    <Link
+      className={`${!link ? "pointer-events-none" : ""}`}
+      href={productType ? `/:${productType}/${link}` : `${pathname}/${link}`}
+    >
       <Image
         width={0}
         height={0}
         alt={name}
-        src={img}
-        className="w-full h-auto fit-cover aspect-[3/4] rounded-md"
+        src={img?.[0]?.downloadURL}
+        className="w-full h-auto fit-cover aspect-[3/4] rounded-t-md"
       />
       {(name || price) && (
-        <div className="absolute bottom-0 w-full bg-gradient-to-t from-gray-900 to-transparent p-4 text-center text-white rounded-b-md">
+        <div className="py-3 px-2">
           <h1 className="text-lg">{name}</h1>
           {price && <p className="product_price">₹: {price}</p>}
         </div>
       )}
-    </>
+    </Link>
   );
 };
 
