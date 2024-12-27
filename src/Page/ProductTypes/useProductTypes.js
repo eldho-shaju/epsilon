@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getFirebaseData } from "@utils/getFirebaseData";
-import { getFromLocalStorage, setToLocalStorage } from "@utils/localStorage";
+import { getFirebaseData } from "@/utils/getFirebaseData";
+import { getFromLocalStorage, setToLocalStorage } from "@/utils/localStorage";
 
 const useProductTypes = () => {
   const cachedData =

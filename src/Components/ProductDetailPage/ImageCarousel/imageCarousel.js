@@ -1,6 +1,6 @@
-import { Image } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Image from "@/components/Image";
 
 const responsive = {
   desktop: {

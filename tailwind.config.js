@@ -16,6 +16,7 @@ module.exports = {
       height: {
         header: "4.5rem",
         breadcrumb: "2.5rem",
+        main: "calc(100svh - 4.5rem)",
       },
       spacing: {
         header: "4.5rem",

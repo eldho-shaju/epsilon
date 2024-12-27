@@ -1,9 +1,9 @@
-import { getFirebaseData } from "@utils/getFirebaseData";
-import Banner from "@widget/Banner";
-import WidgetGrid from "@widget/Grid";
-import ProductGrid from "@widget/ProductGrid";
+import { getFirebaseData } from "@/utils/getFirebaseData";
+import Banner from "@/widget/Banner";
+import WidgetGrid from "@/widget/Grid";
+import ProductGrid from "@/widget/ProductGrid";
 
-const HomePage = async () => {
+const Home = async () => {
   const widgetData = await getFirebaseData("homeWidgets");
   const data = await getFirebaseData("product-type");
 
@@ -28,4 +28,4 @@ const HomePage = async () => {
   );
 };
 
-export default HomePage;
+export default Home;

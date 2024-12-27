@@ -4,7 +4,7 @@ import FooterContact from "./FooterContact";
 import FooterSocialMedia from "./FooterSocialMedia";
 import DevelopedBy from "./DevelopedBy";
 import useFooter from "./useFooter";
-import Link from "@components/Link";
+import Link from "@/components/Link";
 
 const Footer = () => {
   const { footerData } = useFooter();

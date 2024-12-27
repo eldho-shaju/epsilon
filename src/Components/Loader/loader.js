@@ -1,9 +1,9 @@
-import { Logo } from "../Header/logo/logo";
+import { Logo } from "../Header/Logo/logo";
 
 const Loader = () => {
   return (
-    <div className="loader-container">
-      <div className="loader_wrapper">
+    <div className="container mx-auto w-full flex justify-center items-center h-main">
+      <div className="animate-bounce">
         <Logo />
       </div>
     </div>

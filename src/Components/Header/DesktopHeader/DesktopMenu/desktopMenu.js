@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import Link from "@components/Link";
+import Link from "@/components/Link";
 
 const DesktopMenu = (props) => {
   const { navMenu } = props;

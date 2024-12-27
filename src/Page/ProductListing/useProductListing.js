@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs, query } from "firebase/firestore";
-import { db } from "@lib/firebaseSdk";
-import { formatText } from "@utils/formatText";
+import { formatText } from "@/utils/formatText";
+import { getFirebaseData } from "@/utils/getFirebaseData";
 
 const useProductListing = ({ subCollection }) => {
   const [loading, setLoading] = useState(true);
@@ -12,18 +11,12 @@ const useProductListing = ({ subCollection }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let listingData = [];
-        const querySnapshot = await getDocs(
-          query(collection(db, "product-list", subCollection, "content"))
+        const data = await getFirebaseData(
+          "product-listing",
+          subCollection,
+          "content"
         );
-        if (querySnapshot?.empty) {
-          setError(true);
-        } else {
-          querySnapshot.forEach((doc) => {
-            listingData = [...listingData, doc.data()];
-          });
-          setData(listingData);
-        }
+        setData(data);
       } catch (error) {
         console.log(error);
         setError(true);

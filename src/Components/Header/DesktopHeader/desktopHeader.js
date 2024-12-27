@@ -1,5 +1,5 @@
 import DesktopMenu from "./DesktopMenu";
-import Link from "@components/Link";
+import Link from "@/components/Link";
 
 const DesktopHeader = (props) => {
   const { navMenu } = props;

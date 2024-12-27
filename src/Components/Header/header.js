@@ -1,5 +1,5 @@
-import { getFirebaseData } from "@utils/getFirebaseData";
-import DesktopHeader from "./DesktopHeader/desktopHeader";
+import { getFirebaseData } from "@/utils/getFirebaseData";
+import DesktopHeader from "./DesktopHeader";
 
 const Header = async () => {
   const data = await getFirebaseData("header");

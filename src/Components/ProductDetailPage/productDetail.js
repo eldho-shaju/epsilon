@@ -1,35 +1,15 @@
-import { Image } from "react-bootstrap";
+"use client";
+import Image from "@/components/Image";
 import Loader from "../Loader";
-import Container from "../Container/container";
 import ImageCarousel from "./ImageCarousel/imageCarousel";
 import BreadCrumb from "../BreadCrumb/BreadCrumb";
 import ErrorPage from "../ErrorPage";
 import ContactButtons from "./ContactButtons";
 import useProductDetails from "./useProductDetails";
-import useDeviceTypeCheck from "../../hooks/useDeviceTypeCheck";
-import "./detail.scss";
+import useDeviceTypeCheck from "@/hooks/useDeviceTypeCheck";
 
-const customSettings = {
-  desktop: {
-    minWidth: 901,
-    margin: "64px 0 0 0",
-    minHeight: "calc(100svh - 64px)",
-  },
-  tablet: {
-    maxWidth: 900,
-    minWidth: 600,
-    margin: "64px 0 0 0",
-    minHeight: "calc(100svh - 64px)",
-  },
-  mobile: {
-    maxWidth: 599,
-    margin: "56px 0 0 0",
-    minHeight: "calc(100svh - 56px)",
-  },
-};
-
-const ProductDetail = () => {
-  const { data, loading, error } = useProductDetails();
+const ProductDetail = ({ url_key }) => {
+  const { data, loading, error } = useProductDetails({ url_key });
   const { isMobile } = useDeviceTypeCheck();
 
   if (loading) return <Loader />;
@@ -39,13 +19,13 @@ const ProductDetail = () => {
   const url = window.location.href;
 
   return (
-    <Container style={customSettings}>
+    <section>
       <div className="detail_main_container">
         <div className="detail_container">
           {!isMobile && <BreadCrumb title="Back to list" isDetailPage />}
           <div className="detail_main_wrap">
             <div className="img_wrap">
-              {item?.image && item?.image?.length > 1 ? (
+              {/* {item?.image && item?.image?.length > 1 ? (
                 <ImageCarousel images={item?.image} />
               ) : (
                 <Image
@@ -56,7 +36,7 @@ const ProductDetail = () => {
                     (e.target.src = "asset/banner/placeholder.png")
                   }
                 />
-              )}
+              )} */}
             </div>
 
             <div className="content_wrapper">
@@ -73,7 +53,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-    </Container>
+    </section>
   );
 };
 

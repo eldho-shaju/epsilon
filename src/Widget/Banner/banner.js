@@ -1,5 +1,5 @@
-import Image from "@components/Image";
-import Link from "@components/Link";
+import Image from "@/components/Image";
+import Link from "@/components/Link";
 
 const Banner = (props) => {
   const { banner, loading } = props;

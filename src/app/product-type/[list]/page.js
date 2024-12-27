@@ -1,7 +1,7 @@
-import ProductListing from "../../../page/ProductListing";
+import ProductListing from "@/page/ProductListing";
 
-const ListingPage = ({ params }) => {
-  const { list } = params;
+const ListingPage = async ({ params }) => {
+  const { list } = await params;
 
   return <ProductListing subCollection={list} />;
 };
