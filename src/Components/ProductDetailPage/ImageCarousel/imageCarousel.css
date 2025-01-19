@@ -1,0 +1,19 @@
+.react-multiple-carousel__arrow {
+    z-index: 9;
+}
+
+.thumbnail-slider .carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thumbnail-slider .carousel-container {
+    position: relative;
+}
+
+.thumbnail .react-multi-carousel-track {
+    display: flex;
+    column-gap: 10px;
+    padding: 0 5px;
+}

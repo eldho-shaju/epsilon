@@ -1,25 +1,28 @@
 import { db } from "@/lib/firebaseSdk";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
 
 export const getFirebaseData = async (
-  docId,
-  subCollection,
   collectionName,
-  key,
-  value
+  docID,
+  subCollection,
+  key
 ) => {
   try {
     let snapshot;
-    if (subCollection && collectionName) {
-      const colRef = collection(db, docId, subCollection, collectionName);
-      const constraints = [];
-      if (key && value) {
-        constraints.push(where(key, "==", value));
+    if (docID && subCollection && !key) {
+      const colRef = collection(db, collectionName, docID, subCollection);
+      snapshot = await getDocs(query(colRef));
+    } else if (docID && subCollection && key) {
+      const docRef = doc(db, collectionName, docID);
+      const subDocRef = doc(docRef, subCollection, key);
+      const subDocSnap = await getDoc(subDocRef);
+      if (subDocSnap.exists()) {
+        return subDocSnap.data();
+      } else {
+        return {};
       }
-      const queryRef = query(colRef, ...constraints);
-      snapshot = await getDocs(queryRef);
     } else {
-      snapshot = await getDocs(collection(db, docId));
+      snapshot = await getDocs(collection(db, collectionName));
     }
     if (snapshot) {
       if (snapshot.empty) return [];

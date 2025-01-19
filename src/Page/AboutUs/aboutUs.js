@@ -1,9 +1,9 @@
-import { Image } from "react-bootstrap";
+"use client";
 import DOMPurify from "dompurify";
 import Loader from "../../Components/Loader";
 import ErrorPage from "../../Components/ErrorPage";
 import useAbout from "./useAbout";
-import "./aboutUs.scss";
+import Image from "@/components/Image";
 
 const AboutUs = () => {
   const { data, loading, error } = useAbout();
@@ -12,7 +12,7 @@ const AboutUs = () => {
   if (error || (!loading && data?.length === 0)) return <ErrorPage />;
 
   return (
-    <section className="about_container">
+    <section className="">
       <div className="about_wrapper">
         {data &&
           data?.length > 0 &&
@@ -28,9 +28,8 @@ const AboutUs = () => {
                         src={banner}
                         alt="about-us banner"
                         className="banner"
-                        onError={(e) =>
-                          (e.target.src = "asset/logo/about_banner.jpg")
-                        }
+                        width={500}
+                        height={500}
                       />
                     </div>
                   )}

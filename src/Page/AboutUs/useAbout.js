@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
-import {
-  getFromLocalStorage,
-  setToLocalStorage,
-} from "../../functions/localStorage";
-import useGetData from "../../Hooks/useGetData";
+import { getFromLocalStorage, setToLocalStorage } from "@/utils/localStorage";
+import { getFirebaseData } from "@/utils/getFirebaseData";
 
 const useAbout = () => {
-  const { getData } = useGetData();
-  const cachedData = JSON.parse(getFromLocalStorage(`aboutUs`));
-  const [data, setData] = useState(cachedData || []);
+  // const cachedData = JSON.parse(getFromLocalStorage(`aboutUs`));
+  const [data, setData] = useState([]);
   const dataLength = data?.length > 0;
   const [loading, setLoading] = useState(!!dataLength === false);
   const [error, setError] = useState(false);
@@ -16,20 +12,21 @@ const useAbout = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getData("about");
+        const data = await getFirebaseData("about");
+
+        console.log(data);
         if (data) {
           setData(data);
-          setToLocalStorage(`aboutUs`, data);
+          // setToLocalStorage(`aboutUs`, data);
         }
       } catch (err) {
-        console.error("Error fetching about data:", err);
+        console.log("Error fetching about data:", err);
         setError(true);
       } finally {
         setLoading(false);
       }
     };
-
-    if (!!dataLength === false) fetchData();
+    fetchData();
   }, []);
 
   return { data, loading, error };

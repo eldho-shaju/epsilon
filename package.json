@@ -10,7 +10,7 @@
     "next": "^15.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-multi-carousel": "^2.8.4",
+    "react-multi-carousel": "^2.8.5",
     "react-share": "^5.1.0",
     "recoil": "^0.7.7"
   },
