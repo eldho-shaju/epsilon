@@ -6,8 +6,8 @@ const FooterSocialMedia = (props) => {
   return (
     social?.contents &&
     social?.contents?.length !== 0 && (
-      <div className="flex flex-col gap-2 items-center justify-center">
-        <p className="font-semibold text-lg">Follow us on</p>
+      <div className="flex flex-col gap-1 md:gap-2 items-center justify-center">
+        <p className="font-semibold text-lg text-sm md:text-lg">Follow us on</p>
         <ul className="list-unstyled pt-2 inline-flex gap-4">
           {social?.contents?.map((ele) => (
             <li

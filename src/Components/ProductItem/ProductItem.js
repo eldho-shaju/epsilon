@@ -25,7 +25,7 @@ const ProductItem = (props) => {
         />
         {(name || price) && (
           <div className="py-3 px-2">
-            <h1 className="text-lg font-medium">{name}</h1>
+            <p className="text-sm md:text-lg font-medium">{name}</p>
             <Price price={price} />
           </div>
         )}

@@ -4,8 +4,8 @@ const FooterContact = (props) => {
   return (
     phone?.contents &&
     phone?.contents?.length !== 0 && (
-      <div className="flex flex-col gap-2 items-center justify-center">
-        <p className="font-semibold text-lg">Contact us</p>
+      <div className="flex flex-col gap-1 md:gap-2 items-center justify-center">
+        <p className="font-semibold text-sm md:text-lg">Contact us</p>
         <ul className="list-unstyled pt-2 inline-flex gap-4">
           {phone?.contents?.map((data, index) => (
             <li

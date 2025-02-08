@@ -1,5 +1,5 @@
 import { Form, Input, TextArea, useFormApi } from "informed";
-import "./contactForm.scss";
+import "./contactForm.css";
 
 const ContactusForm = ({ primaryNumber }) => {
   const formApiRef = useFormApi();
@@ -21,7 +21,7 @@ ${values?.message}`;
     <Form
       onSubmit={handleSubmit}
       formApiRef={formApiRef}
-      className="contact-form"
+      className="contact-form flex flex-col gap-1 items-start justify-center prose text-sm w-[40%]"
     >
       <Input
         label="Name"
@@ -31,7 +31,7 @@ ${values?.message}`;
         required
         autoComplete="false"
         autoCapitalize="on"
-        className="input-group"
+        className="text-md rounded-md p-2.5 bg-[#7a4f4f] text-sm w-full p-2.5 border-none text-white placeholder:text-white focus:outline-none focus:ring-0"
       />
       <Input
         name="place"
@@ -40,7 +40,7 @@ ${values?.message}`;
         placeholder="Your Location"
         autoCapitalize="on"
         required
-        className="input-group"
+        className="text-md rounded-md p-2.5 bg-[#7a4f4f] text-sm w-full p-2.5 border-none text-white placeholder:text-white focus:outline-none focus:ring-0"
       />
       <TextArea
         label="Message"
@@ -49,12 +49,16 @@ ${values?.message}`;
         placeholder="Ask Something"
         required
         autoCapitalize="on"
-        className="input-group text-area"
-        style={{}}
+        className="text-md rounded-md p-2.5 bg-[#7a4f4f] text-sm w-full p-2.5 border-none text-white placeholder:text-white focus:outline-none focus:ring-0"
       />
-      <button type="submit" className="form_button">
-        Send Message
-      </button>
+      <div className="flex justify-end w-full mt-4">
+        <button
+          type="submit"
+          className="btn text-[#7a4f4f] bg-white py-2 px-2 rounded-md hover:bg-[#7a4f4f] hover:text-white ease-in-out duration-300"
+        >
+          Send Message
+        </button>
+      </div>
     </Form>
   );
 };

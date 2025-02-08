@@ -1,143 +1,143 @@
-@import "../../styles/variables.scss";
+// @import "../../styles/variables.scss";
 
-.contact_page_wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  max-width: 1448px;
+// .contact_page_wrapper {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+//   max-width: 1448px;
 
-  .page_description {
-    padding: 0 6%;
+//   .page_description {
+//     padding: 0 6%;
 
-    .text {
-      text-align: justify;
-      font-size: 14px;
-      font-weight: 100;
-    }
-  }
+//     .text {
+//       text-align: justify;
+//       font-size: 14px;
+//       font-weight: 100;
+//     }
+//   }
 
-  .form_wrapper {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 2rem;
+//   .form_wrapper {
+//     display: flex;
+//     width: 100%;
+//     justify-content: center;
+//     justify-content: space-around;
+//     align-items: center;
+//     margin-top: 2rem;
 
-    .form_title {
-      width: 30%;
+//     .form_title {
+//       width: 30%;
 
-      p {
-        font-size: clamp(18px, 5vw, 54px);
-        line-height: 5rem;
+//       p {
+//         font-size: clamp(18px, 5vw, 54px);
+//         line-height: 5rem;
 
-        svg {
-          font-size: clamp(10px, 10vw, 100px);
-          margin-top: 2rem;
-        }
-      }
+//         svg {
+//           font-size: clamp(10px, 10vw, 100px);
+//           margin-top: 2rem;
+//         }
+//       }
 
-      p>*::after {
-        content: "\A";
-        white-space: pre;
-      }
+//       p>*::after {
+//         content: "\A";
+//         white-space: pre;
+//       }
 
-      p>*:last-child::after {
-        content: none;
-      }
-    }
+//       p>*:last-child::after {
+//         content: none;
+//       }
+//     }
 
-    .phone_number_wrapper {
-      width: 450px;
-      text-align: center;
-      background: $secondary-bg-color;
-      padding: 20px 0;
-      margin-top: 1rem;
+//     .phone_number_wrapper {
+//       width: 450px;
+//       text-align: center;
+//       background: $secondary-bg-color;
+//       padding: 20px 0;
+//       margin-top: 1rem;
 
-      .phone_hint {
-        color: $primary-color;
-        font-size: clamp(12px, 1vw, 14px);
-      }
+//       .phone_hint {
+//         color: $primary-color;
+//         font-size: clamp(12px, 1vw, 14px);
+//       }
 
-      .phone_number_box>*:first-child::after {
-        content: "\A";
-        white-space: pre;
-      }
+//       .phone_number_box>*:first-child::after {
+//         content: "\A";
+//         white-space: pre;
+//       }
 
-      .phone_number_box {
-        line-height: 4rem;
+//       .phone_number_box {
+//         line-height: 4rem;
 
-        .phone_number {
-          text-decoration: none;
-          color: $primary-color;
-          font-size: clamp(18px, 6.5vw, 44px);
-        }
-      }
-    }
-  }
-}
+//         .phone_number {
+//           text-decoration: none;
+//           color: $primary-color;
+//           font-size: clamp(18px, 6.5vw, 44px);
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media only screen and (max-width: $md) {
-  .contact_page_wrapper {
-    .page_description {
-      padding: 0 4%;
-    }
+// @media only screen and (max-width: $md) {
+//   .contact_page_wrapper {
+//     .page_description {
+//       padding: 0 4%;
+//     }
 
-    .form_wrapper {
-      flex-direction: column;
+//     .form_wrapper {
+//       flex-direction: column;
 
-      .form_title {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 15px;
-        text-align: center;
+//       .form_title {
+//         width: 100%;
+//         display: flex;
+//         justify-content: center;
+//         margin-top: 15px;
+//         text-align: center;
 
-        p>*::after {
-          content: none;
-        }
+//         p>*::after {
+//           content: none;
+//         }
 
-        p>*:first-child::after {
-          content: " ";
-        }
+//         p>*:first-child::after {
+//           content: " ";
+//         }
 
-        p>*:nth-child(2)::after {
-          content: "\A";
-          white-space: pre;
-        }
+//         p>*:nth-child(2)::after {
+//           content: "\A";
+//           white-space: pre;
+//         }
 
-        span svg {
-          transform: rotate(90deg);
-        }
-      }
+//         span svg {
+//           transform: rotate(90deg);
+//         }
+//       }
 
-      .phone_number_wrapper {
-        width: 80%;
+//       .phone_number_wrapper {
+//         width: 80%;
 
-        .phone_number_box {
-          line-height: 10vw;
-        }
-      }
-    }
-  }
-}
+//         .phone_number_box {
+//           line-height: 10vw;
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media only screen and (max-width: $xs) {
-  .contact_page_wrapper .form_wrapper {
-    &.phone {
-      margin-top: 0;
+// @media only screen and (max-width: $xs) {
+//   .contact_page_wrapper .form_wrapper {
+//     &.phone {
+//       margin-top: 0;
 
-      .form_title {
-        span svg {
-          transform: rotate(90deg);
-          margin-top: 0rem;
-        }
+//       .form_title {
+//         span svg {
+//           transform: rotate(90deg);
+//           margin-top: 0rem;
+//         }
 
-        p {
-          margin-bottom: 0rem;
-        }
-      }
-    }
-  }
-}
+//         p {
+//           margin-bottom: 0rem;
+//         }
+//       }
+//     }
+//   }
+// }

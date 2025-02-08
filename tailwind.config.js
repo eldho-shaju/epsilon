@@ -15,12 +15,28 @@ module.exports = {
       },
       height: {
         header: "4.5rem",
+        mobileheader: "3.5rem",
         breadcrumb: "2.5rem",
         main: "calc(100svh - 4.5rem)",
       },
       spacing: {
+        mobileheader: "3.5rem",
         header: "4.5rem",
         breadcrumb: "2.5rem",
+        mobile_margin: "3%",
+      },
+      screens: {
+        xs: "340px", // Extra small screen
+        sm: "600px", // Small screen
+        md: "600px", // Alias for medium screen start
+        lg: "900px", // Large screen
+      },
+      colors: {
+        primary: "#E30613",
+        secondary: "#dc2626",
+        natural_gray: "#F7F7F7",
+        dark_gray: "#4A4A4A",
+        white: "#FFFFFF",
       },
     },
   },

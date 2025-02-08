@@ -5,7 +5,7 @@ const Header = async () => {
   const data = await getFirebaseData("header");
 
   return (
-    <header className="w-full flex items-center h-header z-50 fixed bg-white shadow">
+    <header className="fixed top-0 bg-white shadow w-full flex items-center h-mobileheader sm:h-header z-50">
       <DesktopHeader navMenu={data} />
     </header>
   );

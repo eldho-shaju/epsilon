@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"components\\\\Header\\\\MobileMenu\\\\MobileMenu.js -> ./MenuBody\":{\"id\":\"components\\\\Header\\\\MobileMenu\\\\MobileMenu.js -> ./MenuBody\",\"files\":[\"static/chunks/_app-pages-browser_src_components_Header_MobileMenu_MenuBody_index_js.js\"]}}"

@@ -2,9 +2,9 @@ const FooterAddress = (props) => {
   const { address } = props;
 
   return (
-    <div className="flex flex-col gap-4 md:w-1/2">
-      <p className="font-semibold text-lg">
-        Locate us:{" "}
+    <div className="flex flex-col gap-4 md:w-1/2 items-center md:items-start border-t-2 border-gray-300 md:border-t-0 pt-2 md:pt-0 w-[90%]">
+      <p className="font-semibold text-lg md:text-left text-center">
+        <span className="hidden md:block">Locate us:</span>{" "}
         <span className="font-normal block mt-1">
           <a
             href={address?.contents?.[0]?.link}

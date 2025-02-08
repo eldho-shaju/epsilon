@@ -5,9 +5,11 @@ import FooterSocialMedia from "./FooterSocialMedia";
 import DevelopedBy from "./DevelopedBy";
 import useFooter from "./useFooter";
 import Link from "@/components/Link";
+import useDeviceTypeCheck from "@/hooks/useDeviceTypeCheck";
 
 const Footer = () => {
   const { footerData } = useFooter();
+  const { isMobile } = useDeviceTypeCheck();
 
   const phone =
     footerData?.length > 0 && footerData?.find((item) => item?.id === "phone");
@@ -26,21 +28,26 @@ const Footer = () => {
   if (!footerData || footerData?.length === 0) return null;
 
   return (
-    <footer className="w-full flex mt-auto bg-gray-100">
+    <footer className="w-full flex mt-auto bg-natural_gray">
       {/* <div className="w-[90%] mx-auto border-t-2 border-gray-300"></div> */}
-      <div className="container mx-auto py-8 ">
-        <div className="flex flex-col md:flex-row justify-between">
-          <div className="flex flex-col gap-2">
+      <div className="md:container mx-mobile_margin md:mx-auto py-4 md:py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
+          <div className="flex flex-col gap-2 items-center md:items-start pb-4 md:pb-0">
+            {/* {!isMobile && ( */}
             <div className="mb-4">
               <img
                 loading="lazy"
                 src="/assets/images/logoWithText.svg"
                 alt="Epsilon"
+                className="w-[130px] sm:w-[150px] md:w-[180px]"
               />
             </div>
+            {/* )} */}
             <div className="pl-4">
-              <p className="font-semibold mb-2 text-lg">Explore</p>
-              <ul className="list-unstyled">
+              {!isMobile && (
+                <p className="font-semibold mb-2 text-lg">Explore</p>
+              )}
+              <ul className="list-unstyled text-center md:text-left">
                 {pages?.length > 0 &&
                   pages?.map((menu) => {
                     if (menu?.id === "home") return;
@@ -61,12 +68,12 @@ const Footer = () => {
           <FooterAddress address={address} />
         </div>
         <div className="w-[90%] mx-auto border-t-2 border-gray-300 mt-8"></div>
-        <div className="flex flex-col md:flex-row justify-evenly mt-4">
+        <div className="flex flex-col md:flex-row justify-evenly mt-4 gap-4 md:gap-0">
           <FooterContact phone={phone} />
           <FooterSocialMedia social={social} />
         </div>
-        <div className="w-[90%] mx-auto border-t-2 border-gray-300 mt-8"></div>
-        <DevelopedBy />
+        {/* <div className="w-[90%] mx-auto border-t-2 border-gray-300 mt-8"></div> */}
+        {/* <DevelopedBy /> */}
       </div>
     </footer>
   );

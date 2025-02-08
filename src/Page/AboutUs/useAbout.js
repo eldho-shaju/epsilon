@@ -14,7 +14,6 @@ const useAbout = () => {
       try {
         const data = await getFirebaseData("about");
 
-        console.log(data);
         if (data) {
           setData(data);
           // setToLocalStorage(`aboutUs`, data);
