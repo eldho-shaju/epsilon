@@ -1,15 +1,14 @@
 {
   "components\\Header\\MobileMenu\\MobileMenu.js -> ./MenuBody": {
-    "id": 7376,
+    "id": "components\\Header\\MobileMenu\\MobileMenu.js -> ./MenuBody",
     "files": [
-      "static/chunks/376.4a822dacae596fd9.js"
+      "static/chunks/_app-pages-browser_src_components_Header_MobileMenu_MenuBody_index_js.js"
     ]
   },
   "widget\\ProductGrid\\productGridMain.js -> ./productGrid": {
-    "id": 8769,
+    "id": "widget\\ProductGrid\\productGridMain.js -> ./productGrid",
     "files": [
-      "static/chunks/286-6c8fe40b1ff87a2e.js",
-      "static/chunks/769.ebbbbc72ae8630a8.js"
+      "static/chunks/_app-pages-browser_src_widget_ProductGrid_productGrid_js.js"
     ]
   }
 }

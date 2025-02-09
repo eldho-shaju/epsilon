@@ -12,7 +12,7 @@ const ProductGrid = ({ data }) => {
     data &&
     data?.length > 0 && (
       <section className="py-4 md:py-8 bg-natural_gray">
-        <div className="lg:container mx-mobile_margin lg:mx-auto">
+        <div className="lg:container mx-mobile_margin px-2 lg:mx-auto">
           <div className="w-100 flex justify-center md:justify-between items-center mb-4 md:mb-8">
             <p className="text-xl md:text-2xl font-medium">Our collections</p>
             {!isMobile && <ViewAll link="/product-type" />}
