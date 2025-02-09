@@ -1,5 +1,3 @@
-import "./shimmer.scss";
-
 const Shimmer = () => {
   return (
     <section className="banner_container">

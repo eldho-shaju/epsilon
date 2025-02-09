@@ -1,44 +1,40 @@
-import { Image } from "react-bootstrap";
-import Container from "../../Components/Container/container";
-import Shimmer from "./Shimmer";
-import "./grid.scss";
+"use client";
+import Image from "@/components/Image";
 
 const WidgetGrid = (props) => {
-  const { grid, loading } = props;
+  const { grid } = props;
+
   const content = grid && grid?.content;
 
-  if (loading) return <Shimmer />;
-
   return (
-    <Container>
-      <div className="grid_wrapper">
-        {content &&
-          content?.length > 0 &&
-          content?.map((widget, index) => {
-            const direction = index % 2 === 0 ? "item-row" : "item-row-reverse";
+    content &&
+    content?.length > 0 && (
+      <section className="lg:container mx-mobile_margin lg:mx-auto py-4 md:py-8">
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {content?.map((widget, index) => {
+            const direction =
+              index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse";
             return (
-              <div
-                key={widget?.id}
-                className={`grid_item_wrapper ${direction} `}
-              >
-                <div className="img_wrapper">
-                  <Image
-                    className="img"
-                    src={widget?.img?.[0]?.downloadURL}
-                    onError={(e) =>
-                      (e.target.src = "asset/banner/placeholder.png")
-                    }
-                  />
-                </div>
-                <div className="text_wrapper">
-                  <h3 className="title">{widget?.title}</h3>
-                  <p className="para">{widget?.para}</p>
+              <div key={widget?.id} className={`flex flex-col ${direction}`}>
+                <Image
+                  src={widget?.img?.[0]?.downloadURL}
+                  width={480}
+                  height={80}
+                />
+                <div className="flex flex-col justify-center px-2 md:px-8 py-4 md:py-0">
+                  <h3 className="text-xl md:text-3xl font-medium mb-4 text-center md:text-left">
+                    {widget?.title}
+                  </h3>
+                  <p className="text-justify text-sm md:text-base leading-mobile_line_height">
+                    {widget?.para}
+                  </p>
                 </div>
               </div>
             );
           })}
-      </div>
-    </Container>
+        </div>
+      </section>
+    )
   );
 };
 

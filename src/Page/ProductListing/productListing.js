@@ -1,13 +1,22 @@
-import ErrorPage from "../../Components/ErrorPage";
-import Loader from "../../Components/Loader";
-import ProductHome from "../../Components/ProductHome";
+"use client";
+import ProductHome from "@/components/ProductHome";
+import ErrorPage from "@/components/ErrorPage";
+import Loader from "@/components/Loader";
 import useProductListing from "./useProductListing";
 
-const ProductListing = () => {
-  const { data, loading, error, formattedText } = useProductListing();
+const ProductListing = ({ subCollection }) => {
+  const { data, loading, error, formattedText } = useProductListing({
+    subCollection,
+  });
+
+  const breadCrumbs = [
+    { name: "Product Types", link: "/product-type" },
+    { name: formattedText, link: `` },
+  ];
 
   if (loading && !error) return <Loader />;
-  if (error) return <ErrorPage errorMsg="Nothing here to display" />;
+  if (error || (!loading && data?.length === 0))
+    return <ErrorPage errorMsg="Nothing here to display" />;
 
   return (
     <ProductHome
@@ -15,6 +24,8 @@ const ProductListing = () => {
       title={formattedText}
       productType={data?.[0]?.productType}
       isListing
+      breadCrumbs={breadCrumbs}
+      subCollection={subCollection}
     />
   );
 };

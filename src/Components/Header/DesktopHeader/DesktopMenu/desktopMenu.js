@@ -1,35 +1,37 @@
-import { Link, useLocation } from "react-router-dom";
-import useScrollToTop from "../../../../Hooks/useScrollToTop";
-import Shimmer from "./Shimmer/shimmer";
+"use client";
+import { usePathname } from "next/navigation";
+import Link from "@/components/Link";
+import MobileMenu from "../../MobileMenu";
 
 const DesktopMenu = (props) => {
-  const { navMenu, loading } = props;
-  const location = useLocation();
-  const { handleScrollPosition } = useScrollToTop();
-
-  if (loading) return <Shimmer />;
+  const { navMenu } = props;
+  const pathname = usePathname();
 
   return (
-    <nav className="nav_menu_wrapper">
-      {navMenu &&
-        navMenu?.length > 0 &&
-        navMenu?.map((menu) => {
-          const currentPath =
-            location.pathname.includes(menu?.label.toLowerCase()) ||
-            location.pathname === menu?.link;
-          const activeTab = currentPath ? "active-page" : "";
-          return (
-            <Link
-              to={menu?.link}
-              key={menu?.id}
-              onClick={handleScrollPosition}
-              className={`nav_links ${activeTab}`}
-            >
-              <span className={`link-text ${activeTab}`}>{menu?.label}</span>
-            </Link>
-          );
-        })}
-    </nav>
+    navMenu &&
+    navMenu?.length > 0 && (
+      <>
+        <nav className="flex align-center justify-center gap-x-6 hidden md:flex">
+          {navMenu?.map((menu) => {
+            if (menu?.id === "home") return;
+            const currentPath =
+              pathname.includes(menu?.label.toLowerCase()) ||
+              pathname === menu?.link;
+            const active = currentPath ? "active" : "";
+            return (
+              <Link
+                href={menu?.link}
+                key={menu?.id}
+                className={`inline-flex rounded-full px-3 py-1.5 text-slate-950 font-medium hover:text-red-500 [&.active]:bg-red-100 [&.active]:text-red-600 ${active}`}
+              >
+                {menu?.label}
+              </Link>
+            );
+          })}
+        </nav>
+        <MobileMenu navMenu={navMenu} />
+      </>
+    )
   );
 };
 

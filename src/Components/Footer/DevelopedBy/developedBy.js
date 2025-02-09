@@ -1,10 +1,16 @@
 const DevelopedBy = () => {
   return (
-    <div className="developer">
-      <p className="text">
-        Developed by:{" "}
+    <div className="text-center mt-4">
+      <p className="text-xs text-slate-400">
+        Designed and Developed by:{" "}
         <span>
-          <a href="http://www.linkedin.com/in/eldhoshaju">ES</a>
+          <a
+            target="_blank"
+            className="no-underline text-xs"
+            href="http://www.linkedin.com/in/eldhoshaju"
+          >
+            Eldho Shaju
+          </a>
         </span>
       </p>
     </div>

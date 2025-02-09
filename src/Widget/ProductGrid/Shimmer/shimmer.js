@@ -1,54 +1,39 @@
-import { Icon } from "@iconify/react/dist/iconify.js";
-import Container from "../../../Components/Container/container";
-import "./shimmer.scss";
-
-const customSettings = {
-  desktop: {
-    minWidth: 901,
-    margin: "0 0 0 0",
-  },
-  tablet: {
-    maxWidth: 900,
-    minWidth: 600,
-    margin: "0 0 0 0",
-  },
-  mobile: {
-    maxWidth: 599,
-    margin: "56px 0 0 0",
-  },
-};
-
 const Shimmer = () => {
   return (
-    <Container style={customSettings}>
-      <div className="product_grid_wrapper">
-        <div className="product_container">
-          <p className="title">Our collections</p>
-          <div className="item_container">
-            {[...Array(4)]?.map((val, index) => (
-              <div className="items_wrapper" key={index}>
-                <div className="item_wrapper_link">
-                  <div className={`productItem_wrapper`}>
-                    <div className="img_wrapper">
-                      <div className="product_img"></div>
-                    </div>
-                    <div className="text_wrapper_shimmer"></div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="view_all_wrapper">
-          <div className="view_all_button">
-            <div className="link_shimmer">
-              View All
-              <Icon icon="mdi:arrow-left-thin" />
-            </div>
-          </div>
+    <div className="p-4">
+      <div className="flex justify-center md:justify-between items-center mb-4">
+        <p className="text-xl font-semibold ">Our collections</p>
+        <div className="hidden md:flex text-gray-500 items-center space-x-2 cursor-pointer">
+          <div className="h-4 bg-gray-300 rounded w-16 animate-pulse"></div>
+          <svg
+            className="h-5 w-5 text-gray-300 animate-pulse"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
         </div>
       </div>
-    </Container>
+
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
+        {[...Array(4)]?.map((_, index) => (
+          <div className="p-1 md:p-2 lg:p-4 animate-pulse" key={index}>
+            <div className="h-48 bg-gray-200 rounded-lg mb-4"></div>
+            <div className="">
+              <div className="h-4 bg-gray-300 rounded w-3/4 mb-2"></div>
+              <div className="h-4 bg-gray-300 rounded w-1/2"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

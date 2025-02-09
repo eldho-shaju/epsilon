@@ -1,49 +1,30 @@
-import { Link } from "react-router-dom";
-import { FullLogo } from "../logo/logo";
-import MobileHeaderTitle from "./MobileHeaderTitle";
-import OffcanvasMenu from "../OffcanvasMenu";
-import MobileMenu from "./MobileMenu";
+"use client";
+import { usePathname } from "next/navigation";
 import DesktopMenu from "./DesktopMenu";
-import useToggle from "../../../Hooks/useToggle";
-import useScrollToTop from "../../../Hooks/useScrollToTop";
-import useDeviceTypeCheck from "../../../Hooks/useDeviceTypeCheck";
-import "./desktopHeader.scss";
+import Link from "@/components/Link";
+import InnerPageHeader from "./InnerPageHeader";
 
 const DesktopHeader = (props) => {
-  const { navMenu, isHome, loading } = props;
-  const { isMobile } = useDeviceTypeCheck();
-  const { handleScrollPosition } = useScrollToTop();
-  const { toggle, state, handleClose } = useToggle();
-
-  const handleHomeRoute = () => {
-    handleScrollPosition();
-    if (isMobile) handleClose();
-  };
+  const { navMenu } = props;
+  const pathname = usePathname();
 
   return (
     <>
-      <div className="desktop_header_wrapper">
-        {isMobile && !isHome ? (
-          <MobileHeaderTitle />
-        ) : (
-          <div className="logo_wrapper">
-            <Link to="/" className="home_link" onClick={handleHomeRoute}>
-              <FullLogo />
-            </Link>
-          </div>
-        )}
-        {isMobile ? (
-          <MobileMenu state={state} toggle={toggle} />
-        ) : (
-          <DesktopMenu navMenu={navMenu} loading={loading} />
-        )}
+      <div
+        className={`${
+          pathname !== "/" ? "hidden md:flex" : ""
+        } lg:container mx-mobile_margin lg:mx-auto w-full flex justify-between items-center`}
+      >
+        <Link href="/">
+          <img
+            src="/assets/images/logoWithText.svg"
+            alt="Epsilon"
+            className="w-[130px] sm:w-[150px] md:w-[180px]"
+          />
+        </Link>
+        <DesktopMenu navMenu={navMenu} />
       </div>
-      <OffcanvasMenu
-        state={state}
-        toggle={toggle}
-        navMenu={navMenu}
-        handleScrollPosition={handleScrollPosition}
-      />
+      <InnerPageHeader navMenu={navMenu} />
     </>
   );
 };

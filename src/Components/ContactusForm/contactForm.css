@@ -1,0 +1,12 @@
+.contact-form {
+
+    label {
+        margin-top: 5px;
+        margin-bottom: 3px;
+    }
+
+    small {
+        color: #e20000;
+    }
+
+}

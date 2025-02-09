@@ -1,71 +1,38 @@
-import { useNavigate } from "react-router-dom";
+"use client";
+import { useRouter } from "next/navigation";
 import { Icon } from "@iconify/react";
-import Container from "../Container/container";
-import "./error.scss";
-import { useEffect } from "react";
-
-const customSettings = {
-  desktop: {
-    minWidth: 901,
-    margin: "64px 0 0 0",
-    height: "calc(100svh - 64px)",
-  },
-  tablet: {
-    maxWidth: 900,
-    minWidth: 600,
-    margin: "64px 0 0 0",
-    height: "calc(100svh - 64px)",
-  },
-  mobile: {
-    maxWidth: 599,
-    margin: "56px 0 0 0",
-    height: "calc(100svh - 56px)",
-  },
-};
 
 const ErrorPage = (props) => {
   const { errorMsg = "Something went wrong" } = props;
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const navbar = document.getElementById("navbar");
-    if (navbar) {
-      navbar.classList.add("error");
-    } else if (navbar) {
-      navbar.classList.remove("error");
-    }
-
-    return () => {
-      if (navbar) navbar.classList.remove("error");
-    };
-  }, []);
+  const router = useRouter();
 
   return (
-    <Container style={customSettings}>
-      <div className="error_wrapper">
-        <Icon
-          icon={"ooui:error"}
-          width="1.2rem"
-          height="1.2rem"
-          className="error_icon"
-        />
-        <h1 className="error_msg">
+    <section className="container mx-auto">
+      <div className="flex flex-col justify-center items-center h-main">
+        <Icon icon={"ooui:error"} className="text-red-600 text-6xl" />
+        <h1 className="mt-4 text-xl md:text-2xl lg:text-3xl text-center">
           {errorMsg}
           <span>
             ..!!
-            <span className="blinking">!</span>
+            <span className="animate-ping">!</span>
           </span>
         </h1>
-        <div className="error_buttons">
-          <button className="button home_button" onClick={() => navigate("/")}>
+        <div className="mt-6 md:mt-8 flex gap-4">
+          <button
+            className="bg-zinc-950 hover:bg-zinc-700 text-white h-fit py-[5px] md:py-2 px-4 rounded"
+            onClick={() => router.push("/")}
+          >
             Home
           </button>
-          <button className="button back_button" onClick={() => navigate(-1)}>
+          <button
+            className="bg-slate-600 hover:bg-slate-700 text-white h-fit py-[5px] md:py-2 py-2 px-4 rounded"
+            onClick={() => router.back()}
+          >
             Go Back
           </button>
         </div>
       </div>
-    </Container>
+    </section>
   );
 };
 

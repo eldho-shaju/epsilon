@@ -1,19 +1,12 @@
+import { getFirebaseData } from "@/utils/getFirebaseData";
 import DesktopHeader from "./DesktopHeader";
-import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
-import useHeader from "./useHeader";
-import "./header.scss";
 
-const Header = () => {
-  const { isMobile } = useDeviceTypeCheck();
-  const { data, loading, isHome } = useHeader(isMobile);
-
-  const home = !isMobile ? isHome : "";
+const Header = async () => {
+  const data = await getFirebaseData("header");
 
   return (
-    <header id="navbar" className={`navbar ${home}`}>
-      <div className="toolbar">
-        <DesktopHeader navMenu={data} isHome={isHome} loading={loading} />
-      </div>
+    <header className="fixed top-0 bg-white shadow w-full flex items-center h-mobileheader sm:h-header z-50">
+      <DesktopHeader navMenu={data} />
     </header>
   );
 };

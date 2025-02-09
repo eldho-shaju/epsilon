@@ -9,11 +9,13 @@ const useDeviceTypeCheck = () => {
     });
   }, []);
 
+  const innerWidth = typeof window !== "undefined" && window.innerWidth;
+
   const isMobile = !!screenWidth
     ? screenWidth <= 600
       ? true
       : false
-    : window.innerWidth <= 600
+    : innerWidth <= 600
     ? true
     : false;
 
@@ -21,7 +23,7 @@ const useDeviceTypeCheck = () => {
     ? screenWidth >= 340
       ? true
       : false
-    : window.innerWidth >= 340
+    : innerWidth >= 340
     ? true
     : false;
 
@@ -29,7 +31,7 @@ const useDeviceTypeCheck = () => {
     ? screenWidth >= 900
       ? true
       : false
-    : window.innerWidth >= 900
+    : innerWidth >= 900
     ? true
     : false;
 

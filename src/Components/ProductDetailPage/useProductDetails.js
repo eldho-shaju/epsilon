@@ -1,42 +1,35 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "../../firebaseSdk";
-import {
-  getFromLocalStorage,
-  setToLocalStorage,
-} from "../../functions/localStorage";
+import { useSearchParams } from "next/navigation";
+import { getFromLocalStorage, setToLocalStorage } from "@/utils/localStorage";
+import { getFirebaseData } from "@/utils/getFirebaseData";
+import { isEmptyObj } from "@/utils/isEmptyObj";
 
-const useProductDetails = () => {
-  const { type, detail } = useParams();
-  const url_key = detail.replace(/:/g, "");
-  const cachedData = JSON.parse(getFromLocalStorage(`${url_key}`));
-  const [data, setData] = useState(cachedData || []);
-  const dataLength = data?.length > 0;
-  const [loading, setLoading] = useState(!!dataLength === false);
+const useProductDetails = ({ url_key }) => {
+  const searchParams = useSearchParams();
+  const type = searchParams.get("type") || "";
+  // const cachedData = JSON.parse(getFromLocalStorage(`${url_key}`));
+  const [item, setItem] = useState({});
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const productType = type.replace(/:/g, "");
+  const productType = type?.replace(/-/g, " ");
 
   useEffect(() => {
     async function fetchData() {
       try {
-        let data = [];
-        const querySnapshot = await getDocs(
-          query(
-            collection(db, "product_details", productType, "type"),
-            where("urlKey", "==", url_key)
-          )
+        const data = await getFirebaseData(
+          "product_details",
+          type,
+          "type",
+          url_key
         );
-        if (querySnapshot?.empty) {
+
+        if (isEmptyObj(data)) {
           setError(true);
         } else {
-          querySnapshot.forEach((doc) => {
-            data = [...data, doc?.data()];
-          });
-          setData(data);
-          setToLocalStorage(`${url_key}`, data);
+          setItem(data);
         }
+        // setToLocalStorage(`${url_key}`, data);
       } catch (error) {
         console.log(error);
         setError(true);
@@ -47,7 +40,7 @@ const useProductDetails = () => {
     fetchData();
   }, []);
 
-  return { data, loading, error };
+  return { item, loading, error, type, productType };
 };
 
 export default useProductDetails;

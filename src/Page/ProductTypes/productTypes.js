@@ -1,7 +1,8 @@
-import ErrorPage from "../../Components/ErrorPage";
-import Loader from "../../Components/Loader";
-import ProductHome from "../../Components/ProductHome";
+"use client";
+import Loader from "@/components/Loader";
 import useProductTypes from "./useProductTypes";
+import ProductHome from "@/components/ProductHome";
+import ErrorPage from "@/components/ErrorPage";
 
 const ProductTypes = () => {
   const { data, loading, error } = useProductTypes();
@@ -9,7 +10,16 @@ const ProductTypes = () => {
   if (error || (!loading && data?.length === 0)) return <ErrorPage />;
   if (loading) return <Loader />;
 
-  return <ProductHome data={data} isProductTypes title="Diverse Collections" />;
+  return (
+    <ProductHome
+      data={data}
+      isProductTypes
+      title="Diverse Collections"
+      breadCrumbs={breadCrumbs}
+    />
+  );
 };
 
 export default ProductTypes;
+
+const breadCrumbs = [{ name: "Product Types", link: "" }];

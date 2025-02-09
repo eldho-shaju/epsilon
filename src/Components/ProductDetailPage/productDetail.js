@@ -1,79 +1,81 @@
-import { Image } from "react-bootstrap";
+"use client";
+import DOMPurify from "dompurify";
+import Image from "@/components/Image";
 import Loader from "../Loader";
-import Container from "../Container/container";
 import ImageCarousel from "./ImageCarousel/imageCarousel";
-import BackButton from "../BackButton/BackButton";
+import BreadCrumb from "../BreadCrumb/BreadCrumb";
 import ErrorPage from "../ErrorPage";
 import ContactButtons from "./ContactButtons";
 import useProductDetails from "./useProductDetails";
-import useDeviceTypeCheck from "../../Hooks/useDeviceTypeCheck";
-import "./detail.scss";
+import Price from "../Price";
 
-const customSettings = {
-  desktop: {
-    minWidth: 901,
-    margin: "64px 0 0 0",
-    minHeight: "calc(100svh - 64px)",
-  },
-  tablet: {
-    maxWidth: 900,
-    minWidth: 600,
-    margin: "64px 0 0 0",
-    minHeight: "calc(100svh - 64px)",
-  },
-  mobile: {
-    maxWidth: 599,
-    margin: "56px 0 0 0",
-    minHeight: "calc(100svh - 56px)",
-  },
-};
+const ProductDetail = ({ url_key }) => {
+  const { item, loading, error, type, productType } = useProductDetails({
+    url_key,
+  });
 
-const ProductDetail = () => {
-  const { data, loading, error } = useProductDetails();
-  const { isMobile } = useDeviceTypeCheck();
+  const url = typeof window !== "undefined" && window.location.href;
+
+  const breadCrumbs = [
+    { name: "Product Types", link: "/product-type" },
+    { name: productType, link: `/product-type/${type}` },
+    { name: item?.name, link: `` },
+  ];
 
   if (loading) return <Loader />;
   if (error) return <ErrorPage />;
 
-  const item = data && data?.[0];
-  const url = window.location.href;
-
   return (
-    <Container style={customSettings}>
-      <div className="detail_main_container">
-        <div className="detail_container">
-          {!isMobile && <BackButton title="Back to list" isDetailPage />}
-          <div className="detail_main_wrap">
-            <div className="img_wrap">
-              {item?.image && item?.image?.length > 1 ? (
-                <ImageCarousel images={item?.image} />
-              ) : (
-                <Image
-                  src={item?.image?.[0]?.downloadURL}
-                  alt={item?.image?.[0]?.name}
-                  className="product_img"
-                  onError={(e) =>
-                    (e.target.src = "asset/banner/placeholder.png")
-                  }
-                />
+    <section className="mb-mobile_margin md:mb-breadcrumb">
+      <BreadCrumb data={breadCrumbs} />
+      <div className="lg:container mx-mobile_margin lg:mx-auto relative flex flex-col justify-center gap-8 items-center md:pt-breadcrumb object-contain">
+        <div className="w-full pt-2 flex flex-col md:flex-row gap-4 md:gap-8 mt-2">
+          {/* Adjusted Image Container to Properly Fit */}
+          <div className="w-full md:w-1/2 lg:w-1/3 relative">
+            <div className="sticky top-pdp_image">
+              {item?.image && (
+                <>
+                  {item?.image?.length > 1 ? (
+                    <ImageCarousel name={item?.name} images={item?.image} />
+                  ) : (
+                    <Image
+                      src={item?.image?.[0]?.downloadURL}
+                      alt={item?.name}
+                      className="w-full object-contain"
+                      width={500}
+                      height={500}
+                      priority
+                    />
+                  )}
+                </>
               )}
             </div>
+          </div>
 
-            <div className="content_wrapper">
-              <h3 variant="h6" mb={2} color={"secondary"}>
-                {item?.name}
-              </h3>
-              <p className="price">₹: {item?.price}</p>
-              <ContactButtons name={item?.name} url={url} />
-              <div className="about_product">
-                <p className="about_title">About this product:</p>
-                <p className="content">{item?.description}</p>
+          {/* Adjusted Details Container to Properly Fit */}
+          <div className="w-full md:w-1/2 lg:w-2/3">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 md:mb-4">
+              {item?.name}
+            </h1>
+            <Price price={item?.price} offerPrice={item?.offerPrice} />
+            <ContactButtons name={item?.name} url={url} />
+            {item?.description && (
+              <div className="mt-3 md:mt-6">
+                <p className="font-semibold mb-2 text-lg">
+                  About this product:
+                </p>
+                <div
+                  className="prose text-justify text-sm md:text-md leading-mobile_line_height"
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(item?.description),
+                  }}
+                />
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
-    </Container>
+    </section>
   );
 };
 

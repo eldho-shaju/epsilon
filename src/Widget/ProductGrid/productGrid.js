@@ -1,82 +1,39 @@
-import { Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import Container from "../../Components/Container/container";
-import useProductTypes from "../../Page/ProductTypes/useProductTypes";
-import useScrollToTop from "../../Hooks/useScrollToTop";
-import Shimmer from "./Shimmer";
-import "./productGrid.scss";
+"use client";
+import ProductItem from "@/components/ProductItem";
+import ViewAll from "@/components/ViewAll";
+import useDeviceTypeCheck from "@/hooks/useDeviceTypeCheck";
 
-const customSettings = {
-  desktop: {
-    minWidth: 901,
-    margin: "0 0 0 0",
-  },
-  tablet: {
-    maxWidth: 900,
-    minWidth: 600,
-    margin: "0 0 0 0",
-  },
-  mobile: {
-    maxWidth: 599,
-    margin: "56px 0 0 0",
-  },
-};
+const ProductGrid = ({ data }) => {
+  const { isMobile } = useDeviceTypeCheck();
 
-const ProductGrid = () => {
-  const { data, loading, error } = useProductTypes();
-  const { handleScrollPosition } = useScrollToTop();
-
-  if (error) return null;
-  if (loading) return <Shimmer />;
+  const sliceNumber = isMobile ? 5 : 4;
 
   return (
-    <Container style={customSettings}>
-      <div className="product_grid_container">
-        <div className="product_grid_wrapper">
-          <div className="product_container">
-            <p className="title">Our collections</p>
-            <div className="item_container">
-              {data &&
-                data.length !== 0 &&
-                data?.slice(0, 4)?.map((type) => (
-                  <div className="items_wrapper" key={type?.id}>
-                    <Link
-                      className="item_wrapper_link"
-                      onClick={handleScrollPosition}
-                      to={`/product-type/${type?.link}`}
-                    >
-                      <div className={`productItem_wrapper`}>
-                        <div className="img_wrapper">
-                          <Image
-                            className="product_img"
-                            alt={type?.name}
-                            src={type?.img?.[0]?.downloadURL}
-                            onError={(e) =>
-                              (e.target.src = "asset/banner/placeholder.png")
-                            }
-                          />
-                        </div>
-                        <div className="text_wrapper">
-                          <p className="product_name">{type?.name}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                ))}
-            </div>
+    data &&
+    data?.length > 0 && (
+      <section className="py-4 md:py-8 bg-natural_gray">
+        <div className="lg:container mx-mobile_margin px-2 lg:mx-auto">
+          <div className="w-100 flex justify-center md:justify-between items-center mb-4 md:mb-8">
+            <p className="text-xl md:text-2xl font-medium">Our collections</p>
+            {!isMobile && <ViewAll link="/product-type" />}
           </div>
-          <div className="view_all_wrapper">
-            <div className="view_all_button">
-              <Link to="/product-type" onClick={handleScrollPosition}>
-                View All
-                <Icon icon="mdi:arrow-left-thin" />
-              </Link>
-            </div>
+          <div className="w-full grid gap-4 grid-cols-2 md:grid-cols-4 md:gap-8">
+            {data?.slice(0, sliceNumber)?.map((item, index) => {
+              const priority = isMobile ? index < 3 : index < 5;
+
+              return (
+                <ProductItem item={item} key={index} priority={priority} />
+              );
+            })}
+            {isMobile && (
+              <div className="w-full flex justify-center items-center">
+                <ViewAll link="/product-type" />
+              </div>
+            )}
           </div>
         </div>
-      </div>
-    </Container>
+      </section>
+    )
   );
 };
 
