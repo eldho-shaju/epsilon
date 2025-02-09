@@ -20,6 +20,7 @@ const WidgetGrid = (props) => {
                   src={widget?.img?.[0]?.downloadURL}
                   width={480}
                   height={80}
+                  alt={widget?.title}
                 />
                 <div className="flex flex-col justify-center px-2 md:px-8 py-4 md:py-0">
                   <h3 className="text-xl md:text-3xl font-medium mb-4 text-center md:text-left">

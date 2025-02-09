@@ -1,16 +1,20 @@
 "use client";
 import { Fragment } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import ContactusForm from "../../Components/ContactusForm";
+import ContactusForm from "@/components/ContactusForm";
 import useContact from "./useContact";
-import BreadCrumb from "@/components/BreadCrumb";
-import Loader from "@/components/Loader";
+import LoadingUI from "@/components/LoadingUI";
 import ErrorPage from "@/components/ErrorPage";
+import dynamic from "next/dynamic";
+
+const BreadCrumb = dynamic(() => import("@/components/BreadCrumb"), {
+  ssr: false,
+});
 
 const ContactUs = () => {
   const { data, loading, error } = useContact();
 
-  if (loading && !error) return <Loader />;
+  if (loading && !error) return <LoadingUI />;
   if (error || (!loading && data?.length === 0)) return <ErrorPage />;
 
   const pageDescription =
@@ -40,7 +44,7 @@ const ContactUs = () => {
           <div className="w-full flex flex-col md:flex-row gap-4 lg:gap-8 bg-natural_gray p-8 rounded-[20px] items-center justify-evenly">
             <div className="contents">
               <p className="font-bold text-3xl leading-[1.2] md:text-4xl md:leading-[1.2] lg:text-5xl lg:leading-[1.2]">
-                <span className="block">What's on</span>
+                <span className="block">What&apos;s on</span>
                 <span className="block">your mind?</span>
               </p>
               <Icon
@@ -81,7 +85,7 @@ const ContactUs = () => {
             <div className="contents">
               <p className="font-bold text-3xl leading-[1.2] md:text-4xl md:leading-[1.2] lg:text-5xl lg:leading-[1.2]">
                 <span className="block">Okay!</span>
-                <span className="block">Let's chat!</span>
+                <span className="block">Let&apos;s chat!</span>
               </p>
               <Icon
                 className="text-4xl rotate-90 md:rotate-0"

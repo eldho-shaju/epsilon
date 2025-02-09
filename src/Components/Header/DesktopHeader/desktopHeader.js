@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import DesktopMenu from "./DesktopMenu";
 import Link from "@/components/Link";
 import InnerPageHeader from "./InnerPageHeader";
+import Image from "@/components/Image";
 
 const DesktopHeader = (props) => {
   const { navMenu } = props;
@@ -16,9 +17,11 @@ const DesktopHeader = (props) => {
         } lg:container mx-mobile_margin lg:mx-auto w-full flex justify-between items-center`}
       >
         <Link href="/">
-          <img
+          <Image
             src="/assets/images/logoWithText.svg"
             alt="Epsilon"
+            width={180}
+            height={30}
             className="w-[130px] sm:w-[150px] md:w-[180px]"
           />
         </Link>

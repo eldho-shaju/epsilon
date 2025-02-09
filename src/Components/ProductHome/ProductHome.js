@@ -1,7 +1,11 @@
 "use client";
 import { memo } from "react";
-import BreadCrumb from "../BreadCrumb";
 import ProductItem from "../ProductItem";
+import dynamic from "next/dynamic";
+
+const BreadCrumb = dynamic(() => import("@/components/BreadCrumb"), {
+  ssr: false,
+});
 
 const ProductHome = memo((props) => {
   const {
@@ -52,5 +56,7 @@ const ProductHome = memo((props) => {
     </>
   );
 });
+
+ProductHome.displayName = "ProductHome";
 
 export default ProductHome;

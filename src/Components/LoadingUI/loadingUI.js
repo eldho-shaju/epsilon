@@ -1,6 +1,6 @@
 import { Logo } from "../Header/Logo/logo";
 
-const Loader = () => {
+const LoadingUI = () => {
   return (
     <div className="container mx-auto w-full flex justify-center items-center h-main">
       <div className="animate-bounce">
@@ -10,4 +10,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default LoadingUI;

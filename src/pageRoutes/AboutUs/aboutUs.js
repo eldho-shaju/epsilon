@@ -1,19 +1,22 @@
 "use client";
-import Loader from "@/components/Loader";
+import LoadingUI from "@/components/LoadingUI";
 import ErrorPage from "@/components/ErrorPage";
 import useAbout from "./useAbout";
 import Image from "@/components/Image";
 import useDeviceTypeCheck from "@/customHooks/useDeviceTypeCheck";
-import BreadCrumb from "@/components/BreadCrumb";
+import dynamic from "next/dynamic";
+
+const BreadCrumb = dynamic(() => import("@/components/BreadCrumb"), {
+  ssr: false,
+});
 
 const AboutUs = () => {
   const { data, loading, error } = useAbout();
   const { isMobile } = useDeviceTypeCheck();
-
-  if (loading) return <Loader />;
-  if (error || (!loading && data?.length === 0)) return <ErrorPage />;
-
   const images = data?.find((ele) => ele?.type === "banner");
+
+  if (loading) return <LoadingUI />;
+  if (error || (!loading && data?.length === 0)) return <ErrorPage />;
 
   return (
     <>

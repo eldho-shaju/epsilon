@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import Link from "@/components/Link";
 import useDeviceTypeCheck from "@/customHooks/useDeviceTypeCheck";
 
@@ -68,5 +67,4 @@ const home = [
   },
 ];
 
-// Export with SSR disabled
-export default dynamic(() => Promise.resolve(BreadCrumb), { ssr: false });
+export default BreadCrumb;

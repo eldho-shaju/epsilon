@@ -45,4 +45,6 @@ const ContactButtons = memo((props) => {
   );
 });
 
+ContactButtons.displayName = "ContactButtons";
+
 export default ContactButtons;

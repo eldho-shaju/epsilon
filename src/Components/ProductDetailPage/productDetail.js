@@ -1,13 +1,17 @@
 "use client";
 import DOMPurify from "dompurify";
 import Image from "@/components/Image";
-import Loader from "../Loader";
+import LoadingUI from "../LoadingUI";
 import ImageCarousel from "./ImageCarousel/imageCarousel";
-import BreadCrumb from "../BreadCrumb/BreadCrumb";
 import ErrorPage from "../ErrorPage";
 import ContactButtons from "./ContactButtons";
 import useProductDetails from "./useProductDetails";
 import Price from "../Price";
+import dynamic from "next/dynamic";
+
+const BreadCrumb = dynamic(() => import("@/components/BreadCrumb"), {
+  ssr: false,
+});
 
 const ProductDetail = ({ url_key }) => {
   const { item, loading, error, type, productType } = useProductDetails({
@@ -22,7 +26,7 @@ const ProductDetail = ({ url_key }) => {
     { name: item?.name, link: `` },
   ];
 
-  if (loading) return <Loader />;
+  if (loading) return <LoadingUI />;
   if (error) return <ErrorPage />;
 
   return (

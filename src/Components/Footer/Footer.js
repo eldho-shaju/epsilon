@@ -2,10 +2,10 @@
 import FooterAddress from "./FooterAddress";
 import FooterContact from "./FooterContact";
 import FooterSocialMedia from "./FooterSocialMedia";
-import DevelopedBy from "./DevelopedBy";
 import useFooter from "./useFooter";
 import Link from "@/components/Link";
 import useDeviceTypeCheck from "@/customHooks/useDeviceTypeCheck";
+import Image from "@/components/Image";
 
 const Footer = () => {
   const { footerData } = useFooter();
@@ -35,10 +35,12 @@ const Footer = () => {
           <div className="flex flex-col gap-2 items-center md:items-start pb-4 md:pb-0">
             {/* {!isMobile && ( */}
             <div className="mb-4">
-              <img
+              <Image
                 loading="lazy"
                 src="/assets/images/logoWithText.svg"
                 alt="Epsilon"
+                width={180}
+                height={30}
                 className="w-[130px] sm:w-[150px] md:w-[180px]"
               />
             </div>
