@@ -4,7 +4,7 @@
     "paths": {
       "@/components/*": ["src/components/*"],
       "@/customHooks/*": ["src/customHooks/*"],
-      "@/pages/*": ["src/pages/*"],
+      "@/pageRoutes/*": ["src/pageRoutes/*"],
       "@/widget/*": ["src/widget/*"],
       "@/utils/*": ["src/utils/*"],
       "@/styles/*": ["src/styles/*"],

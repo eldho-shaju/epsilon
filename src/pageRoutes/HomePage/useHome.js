@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
-import {
-  getFromLocalStorage,
-  setToLocalStorage,
-} from "../../functions/localStorage";
-import useGetData from "../../hooks/useGetData";
+import { getFirebaseData } from "@/utils/getFirebaseData";
 
 const useHome = () => {
-  const { getData } = useGetData();
-  const cachedData = JSON.parse(getFromLocalStorage(`homeWidgets`));
-  const [widget, setWidget] = useState(cachedData || []);
+  const [widget, setWidget] = useState([]);
   const dataLength = widget?.length > 0;
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -16,10 +10,9 @@ const useHome = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const widgetData = await getData("homeWidgets");
+        const widgetData = await getFirebaseData("homeWidgets");
         if (widgetData) {
           setWidget(widgetData);
-          setToLocalStorage("homeWidgets", widgetData);
         }
       } catch (error) {
         console.error("Error fetching data:", error);

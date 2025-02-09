@@ -3,7 +3,7 @@ import Banner from "@/widget/Banner";
 import WidgetGrid from "@/widget/Grid";
 import ProductGridMain from "@/widget/ProductGrid";
 
-const Home = async () => {
+const HomePage = async () => {
   const widgetData = await getFirebaseData("homeWidgets");
   const data = await getFirebaseData("product-type");
 
@@ -28,4 +28,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default HomePage;

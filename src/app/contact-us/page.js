@@ -1,4 +1,4 @@
-import ContactUs from "@/pages/ContactUs";
+import ContactUs from "@/pageRoutes/ContactUs";
 
 const ContactUsPage = () => {
   return <ContactUs />;

@@ -1,4 +1,4 @@
-import ProductListing from "@/pages/ProductListing";
+import ProductListing from "@/pageRoutes/ProductListing";
 
 const ListingPage = async ({ params }) => {
   const { list } = await params;

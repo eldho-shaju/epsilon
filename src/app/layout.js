@@ -1,4 +1,4 @@
-import PageLayout from "@/pages/PageLayout";
+import PageLayout from "@/pageRoutes/PageLayout";
 import "../styles/global.css";
 
 export const metadata = {

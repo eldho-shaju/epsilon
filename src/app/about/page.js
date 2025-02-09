@@ -1,4 +1,4 @@
-import AboutUs from "@/pages/AboutUs";
+import AboutUs from "@/pageRoutes/AboutUs";
 
 const page = () => {
   return <AboutUs />;
