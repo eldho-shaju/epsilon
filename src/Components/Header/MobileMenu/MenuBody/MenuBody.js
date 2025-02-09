@@ -39,7 +39,7 @@ const MenuBody = (props) => {
 
       <div
         ref={menuRef}
-        className={`fixed right-0 bottom-0 h-full w-64 bg-white shadow-lg transform ${
+        className={`fixed right-0 bottom-0 h-full w-64 bg-white shadow-lg transform shadow-[inset_0_5px_7px_-8px_rgba(0,0,0,0.3)] ${
           state ? "translate-x-0 overflow-y-none" : "translate-x-full"
         } transition-transform duration-300 ease-in-out z-50 overflow-y-auto top-mobileheader`}
       >

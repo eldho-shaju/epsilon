@@ -18,6 +18,7 @@ const Banner = (props) => {
               src={src}
               alt={desktopImg?.name}
               className="aspect-video  object-cover"
+              priority
             />
           </div>
           {banner?.text && (

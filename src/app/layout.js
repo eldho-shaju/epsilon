@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/assets/images/logo.svg" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         <link
           rel="stylesheet"

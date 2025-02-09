@@ -1,6 +1,10 @@
 {
-  "/about/page": "app/about/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
+  "/about/page": "app/about/page.js",
+  "/product-type/page": "app/product-type/page.js",
+  "/d/[detail]/page": "app/d/[detail]/page.js",
   "/contact-us/page": "app/contact-us/page.js",
-  "/product-type/page": "app/product-type/page.js"
+  "/product-type/[list]/page": "app/product-type/[list]/page.js"
 }

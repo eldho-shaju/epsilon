@@ -4,6 +4,7 @@ import Image from "@/components/Image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./imageCarousel.css";
+import useDeviceTypeCheck from "@/hooks/useDeviceTypeCheck";
 
 const responsive = {
   desktop: {
@@ -30,6 +31,7 @@ const thumbnailResponsive = {
 const ImageCarousel = ({ name, images }) => {
   const carouselRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { isMobile } = useDeviceTypeCheck();
 
   const handleClick = (index) => {
     setCurrentSlide(index);
@@ -63,36 +65,39 @@ const ImageCarousel = ({ name, images }) => {
               width={500}
               height={500}
               className="w-full object-contain"
+              priority={index === 0}
             />
           ))}
         </Carousel>
       </div>
 
-      <div className="mt-1 w-full thumbnail">
-        <Carousel
-          swipeable
-          draggable
-          responsive={thumbnailResponsive}
-          customRightArrow={<CustomRightArrow />}
-          customLeftArrow={<CustomLeftArrow />}
-          keyBoardControl
-          customTransition="all .5"
-          transitionDuration={500}
-          containerClass="thumbnail-slider"
-          itemClass="thumbnail-item"
-        >
-          {images.map((_, index) => (
-            <CustomDot
-              key={index}
-              index={index}
-              images={images}
-              name={name}
-              onClick={handleClick}
-              currentSlide={currentSlide === index}
-            />
-          ))}
-        </Carousel>
-      </div>
+      {!isMobile && (
+        <div className="mt-1 w-full thumbnail">
+          <Carousel
+            swipeable
+            draggable
+            responsive={thumbnailResponsive}
+            customRightArrow={<CustomRightArrow />}
+            customLeftArrow={<CustomLeftArrow />}
+            keyBoardControl
+            customTransition="all .5"
+            transitionDuration={500}
+            containerClass="thumbnail-slider"
+            itemClass="thumbnail-item"
+          >
+            {images.map((_, index) => (
+              <CustomDot
+                key={index}
+                index={index}
+                images={images}
+                name={name}
+                onClick={handleClick}
+                currentSlide={currentSlide === index}
+              />
+            ))}
+          </Carousel>
+        </div>
+      )}
     </>
   );
 };

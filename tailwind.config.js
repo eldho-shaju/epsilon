@@ -24,6 +24,8 @@ module.exports = {
         header: "4.5rem",
         breadcrumb: "2.5rem",
         mobile_margin: "3%",
+        mobile_line_height: "6",
+        pdp_image: "7rem",
       },
       screens: {
         xs: "340px", // Extra small screen
@@ -37,6 +39,10 @@ module.exports = {
         natural_gray: "#F7F7F7",
         dark_gray: "#4A4A4A",
         white: "#FFFFFF",
+        maroon: "#7a4f4f",
+      },
+      lineHeight: {
+        mobile_line_height: "1.6",
       },
     },
   },

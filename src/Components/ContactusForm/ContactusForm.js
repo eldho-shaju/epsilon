@@ -21,7 +21,7 @@ ${values?.message}`;
     <Form
       onSubmit={handleSubmit}
       formApiRef={formApiRef}
-      className="contact-form flex flex-col gap-1 items-start justify-center prose text-sm w-[40%]"
+      className="contact-form bg-white p-4 rounded-[20px] flex flex-col gap-1 items-start justify-center prose text-sm w-full md:w-[50%] lg:w-[40%]"
     >
       <Input
         label="Name"
@@ -54,7 +54,7 @@ ${values?.message}`;
       <div className="flex justify-end w-full mt-4">
         <button
           type="submit"
-          className="btn text-[#7a4f4f] bg-white py-2 px-2 rounded-md hover:bg-[#7a4f4f] hover:text-white ease-in-out duration-300"
+          className="btn text-maroon bg-natural_gray py-2 px-2 rounded-md hover:bg-[#7a4f4f] hover:text-white ease-in-out duration-300"
         >
           Send Message
         </button>

@@ -1,9 +1,6 @@
-import Container from "../../../components/Container/container";
-import "./shimmer.scss";
-
 const Shimmer = () => {
   return (
-    <Container>
+    <section>
       <div className="grid_wrapper">
         {[...Array(4)]?.map((val, index) => {
           const direction = index % 2 === 0 ? "item-row" : "item-row-reverse";
@@ -23,7 +20,7 @@ const Shimmer = () => {
           );
         })}
       </div>
-    </Container>
+    </section>
   );
 };
 

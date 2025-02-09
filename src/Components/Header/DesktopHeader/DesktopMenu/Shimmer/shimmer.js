@@ -1,5 +1,3 @@
-import "./shimmer.scss";
-
 const Shimmer = () => {
   return (
     <div className="nav_menu_wrapper">

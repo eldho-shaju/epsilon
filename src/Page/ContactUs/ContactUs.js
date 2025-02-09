@@ -27,22 +27,31 @@ const ContactUs = () => {
   return (
     <>
       <BreadCrumb data={breadCrumbs} />
-      <section className="mb-breadcrumb mt-breadcrumb">
-        <div className="container mx-auto relative flex flex-col justify-center gap-8 items-center">
-          <div className="block text-center w-[75%] mb-8">
-            <h1 className="text-3xl font-bold mb-4">Connect with our team</h1>
-            <p className="text-md">{pageDescription?.content}</p>
+      <section className="mb-2 lg:mb-breadcrumb mt-0 md:mt-breadcrumb">
+        <div className="lg:container mx-auto relative flex flex-col justify-center gap-4 lg:gap-8 items-center p-mobile_margin md:pt-0">
+          <div className="block text-center w-full lg:w-[75%] mb-8">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
+              Connect with our team
+            </h1>
+            <p className="text-sm md:text-md text-justify md:text-center leading-mobile_line_height">
+              {pageDescription?.content}
+            </p>
           </div>
-          <div className="w-full flex flex-col md:flex-row gap-8 bg-gray-100 p-8 rounded-[20px] items-center justify-evenly">
+          <div className="w-full flex flex-col md:flex-row gap-4 lg:gap-8 bg-natural_gray p-8 rounded-[20px] items-center justify-evenly">
             <div className="contents">
-              <p className="font-bold text-5xl leading-[1.3]">
+              <p className="font-bold text-3xl leading-[1.2] md:text-4xl md:leading-[1.2] lg:text-5xl lg:leading-[1.2]">
                 <span className="block">What's on</span>
                 <span className="block">your mind?</span>
               </p>
-              <Icon className="text-4xl" icon="ic:sharp-double-arrow" />
+              <Icon
+                className="text-4xl rotate-90 md:rotate-0"
+                icon="ic:sharp-double-arrow"
+                width={40}
+                height={40}
+              />
             </div>
-            <div className="block bg-white py-4 px-8 rounded-[20px]">
-              <p className="text-center text-md inline-flex gap-1">
+            <div className="block bg-white py-4 px-8 rounded-[20px] w-full md:w-[50%] lg:w-[40%]">
+              <p className="text-center text-md inline-flex flex-col items-center md:flex-row gap-1">
                 Just tap the number to dial
                 <span>
                   <Icon
@@ -68,13 +77,18 @@ const ContactUs = () => {
               </div>
             </div>
           </div>
-          <div className="w-full flex flex-col md:flex-row gap-8 bg-gray-100 p-8 rounded-[20px] items-center justify-evenly">
+          <div className="w-full flex flex-col md:flex-row gap-4 lg:gap-8 bg-natural_gray p-8 rounded-[20px] items-center justify-evenly">
             <div className="contents">
-              <p className="font-bold text-5xl leading-[1.3]">
+              <p className="font-bold text-3xl leading-[1.2] md:text-4xl md:leading-[1.2] lg:text-5xl lg:leading-[1.2]">
                 <span className="block">Okay!</span>
                 <span className="block">Let's chat!</span>
               </p>
-              <Icon className="text-4xl" icon="ic:sharp-double-arrow" />
+              <Icon
+                className="text-4xl rotate-90 md:rotate-0"
+                icon="ic:sharp-double-arrow"
+                width={40}
+                height={40}
+              />
             </div>
             <ContactusForm primaryNumber={primaryNumber} />
           </div>

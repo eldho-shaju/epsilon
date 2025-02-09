@@ -30,7 +30,7 @@ const Footer = () => {
   return (
     <footer className="w-full flex mt-auto bg-natural_gray">
       {/* <div className="w-[90%] mx-auto border-t-2 border-gray-300"></div> */}
-      <div className="md:container mx-mobile_margin md:mx-auto py-4 md:py-8">
+      <div className="lg:container mx-mobile_margin lg:mx-auto py-4 md:py-8 w-full">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
           <div className="flex flex-col gap-2 items-center md:items-start pb-4 md:pb-0">
             {/* {!isMobile && ( */}

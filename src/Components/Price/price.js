@@ -11,7 +11,7 @@ const Price = (props) => {
     <>
       {/* Show current price */}
       {offerPrice && (
-        <span className="text-md font-semibold text-green-600 mr-1">
+        <span className="text-sm md:text-md font-semibold text-green-600 mr-1">
           {formatPrice(offerPrice)}
         </span>
       )}
@@ -19,8 +19,8 @@ const Price = (props) => {
       {price && (
         <span
           className={`${
-            offerPrice ? "line-through text-slate-800 text-sm" : ""
-          } text-md`}
+            offerPrice ? "line-through text-slate-800 text-sm" : "font-semibold"
+          } text-sm md:text-md`}
         >
           {formatPrice(price)}
         </span>

@@ -1,1 +1,1 @@
-export { default } from "./productGrid";
+export { default } from "./productGridMain";

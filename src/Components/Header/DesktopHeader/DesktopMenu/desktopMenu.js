@@ -2,12 +2,10 @@
 import { usePathname } from "next/navigation";
 import Link from "@/components/Link";
 import MobileMenu from "../../MobileMenu";
-import useDeviceTypeCheck from "@/hooks/useDeviceTypeCheck";
 
 const DesktopMenu = (props) => {
   const { navMenu } = props;
   const pathname = usePathname();
-  const { isMobile } = useDeviceTypeCheck();
 
   return (
     navMenu &&
@@ -31,7 +29,7 @@ const DesktopMenu = (props) => {
             );
           })}
         </nav>
-        {isMobile && <MobileMenu navMenu={navMenu} />}
+        <MobileMenu navMenu={navMenu} />
       </>
     )
   );

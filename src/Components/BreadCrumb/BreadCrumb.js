@@ -1,13 +1,14 @@
+import dynamic from "next/dynamic";
 import Link from "@/components/Link";
 import useDeviceTypeCheck from "@/hooks/useDeviceTypeCheck";
 
 const BreadCrumb = ({ data }) => {
   const breadCrumbs = home?.concat(data);
-  const { isDesktop } = useDeviceTypeCheck();
+  const { isMobile } = useDeviceTypeCheck();
 
   return (
-    isDesktop && (
-      <div className="w-full h-breadcrumb bg-white z-10 fixed flex justify-center items-center">
+    !isMobile && (
+      <div className="w-full h-breadcrumb bg-white z-10 fixed flex justify-start mx-mobile_margin lg:mx-auto lg:justify-center items-center">
         <div className="container fixed flex items-center">
           <nav className="flex" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -59,8 +60,6 @@ const BreadCrumb = ({ data }) => {
   );
 };
 
-export default BreadCrumb;
-
 const home = [
   {
     id: "home",
@@ -68,3 +67,6 @@ const home = [
     link: "/",
   },
 ];
+
+// Export with SSR disabled
+export default dynamic(() => Promise.resolve(BreadCrumb), { ssr: false });

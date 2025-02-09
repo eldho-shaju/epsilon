@@ -1,7 +1,7 @@
 import { getFirebaseData } from "@/utils/getFirebaseData";
 import Banner from "@/widget/Banner";
 import WidgetGrid from "@/widget/Grid";
-import ProductGrid from "@/widget/ProductGrid";
+import ProductGridMain from "@/widget/ProductGrid";
 
 const Home = async () => {
   const widgetData = await getFirebaseData("homeWidgets");
@@ -22,7 +22,7 @@ const Home = async () => {
   return (
     <>
       <Banner banner={banner} />
-      <ProductGrid data={data} />
+      <ProductGridMain data={data} />
       <WidgetGrid grid={grid} />
     </>
   );
