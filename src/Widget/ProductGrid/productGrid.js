@@ -1,7 +1,7 @@
 "use client";
 import ProductItem from "@/components/ProductItem";
 import ViewAll from "@/components/ViewAll";
-import useDeviceTypeCheck from "@/hooks/useDeviceTypeCheck";
+import useDeviceTypeCheck from "@/customHooks/useDeviceTypeCheck";
 
 const ProductGrid = ({ data }) => {
   const { isMobile } = useDeviceTypeCheck();

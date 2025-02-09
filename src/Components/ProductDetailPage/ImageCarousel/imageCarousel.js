@@ -4,7 +4,7 @@ import Image from "@/components/Image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./imageCarousel.css";
-import useDeviceTypeCheck from "@/hooks/useDeviceTypeCheck";
+import useDeviceTypeCheck from "@/customHooks/useDeviceTypeCheck";
 
 const responsive = {
   desktop: {

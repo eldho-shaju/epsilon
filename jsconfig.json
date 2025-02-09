@@ -3,12 +3,13 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["src/components/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/page/*": ["src/pages/*"],
+      "@/customHooks/*": ["src/customHooks/*"],
+      "@/pages/*": ["src/pages/*"],
       "@/widget/*": ["src/widget/*"],
       "@/utils/*": ["src/utils/*"],
       "@/styles/*": ["src/styles/*"],
-      "@/lib/*": ["src/lib/*"]
+      "@/lib/*": ["src/lib/*"],
+      "@/recoil/*": ["src/recoil/*"]
     }
   }
 }

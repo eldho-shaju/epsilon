@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { useSetRecoilState } from "recoil";
-import { contactNoAtom } from "../../Recoil/contactNoAtom";
+import { contactNoAtom } from "@/recoil/contactNoAtom";
 import { db } from "@/lib/firebaseSdk";
 
 const useFooter = () => {

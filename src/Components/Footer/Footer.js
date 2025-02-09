@@ -5,7 +5,7 @@ import FooterSocialMedia from "./FooterSocialMedia";
 import DevelopedBy from "./DevelopedBy";
 import useFooter from "./useFooter";
 import Link from "@/components/Link";
-import useDeviceTypeCheck from "@/hooks/useDeviceTypeCheck";
+import useDeviceTypeCheck from "@/customHooks/useDeviceTypeCheck";
 
 const Footer = () => {
   const { footerData } = useFooter();

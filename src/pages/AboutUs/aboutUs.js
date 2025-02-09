@@ -3,7 +3,7 @@ import Loader from "@/components/Loader";
 import ErrorPage from "@/components/ErrorPage";
 import useAbout from "./useAbout";
 import Image from "@/components/Image";
-import useDeviceTypeCheck from "@/hooks/useDeviceTypeCheck";
+import useDeviceTypeCheck from "@/customHooks/useDeviceTypeCheck";
 import BreadCrumb from "@/components/BreadCrumb";
 
 const AboutUs = () => {

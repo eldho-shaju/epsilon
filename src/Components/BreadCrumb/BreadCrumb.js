@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import Link from "@/components/Link";
-import useDeviceTypeCheck from "@/hooks/useDeviceTypeCheck";
+import useDeviceTypeCheck from "@/customHooks/useDeviceTypeCheck";
 
 const BreadCrumb = ({ data }) => {
   const breadCrumbs = home?.concat(data);

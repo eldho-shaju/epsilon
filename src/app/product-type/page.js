@@ -1,4 +1,4 @@
-import ProductTypes from "@/page/ProductTypes";
+import ProductTypes from "@/pages/ProductTypes";
 
 const page = () => {
   return <ProductTypes />;
