@@ -1,4 +1,4 @@
-import AboutUs from "../../page/AboutUs";
+import AboutUs from "@/page/AboutUs";
 
 const page = () => {
   return <AboutUs />;
