@@ -1,12 +1,8 @@
-import { getFirebaseData } from "@/utils/getFirebaseData";
 import Banner from "@/widget/Banner";
 import WidgetGrid from "@/widget/Grid";
 import ProductGridMain from "@/widget/ProductGrid";
 
-const HomePage = async () => {
-  const widgetData = await getFirebaseData("homeWidgets");
-  const data = await getFirebaseData("product-type");
-
+const HomePage = ({ widgetData, data }) => {
   const banner =
     (widgetData &&
       widgetData?.length > 0 &&

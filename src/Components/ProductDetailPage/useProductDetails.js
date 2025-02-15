@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { getFromLocalStorage, setToLocalStorage } from "@/utils/localStorage";
+// import { getFromLocalStorage, setToLocalStorage } from "@/utils/localStorage";
 import { getFirebaseData } from "@/utils/getFirebaseData";
 import { isEmptyObj } from "@/utils/isEmptyObj";
 
@@ -17,12 +17,12 @@ const useProductDetails = ({ url_key }) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const data = await getFirebaseData(
-          "product_details",
-          type,
-          "type",
-          url_key
-        );
+        const { data } = await getFirebaseData({
+          collectionName: "product_details",
+          docID: type,
+          subCollection: "type",
+          key: url_key,
+        });
 
         if (isEmptyObj(data)) {
           setError(true);

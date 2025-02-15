@@ -4,9 +4,9 @@ import ErrorPage from "@/components/ErrorPage";
 import LoadingUI from "@/components/LoadingUI";
 import useProductListing from "./useProductListing";
 
-const ProductListing = ({ subCollection }) => {
+const ProductListing = ({ docID }) => {
   const { data, loading, error, formattedText } = useProductListing({
-    subCollection,
+    docID,
   });
 
   const breadCrumbs = [
@@ -22,10 +22,9 @@ const ProductListing = ({ subCollection }) => {
     <ProductHome
       data={data}
       title={formattedText}
-      productType={data?.[0]?.productType}
       isListing
       breadCrumbs={breadCrumbs}
-      subCollection={subCollection}
+      docID={docID}
     />
   );
 };

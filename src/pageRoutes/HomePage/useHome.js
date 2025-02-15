@@ -10,7 +10,9 @@ const useHome = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const widgetData = await getFirebaseData("homeWidgets");
+        const { data: widgetData } = await getFirebaseData({
+          collectionName: "homeWidgets",
+        });
         if (widgetData) {
           setWidget(widgetData);
         }

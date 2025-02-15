@@ -12,7 +12,7 @@ const useContact = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getFirebaseData("contact");
+        const { data } = await getFirebaseData({ collectionName: "contact" });
         if (data) {
           setData(data);
         }

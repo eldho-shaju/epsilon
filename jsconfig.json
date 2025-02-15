@@ -2,14 +2,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["src/components/*"],
-      "@/customHooks/*": ["src/customHooks/*"],
-      "@/pageRoutes/*": ["src/pageRoutes/*"],
-      "@/widget/*": ["src/widget/*"],
-      "@/utils/*": ["src/utils/*"],
-      "@/styles/*": ["src/styles/*"],
-      "@/lib/*": ["src/lib/*"],
-      "@/recoil/*": ["src/recoil/*"]
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/customHooks/*": ["./src/customHooks/*"],
+      "@/pageRoutes/*": ["./src/pageRoutes/*"],
+      "@/widget/*": ["./src/widget/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/recoil/*": ["./src/recoil/*"]
     }
   }
 }

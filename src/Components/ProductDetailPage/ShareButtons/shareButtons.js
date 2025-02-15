@@ -5,7 +5,7 @@ import {
   WhatsappIcon,
   FacebookIcon,
   TelegramIcon,
-} from "react-share";
+} from "next-share";
 
 const ShareButtons = ({ url, title }) => {
   return (

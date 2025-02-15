@@ -2,21 +2,9 @@
 import { Fragment } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import ContactusForm from "@/components/ContactusForm";
-import useContact from "./useContact";
-import LoadingUI from "@/components/LoadingUI";
-import ErrorPage from "@/components/ErrorPage";
-import dynamic from "next/dynamic";
+import BreadCrumb from "@/components/BreadCrumb/breadCrumb";
 
-const BreadCrumb = dynamic(() => import("@/components/BreadCrumb"), {
-  ssr: false,
-});
-
-const ContactUs = () => {
-  const { data, loading, error } = useContact();
-
-  if (loading && !error) return <LoadingUI />;
-  if (error || (!loading && data?.length === 0)) return <ErrorPage />;
-
+const ContactUs = ({ data }) => {
   const pageDescription =
     data && data?.length > 0 && data?.find((ele) => ele?.id === "page_desc");
 

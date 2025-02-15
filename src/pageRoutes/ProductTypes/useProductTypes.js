@@ -10,7 +10,9 @@ const useProductTypes = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const productTypes = await getFirebaseData("product-type");
+        const { data: productTypes } = await getFirebaseData({
+          collectionName: "product-type",
+        });
         if (productTypes) {
           setData(productTypes);
         }

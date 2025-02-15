@@ -3,7 +3,7 @@ import Link from "../Link";
 import Price from "../Price";
 
 const ProductItem = (props) => {
-  const { item, isListing, subCollection, priority } = props;
+  const { item, isListing, docID, priority } = props;
   const { link, name, img, price } = item;
 
   return (
@@ -12,7 +12,7 @@ const ProductItem = (props) => {
         className={`${!link ? "pointer-events-none" : ""}`}
         href={
           isListing
-            ? `/d/${link}${subCollection ? `?type=${subCollection}` : ""}`
+            ? `/d/${link}${docID ? `?type=${docID}` : ""}`
             : `/product-type/${link}`
         }
       >

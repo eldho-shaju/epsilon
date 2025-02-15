@@ -1,22 +1,8 @@
-"use client";
-import LoadingUI from "@/components/LoadingUI";
-import ErrorPage from "@/components/ErrorPage";
-import useAbout from "./useAbout";
+import BreadCrumb from "@/components/BreadCrumb";
 import Image from "@/components/Image";
-import useDeviceTypeCheck from "@/customHooks/useDeviceTypeCheck";
-import dynamic from "next/dynamic";
 
-const BreadCrumb = dynamic(() => import("@/components/BreadCrumb"), {
-  ssr: false,
-});
-
-const AboutUs = () => {
-  const { data, loading, error } = useAbout();
-  const { isMobile } = useDeviceTypeCheck();
+const AboutUs = ({ data }) => {
   const images = data?.find((ele) => ele?.type === "banner");
-
-  if (loading) return <LoadingUI />;
-  if (error || (!loading && data?.length === 0)) return <ErrorPage />;
 
   return (
     <>
@@ -24,13 +10,17 @@ const AboutUs = () => {
       <section className="mb-breadcrumb mt-2 md:mt-breadcrumb">
         <div className="flex flex-col items-center justify-center mx-mobile_margin lg:container lg:mx-auto pt-0 md:pt-2 lg:pt-4">
           <Image
-            src={
-              isMobile
-                ? images?.mobileImg?.[0]?.downloadURL
-                : images?.img?.[0]?.downloadURL
-            }
+            src={images?.mobileImg?.[0]?.downloadURL}
             alt="about-us banner"
-            className="w-full h-auto max-w-[960px] object-cover"
+            className="w-full h-auto max-w-[960px] object-cover md:hidden"
+            width={500}
+            height={500}
+            priority
+          />
+          <Image
+            src={images?.img?.[0]?.downloadURL}
+            alt="about-us banner"
+            className="w-full h-auto max-w-[960px] object-cover hidden md:block"
             width={500}
             height={500}
             priority

@@ -12,7 +12,7 @@ const useAbout = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getFirebaseData("about");
+        const { data } = await getFirebaseData({ collectionName: "about" });
 
         if (data) {
           setData(data);

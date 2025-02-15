@@ -12,10 +12,9 @@ const ProductHome = memo((props) => {
     data = [],
     isProductTypes,
     title,
-    productType,
     isListing,
     breadCrumbs,
-    subCollection,
+    docID,
   } = props;
 
   return (
@@ -43,9 +42,8 @@ const ProductHome = memo((props) => {
                 <ProductItem
                   item={item}
                   isListing={isListing}
-                  productType={productType}
                   key={index}
-                  subCollection={subCollection}
+                  docID={docID}
                   priority={index < 4}
                 />
               ))}
