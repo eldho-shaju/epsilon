@@ -33,6 +33,7 @@ const AboutUs = () => {
             className="w-full h-auto max-w-[960px] object-cover"
             width={500}
             height={500}
+            priority
           />
 
           <div className="max-w-[960px] w-full text-[#1C160C] p-4 space-y-4">
