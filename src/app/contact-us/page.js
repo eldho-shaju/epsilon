@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import ContactUs from "@/pageRoutes/ContactUs";
 import { getFirebaseData } from "@/utils/getFirebaseData";
+import Contact from "../../pageRoutes/Contact";
 
 const ContactUsPage = async () => {
   const { data } = await getFirebaseData({ collectionName: "contact" });
@@ -9,7 +9,7 @@ const ContactUsPage = async () => {
     notFound();
   }
 
-  return <ContactUs data={data} />;
+  return <Contact data={data} />;
 };
 
 export default ContactUsPage;

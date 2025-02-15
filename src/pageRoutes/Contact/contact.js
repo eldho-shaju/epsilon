@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import ContactusForm from "../../components/ContactusForm";
 import BreadCrumb from "../../components/BreadCrumb";
 
-const ContactUs = ({ data }) => {
+const Contact = ({ data }) => {
   const pageDescription =
     data && data?.length > 0 && data?.find((ele) => ele?.id === "page_desc");
 
@@ -90,6 +90,6 @@ const ContactUs = ({ data }) => {
   );
 };
 
-export default ContactUs;
+export default Contact;
 
 const breadCrumbs = [{ name: "Contact Us", link: `` }];
