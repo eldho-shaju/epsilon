@@ -1,1 +1,1 @@
-export { default } from "./errorUi";
+export { default } from "./ErrorUi";
