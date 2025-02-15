@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { Icon } from "@iconify/react";
-import ShareButtons from "../ShareButtons/shareButtons";
 import useDeviceTypeCheck from "@/customHooks/useDeviceTypeCheck";
 import useShare from "@/customHooks/useShare";
+import ShareButtons from "../ShareButtons";
 
 const ContactButtons = memo((props) => {
   const { name, url } = props;

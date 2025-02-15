@@ -1,13 +1,13 @@
 "use client";
 import DOMPurify from "dompurify";
-import Image from "@/components/Image";
-import LoadingAnimation from "@/components/LoadingAnimation";
-import ImageCarousel from "./ImageCarousel/imageCarousel";
-import ErrorUi from "@/components/ErrorUi";
-import ContactButtons from "./ContactButtons";
 import Price from "@/components/Price";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import useProductDetails from "./useProductDetails";
+import ErrorUi from "@/components/ErrorUi";
+import ImageCarousel from "./ImageCarousel";
+import ContactButtons from "./ContactButtons";
+import Image from "@/components/Image";
+import LoadingAnimation from "@/components/LoadingAnimation";
 
 const ProductDetailPage = ({ url_key }) => {
   const { item, loading, error, type, productType } = useProductDetails({
