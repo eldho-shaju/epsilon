@@ -1,3 +1,4 @@
+"use client";
 import { Form, Input, TextArea, useFormApi } from "informed";
 import "./contactForm.css";
 

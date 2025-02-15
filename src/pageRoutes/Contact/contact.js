@@ -1,8 +1,22 @@
 "use client";
 import { Fragment } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import ContactusForm from "../../components/ContactusForm";
 import BreadCrumb from "../../components/BreadCrumb";
+import dynamic from "next/dynamic";
+
+const ContactusForm = dynamic(() => import("../../components/ContactusForm"), {
+  ssr: false,
+  loading: () => (
+    <div className="bg-white p-4 rounded-[20px] flex flex-col gap-1 items-start justify-center prose text-sm w-full md:w-[50%] lg:w-[40%] animate-pulse">
+      <div className="text-md rounded-md p-2.5 bg-[#7a4f4f] text-sm w-full p-2.5 border-none text-white placeholder:text-white focus:outline-none focus:ring-0 animate-pulse h-10 mb-6"></div>
+      <div className="text-md rounded-md p-2.5 bg-[#7a4f4f] text-sm w-full p-2.5 border-none text-white placeholder:text-white focus:outline-none focus:ring-0 animate-pulse h-10 mb-6"></div>
+      <div className="text-md rounded-md p-2.5 bg-[#7a4f4f] text-sm w-full p-2.5 border-none text-white placeholder:text-white focus:outline-none focus:ring-0 animate-pulse h-20 mb-6"></div>
+      <div className="flex justify-end w-full mt-2">
+        <div className="btn text-maroon bg-[#7a4f4f] py-2 px-2 rounded-md animate-pulse h-10 w-20"></div>
+      </div>
+    </div>
+  ),
+});
 
 const Contact = ({ data }) => {
   const pageDescription =
