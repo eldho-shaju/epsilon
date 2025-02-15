@@ -1,7 +1,7 @@
 "use client";
-import ProductHome from "@/components/ProductHome";
-import ErrorPage from "@/components/ErrorPage";
-import LoadingUI from "@/components/LoadingUI";
+import ProductHome from "../../components/ProductHome";
+import ErrorPage from "../../components/ErrorPage";
+import LoadingUI from "../../components/LoadingUI";
 import useProductListing from "./useProductListing";
 
 const ProductListing = ({ docID }) => {

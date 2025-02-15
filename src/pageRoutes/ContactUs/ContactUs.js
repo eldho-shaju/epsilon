@@ -1,8 +1,8 @@
 "use client";
 import { Fragment } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import ContactusForm from "@/components/ContactusForm";
-import BreadCrumb from "@/components/BreadCrumb/breadCrumb";
+import ContactusForm from "../../components/ContactusForm";
+import BreadCrumb from "../../components/BreadCrumb";
 
 const ContactUs = ({ data }) => {
   const pageDescription =
