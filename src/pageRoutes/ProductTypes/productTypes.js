@@ -1,8 +1,8 @@
-import ProductHome from "@/components/ProductHome";
+import Products from "@/components/Products";
 
 const ProductTypes = ({ data }) => {
   return (
-    <ProductHome
+    <Products
       data={data}
       isProductTypes
       title="Diverse Collections"

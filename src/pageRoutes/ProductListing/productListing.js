@@ -1,7 +1,7 @@
 "use client";
-import ProductHome from "../../components/ProductHome";
-import ErrorPage from "../../components/ErrorPage";
-import LoadingUI from "../../components/LoadingUI";
+import Products from "../../components/Products";
+import ErrorUi from "../../components/ErrorUi";
+import LoadingAnimation from "../../components/LoadingAnimation";
 import useProductListing from "./useProductListing";
 
 const ProductListing = ({ docID }) => {
@@ -14,12 +14,12 @@ const ProductListing = ({ docID }) => {
     { name: formattedText, link: `` },
   ];
 
-  if (loading && !error) return <LoadingUI />;
+  if (loading && !error) return <LoadingAnimation />;
   if (error || (!loading && data?.length === 0))
-    return <ErrorPage errorMsg="Nothing here to display" />;
+    return <ErrorUi errorMsg="Nothing here to display" />;
 
   return (
-    <ProductHome
+    <Products
       data={data}
       title={formattedText}
       isListing

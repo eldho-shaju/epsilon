@@ -1,4 +1,4 @@
-import BreadCrumb from "@/components/BreadCrumb";
+import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import Image from "@/components/Image";
 
 const AboutUs = ({ data }) => {
@@ -6,7 +6,7 @@ const AboutUs = ({ data }) => {
 
   return (
     <>
-      <BreadCrumb data={breadCrumbs} />
+      <CustomBreadcrumb data={breadCrumbs} />
       <section className="mb-breadcrumb mt-2 md:mt-breadcrumb">
         <div className="flex flex-col items-center justify-center mx-mobile_margin lg:container lg:mx-auto pt-0 md:pt-2 lg:pt-4">
           <Image

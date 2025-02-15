@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { Icon } from "@iconify/react";
 
-const ErrorPage = (props) => {
+const ErrorUi = (props) => {
   const { errorMsg = "Something went wrong" } = props;
   const router = useRouter();
 
@@ -36,4 +36,4 @@ const ErrorPage = (props) => {
   );
 };
 
-export default ErrorPage;
+export default ErrorUi;

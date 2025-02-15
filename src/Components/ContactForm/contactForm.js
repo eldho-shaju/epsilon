@@ -1,9 +1,10 @@
 "use client";
-import { Form, Input, TextArea, useFormApi } from "informed";
+import { useRef } from "react";
+import { Form, Input, TextArea } from "informed";
 import "./contactForm.css";
 
-const ContactusForm = ({ primaryNumber }) => {
-  const formApiRef = useFormApi();
+const ContactForm = ({ primaryNumber }) => {
+  const formApiRef = useRef();
 
   const whatsAppNumber = primaryNumber && primaryNumber?.link?.replace("+", "");
 
@@ -64,4 +65,4 @@ ${values?.message}`;
   );
 };
 
-export default ContactusForm;
+export default ContactForm;

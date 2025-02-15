@@ -1,7 +1,7 @@
 "use client";
-import Link from "@/components/Link";
+import Link from "../../components/Link";
 
-const BreadCrumb = ({ data }) => {
+const CustomBreadcrumb = ({ data }) => {
   const breadCrumbs = home?.concat(data);
 
   return (
@@ -56,6 +56,8 @@ const BreadCrumb = ({ data }) => {
   );
 };
 
+export default CustomBreadcrumb;
+
 const home = [
   {
     id: "home",
@@ -63,5 +65,3 @@ const home = [
     link: "/",
   },
 ];
-
-export default BreadCrumb;

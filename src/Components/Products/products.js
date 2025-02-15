@@ -1,13 +1,8 @@
 "use client";
-import { memo } from "react";
 import ProductItem from "../ProductItem";
-import dynamic from "next/dynamic";
+import CustomBreadcrumb from "../CustomBreadcrumb";
 
-const BreadCrumb = dynamic(() => import("@/components/BreadCrumb"), {
-  ssr: false,
-});
-
-const ProductHome = memo((props) => {
+const Products = (props) => {
   const {
     data = [],
     isProductTypes,
@@ -19,7 +14,7 @@ const ProductHome = memo((props) => {
 
   return (
     <>
-      <BreadCrumb data={breadCrumbs} />
+      <CustomBreadcrumb data={breadCrumbs} />
       <section className="mb-4 lg:mb-breadcrumb md:mt-breadcrumb">
         <div className="lg:container mx-auto relative flex flex-col justify-center gap-4 lg:gap-8 items-center p-mobile_margin md:pt-0">
           <div className="text-center w-full md:w-3/4">
@@ -53,8 +48,6 @@ const ProductHome = memo((props) => {
       </section>
     </>
   );
-});
+};
 
-ProductHome.displayName = "ProductHome";
-
-export default ProductHome;
+export default Products;

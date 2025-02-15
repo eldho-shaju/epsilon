@@ -1,10 +1,10 @@
 "use client";
 import { Fragment } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import BreadCrumb from "../../components/BreadCrumb";
+import CustomBreadcrumb from "../../components/CustomBreadcrumb";
 import dynamic from "next/dynamic";
 
-const ContactusForm = dynamic(() => import("../../components/ContactusForm"), {
+const ContactusForm = dynamic(() => import("../../components/ContactForm"), {
   ssr: false,
   loading: () => (
     <div className="bg-white p-4 rounded-[20px] flex flex-col gap-1 items-start justify-center prose text-sm w-full md:w-[50%] lg:w-[40%] animate-pulse">
@@ -32,7 +32,7 @@ const Contact = ({ data }) => {
 
   return (
     <>
-      <BreadCrumb data={breadCrumbs} />
+      <CustomBreadcrumb data={breadCrumbs} />
       <section className="mb-2 lg:mb-breadcrumb mt-0 md:mt-breadcrumb">
         <div className="lg:container mx-auto relative flex flex-col justify-center gap-4 lg:gap-8 items-center p-mobile_margin md:pt-0">
           <div className="block text-center w-full lg:w-[75%] mb-8">

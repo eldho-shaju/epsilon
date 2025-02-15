@@ -2,9 +2,9 @@
 import { usePathname, useRouter } from "next/navigation";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "@/components/Link";
-import { Logo } from "@/components/Header/Logo/logo";
 import { formatText } from "@/utils/formatText";
 import MobileMenu from "../../MobileMenu";
+import Logo from "../../../Logo";
 
 const InnerPageHeader = ({ navMenu }) => {
   const router = useRouter();
