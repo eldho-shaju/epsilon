@@ -17,8 +17,8 @@ const ProductItem = (props) => {
         }
       >
         <Image
-          width={0}
-          height={0}
+          width={150}
+          height={300}
           alt={name}
           src={img?.[0]?.downloadURL}
           className="w-full h-auto fit-cover aspect-[3/4] rounded-md"

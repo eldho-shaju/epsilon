@@ -1,4 +1,4 @@
-import ProductDetail from "@/components/ProductDetailPage";
+import ProductDetail from "../../../pageRoutes/ProductDetailPage";
 
 const DetailPage = async ({ params }) => {
   const { detail } = await params;

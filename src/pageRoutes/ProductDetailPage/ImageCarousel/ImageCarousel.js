@@ -62,8 +62,8 @@ const ImageCarousel = ({ name, images }) => {
               key={index}
               src={img?.downloadURL}
               alt={name}
-              width={500}
-              height={500}
+              width={200}
+              height={200}
               className="w-full object-contain"
               priority={index === 0}
             />
@@ -106,7 +106,7 @@ export default ImageCarousel;
 
 const CustomDot = ({ index, currentSlide, onClick, images, name }) => (
   <button
-    className={`mt-1 p-2px ${
+    className={`mt-1 p-2px w-full ${
       currentSlide ? "ring-2 ring-blue-500" : "hover:ring-2 hover:ring-gray-400"
     }`}
     onClick={() => onClick(index)}
@@ -114,8 +114,8 @@ const CustomDot = ({ index, currentSlide, onClick, images, name }) => (
     <Image
       src={images[index]?.downloadURL}
       alt={`${name}-thumbnail-${index}`}
-      width={80}
-      height={60}
+      width={40}
+      height={40}
       className="w-full object-contain"
     />
   </button>

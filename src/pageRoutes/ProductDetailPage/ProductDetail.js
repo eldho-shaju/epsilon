@@ -1,12 +1,12 @@
 "use client";
 import DOMPurify from "dompurify";
 import Image from "@/components/Image";
-import LoadingAnimation from "../LoadingAnimation";
+import LoadingAnimation from "@/components/LoadingAnimation";
 import ImageCarousel from "./ImageCarousel/imageCarousel";
-import ErrorUi from "../ErrorUi";
+import ErrorUi from "@/components/ErrorUi";
 import ContactButtons from "./ContactButtons";
-import Price from "../Price";
-import CustomBreadcrumb from "../CustomBreadcrumb";
+import Price from "@/components/Price";
+import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import useProductDetails from "./useProductDetails";
 
 const ProductDetail = ({ url_key }) => {
@@ -42,8 +42,8 @@ const ProductDetail = ({ url_key }) => {
                       src={item?.image?.[0]?.downloadURL}
                       alt={item?.name}
                       className="w-full object-contain"
-                      width={500}
-                      height={500}
+                      width={200}
+                      height={200}
                       priority
                     />
                   )}
@@ -57,7 +57,7 @@ const ProductDetail = ({ url_key }) => {
             <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 md:mb-4">
               {item?.name}
             </h1>
-            <Price price={item?.price} offerPrice={item?.offerPrice} />
+            <Price price={item?.price} offerPrice={item?.offerPrice} isPdp />
             <ContactButtons name={item?.name} url={url} />
             {item?.description && (
               <div className="mt-3 md:mt-6">

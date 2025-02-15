@@ -1,5 +1,11 @@
 const Price = (props) => {
-  const { offerPrice, price, currency = "INR", locale = "en-IN" } = props;
+  const {
+    offerPrice,
+    price,
+    currency = "INR",
+    locale = "en-IN",
+    isPdp,
+  } = props;
 
   const formatPrice = (amount) =>
     new Intl.NumberFormat(locale, {
@@ -20,7 +26,7 @@ const Price = (props) => {
         <span
           className={`${
             offerPrice ? "line-through text-slate-800 text-sm" : "font-semibold"
-          } text-sm md:text-md`}
+          } text-sm ${isPdp ? "md:text-xl" : "md:text-md "}`}
         >
           {formatPrice(price)}
         </span>
