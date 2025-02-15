@@ -5,16 +5,9 @@ import LoadingAnimation from "../LoadingAnimation";
 import ImageCarousel from "./ImageCarousel/imageCarousel";
 import ErrorUi from "../ErrorUi";
 import ContactButtons from "./ContactButtons";
-import useProductDetails from "./useProductDetails";
 import Price from "../Price";
-import dynamic from "next/dynamic";
-
-const CustomBreadcrumb = dynamic(
-  () => import("@/components/CustomBreadcrumb"),
-  {
-    ssr: false,
-  }
-);
+import CustomBreadcrumb from "../CustomBreadcrumb";
+import useProductDetails from "./useProductDetails";
 
 const ProductDetail = ({ url_key }) => {
   const { item, loading, error, type, productType } = useProductDetails({

@@ -1,1 +1,1 @@
-export { default } from "./viewAll";
+export { default } from "./ViewAll";

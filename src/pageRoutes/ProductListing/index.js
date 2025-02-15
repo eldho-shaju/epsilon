@@ -1,1 +1,1 @@
-export { default } from "./productListing";
+export { default } from "./ProductListing";

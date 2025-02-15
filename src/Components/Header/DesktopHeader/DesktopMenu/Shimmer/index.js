@@ -1,1 +1,1 @@
-export { default } from "./shimmer";
+export { default } from "./Shimmer";

@@ -1,1 +1,1 @@
-export { default } from "./developedBy";
+export { default } from "./DevelopedBy";

@@ -1,1 +1,1 @@
-export { default } from "./footerAddress";
+export { default } from "./FooterAddress";

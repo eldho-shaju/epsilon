@@ -1,1 +1,1 @@
-export { default } from "./contactButtons";
+export { default } from "./ContactButtons";

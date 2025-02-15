@@ -1,1 +1,1 @@
-export { default } from "./footerSocialMedia";
+export { default } from "./FooterSocialMedia";
