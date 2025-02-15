@@ -1,9 +1,9 @@
-import ProductDetail from "../../../pageRoutes/ProductDetailPage";
+import ProductDetailPage from "@/pageRoutes/ProductDetailPage";
 
 const DetailPage = async ({ params }) => {
   const { detail } = await params;
 
-  return <ProductDetail url_key={detail} />;
+  return <ProductDetailPage url_key={detail} />;
 };
 
 export default DetailPage;

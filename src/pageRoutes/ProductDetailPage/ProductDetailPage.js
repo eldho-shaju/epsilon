@@ -9,7 +9,7 @@ import Price from "@/components/Price";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import useProductDetails from "./useProductDetails";
 
-const ProductDetail = ({ url_key }) => {
+const ProductDetailPage = ({ url_key }) => {
   const { item, loading, error, type, productType } = useProductDetails({
     url_key,
   });
@@ -79,4 +79,4 @@ const ProductDetail = ({ url_key }) => {
   );
 };
 
-export default ProductDetail;
+export default ProductDetailPage;
