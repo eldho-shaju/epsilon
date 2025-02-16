@@ -13,7 +13,7 @@ const ContactButtons = memo((props) => {
     <div className="flex gap-2 lg:gap-4 w-full justify-center mt-4 mb-4 md:mb-8 md:mt-8">
       <>
         {isDesktop ? (
-          <div className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 ease-in-out duration-300 text-white font-bold py-2 px-4 rounded w-1/2 justify-center">
+          <div className="flex items-center gap-2 bg-blue-600 lg:hover:bg-blue-700 ease-in-out duration-300 text-white font-bold py-2 px-4 rounded w-1/2 justify-center">
             <Icon className="text-xl" icon="ic:sharp-share" />
             Share
             <ShareButtons url={url} title={name} />
@@ -27,7 +27,7 @@ const ContactButtons = memo((props) => {
             Share
           </button>
         )}
-        <div className="flex items-center gap-1 bg-green-600 text-sm h-fit lg:h-auto lg:font-bold text-white py-2 px-0 md:py-2 md:px-4 rounded w-1/2 justify-center lg:hover:bg-green-700 ease-in-out duration-300">
+        <div className="flex items-center gap-1 bg-green-600 text-sm h-fit lg:h-auto lg:font-bold text-white py-2 px-0 md:py-2 md:px-4 rounded w-1/2 justify-center lg:lg:hover:bg-green-700 ease-in-out duration-300">
           <a
             target="_blank"
             className="flex items-center gap-2"

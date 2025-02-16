@@ -107,7 +107,9 @@ export default ImageCarousel;
 const CustomDot = ({ index, currentSlide, onClick, images, name }) => (
   <button
     className={`mt-1 p-2px w-full ${
-      currentSlide ? "ring-2 ring-blue-500" : "hover:ring-2 hover:ring-gray-400"
+      currentSlide
+        ? "ring-2 ring-blue-500"
+        : "lg:hover:ring-2 lg:hover:ring-gray-400"
     }`}
     onClick={() => onClick(index)}
   >

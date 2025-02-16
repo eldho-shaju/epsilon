@@ -28,7 +28,7 @@ const ProductDetailPage = ({ url_key }) => {
   return (
     <section className="mb-mobile_margin md:mb-breadcrumb">
       <CustomBreadcrumb data={breadCrumbs} />
-      <div className="lg:container mx-mobile_margin lg:mx-auto relative flex flex-col justify-center gap-8 items-center md:pt-breadcrumb object-contain">
+      <div className="mx-mobile_margin relative flex flex-col justify-center gap-8 items-center md:pt-breadcrumb object-contain">
         <div className="w-full pt-2 flex flex-col md:flex-row gap-4 md:gap-8 mt-2">
           {/* Adjusted Image Container to Properly Fit */}
           <div className="w-full md:w-1/2 lg:w-1/3 relative">
