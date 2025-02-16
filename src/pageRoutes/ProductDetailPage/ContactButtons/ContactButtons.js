@@ -27,7 +27,7 @@ const ContactButtons = memo((props) => {
             Share
           </button>
         )}
-        <div className="flex items-center gap-1 bg-green-600 text-sm h-fit lg:h-auto lg:font-bold text-white py-2 px-0 md:py-2 md:px-4 rounded w-1/2 justify-center lg:lg:hover:bg-green-700 ease-in-out duration-300">
+        <div className="flex items-center gap-1 bg-green-600 text-sm h-fit lg:h-auto lg:font-bold text-white py-2 px-0 md:py-2 md:px-4 rounded w-1/2 justify-center lg:hover:bg-green-700 ease-in-out duration-300">
           <a
             target="_blank"
             className="flex items-center gap-2"

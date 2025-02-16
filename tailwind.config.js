@@ -22,7 +22,7 @@ module.exports = {
       spacing: {
         mobileheader: "3.5rem",
         header: "4.5rem",
-        breadcrumb: "2.5rem",
+        breadcrumb: "2.7rem",
         mobile_margin: "3%",
         mobile_line_height: "6",
         pdp_image: "7rem",
@@ -32,6 +32,7 @@ module.exports = {
         sm: "600px", // Small screen
         md: "600px", // Alias for medium screen start
         lg: "900px", // Large screen
+        xl: "1200px", // Extra large screen
       },
       colors: {
         primary: "#E30613",

@@ -36,7 +36,7 @@ const Contact = ({ data }) => {
       <section className="mb-2 lg:mb-breadcrumb mt-0 md:mt-breadcrumb">
         <div className="lg:container mx-auto relative flex flex-col justify-center gap-4 lg:gap-8 items-center p-mobile_margin md:pt-0">
           <div className="block text-center w-full lg:w-[75%] mb-8">
-            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4">
               Connect with our team
             </h1>
             <p className="text-sm md:text-md text-justify md:text-center leading-mobile_line_height">

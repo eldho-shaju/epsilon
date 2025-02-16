@@ -7,7 +7,7 @@ const ProductItem = (props) => {
   const { link, name, img, price } = item;
 
   return (
-    <div className="relative w-full hover:shadow-lg hover:rounded-b-md hover:scale-105 hover:ease-in-out duration-300">
+    <div className="relative w-full lg:hover:shadow-lg lg:hover:rounded-b-md lg:hover:scale-105 lg:hover:ease-in-out duration-300 max-w-[200px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] w-full contain-content">
       <Link
         className={`${!link ? "pointer-events-none" : ""}`}
         href={

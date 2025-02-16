@@ -28,7 +28,7 @@ const WidgetGrid = (props) => {
                   />
                 </div>
                 <div className="flex flex-col justify-center px-2 md:px-8 py-4 md:py-0 w-full lg:w-1/2">
-                  <h3 className="text-xl md:text-3xl font-medium mb-4 text-center md:text-left">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-center md:text-left">
                     {widget?.title}
                   </h3>
                   <p className="text-justify text-sm md:text-base leading-mobile_line_height">
