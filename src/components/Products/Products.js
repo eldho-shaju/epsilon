@@ -18,7 +18,7 @@ const Products = (props) => {
       <section className="mb-4 lg:mb-breadcrumb md:mt-breadcrumb p-mobile_margin md:pt-0">
         <div className="lg:container mx-mobile_margin lg:mx-auto flex flex-col justify-center gap-4 xl:gap-8 items-center  md:pt-0">
           <div className="text-center w-full md:w-3/4">
-            <p className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 capitalize">
+            <p className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 capitalize hidden sm:block">
               {title}
             </p>
             {isProductTypes && (

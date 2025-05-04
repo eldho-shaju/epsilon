@@ -7,7 +7,7 @@ const ProductItem = (props) => {
   const { link, name, img, price } = item;
 
   return (
-    <div className="relative w-full lg:hover:shadow-lg lg:hover:rounded-b-md lg:hover:scale-105 lg:hover:ease-in-out duration-300 max-w-[200px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] w-full contain-content">
+    <div className="relative shadow w-full lg:hover:shadow-lg lg:hover:scale-105 lg:hover:ease-in-out duration-300 max-w-[200px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] w-full contain-content">
       <Link
         className={`${!link ? "pointer-events-none" : ""}`}
         href={
@@ -21,7 +21,7 @@ const ProductItem = (props) => {
           height={300}
           alt={name}
           src={img?.[0]?.downloadURL}
-          className="w-full h-auto fit-cover aspect-[3/4] rounded-md"
+          className="w-full h-auto fit-cover aspect-[3/4]"
           priority={priority}
         />
         {(name || price) && (

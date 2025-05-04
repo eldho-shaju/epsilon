@@ -15,7 +15,7 @@ const WidgetGrid = (props) => {
             const direction =
               index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse";
             return (
-              <div key={widget?.id} className={`flex flex-col ${direction}`}>
+              <div key={index} className={`flex flex-col ${direction}`}>
                 <div className="w-full lg:w-1/2 flex justify-center items-center mb-4 ">
                   <Image
                     src={widget?.img?.[0]?.downloadURL}
